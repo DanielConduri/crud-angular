@@ -1,0 +1,39 @@
+
+<div class="modal fade mGeneral" id="modalGeneral" #modalGeneral >
+    <div class="modal-dialog modal-lg" *ngIf="triggerModal">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h5 class="modal-title fs-5" id="titleModal">{{titleModal}}</h5>
+
+                <button #closeModal type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="modalClose"  (click)="closeModalX()">X</button>
+            </div>
+
+            <div class="modal-body">
+                <div [ngSwitch]="formType">
+                    <!-- <div *ngSwitchCase="'nuevoProducto'"> -->
+                        <app-agregar-producto></app-agregar-producto>
+                    <!-- </div> -->
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-cancel" data-bs-dismiss="modal" (click)="closeModalX()">Cancelar</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- <div class="modal-contentResponsive" *ngIf="!triggerModal">
+        <div class="buttonClose">
+          <button #closeModal type="button" class="btn-closeResponsive" data-bs-dismiss="modal" aria-label="Close" id="modalClose" (click)="closeModalX()">
+            <i class="material-icons">arrow_drop_down</i>
+          </button>
+        </div>
+        <div class="componentContainer">
+         
+        </div>
+      </div> -->
+</div>
+

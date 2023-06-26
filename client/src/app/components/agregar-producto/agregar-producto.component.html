@@ -1,0 +1,112 @@
+
+<div class="body-Form">
+
+    <form [formGroup]="myForm" action="">
+      <div class="container-DataInfo">
+
+        <div class="container-Left">
+          <div class="containerInfo">
+            <label>Codigo</label>
+            <div class="container-Input">
+              <input
+                type="text"
+                placeholder="Ingrese codigo"
+                formControlName="str_producto_codigo"
+                name="nombre"
+                required>
+            </div>
+          </div>
+        </div>
+  
+        <div class="container-Right">
+          <div class="containerInfo">
+            <label>Nombre</label>
+            <div class="container-Input">
+              <input
+                type="text"
+                placeholder="Ingrese el nombre"
+                name="estado"
+                formControlName="str_producto_nombre"
+                >
+            </div>
+          </div>
+        </div>
+
+        <div class="container-Left">
+          <div class="containerInfo">
+            <label>Cantidad</label>
+            <div class="container-Input">
+              <input
+                type="text"
+                placeholder="Ingrese la cantidad"
+                formControlName="int_producto_cantidad"
+                name="nombre"
+                required>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="container-Right">
+          <div class="containerInfo">
+            <label>Marca</label>
+            <div class="container-Input">
+              <input
+                type="text"
+                placeholder="Ingrese la marca"
+                name="estado"
+                formControlName="str_producto_marca"
+                >
+            </div>
+          </div>
+        </div>
+
+        <div class="container-Left">
+          <div class="containerInfo">
+            <label>Precio</label>
+            <div class="container-Input">
+              <input
+                type="text"
+                placeholder="Ingrese el precio"
+                formControlName="int_producto_precio"
+                name="nombre"
+                required>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="container-Right">
+          <div class="containerInfo">
+            <label>Proveedor</label>
+            <div class="container-Input">
+              <input
+                type="text"
+                placeholder="Ingrese el proveedor"
+                name="estado"
+                formControlName="str_producto_proveedor"
+                >
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+  
+      <div class="container-Btns">
+        <button
+          class="btn-primary-add"
+          (click)="agregarProducto()"
+          type="submit"
+          [disabled]="!myForm.valid"
+          >
+          Guardar
+        </button>
+      </div>
+    </form>
+  
+  </div>
+  
+  
