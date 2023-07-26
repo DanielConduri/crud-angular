@@ -13,6 +13,7 @@ router.get('/info', (req, res, next) => {
 
 //Rutas de productos
 router.get("/productos", routeProductos.obtenerProductos);
+router.get("/productos/:id", routeProductos.obtenerProductoId)
 router.post("/productos", routeProductos.insertarProducto);
 router.put('/productos/:id', routeProductos.actualizarProducto);
 router.delete('/productos/:id', routeProductos.eliminarProducto);

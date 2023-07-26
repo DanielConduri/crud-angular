@@ -8,13 +8,15 @@ import { ModalComponent } from './modal/modal.component';
 import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
 //'./src/app/component/button/button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModificarProductoComponent } from './components/modificar-producto/modificar-producto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     ModalComponent,
-    AgregarProductoComponent 
+    AgregarProductoComponent,
+    ModificarProductoComponent 
   ],
   imports: [
     BrowserModule,
