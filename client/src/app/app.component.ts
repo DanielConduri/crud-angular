@@ -103,6 +103,10 @@ export class AppComponent  implements OnInit {
     //alert('Está seguro de actualizar el producto?'+id_producto);
   }
 
+  getProductId() {
+
+  }
+
   
 
   deleteProduct(id_producto: number){
@@ -157,7 +161,7 @@ export class AppComponent  implements OnInit {
     });
   }
 
-    ngOnDestroy(): void {
+    ngOnDestroy(): void { //Sino se destruye re realiza varias peticiones
       this.destroy$.next({});
       this.destroy$.complete();
     }
