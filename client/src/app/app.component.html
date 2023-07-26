@@ -114,12 +114,12 @@
 
           <td>
             <button class="btn btn-primary"
-            (click)="updateProduct(producto.int_producto_id)"
+            (click)="updateProduct(producto.int_producto_id, 'Editar Producto', 'editarProducto')"
             >
             <i class="material-icons">create</i>
             </button>
 
-            <button class="btn btn-primary"
+            <button class="btn btn-danger"
             *ngIf="producto.str_producto_estado === 'ACTIVO'"
             (click)="deleteProduct(producto.int_producto_id)"
             >

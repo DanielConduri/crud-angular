@@ -49,6 +49,26 @@ export class ProductosService {
     })
   }
 
+  getProductoId(idProducto: number) {
+    return this.http.get<any>(
+      `${this.URL_API_PRODUCTOS}/${idProducto}`,
+      {
+        withCredentials: true,
+      }
+    )
+  }
+  
+  putProductoById(idProducto: number, dataProducto: addProductosData) {
+    console.log('dataProducto', dataProducto);
+    return this.http.put<ProductosShowModel>(
+      //this.URL_API_PRODUCTOS + '/' + idProducto, dataProducto,
+      `${this.URL_API_PRODUCTOS}/${idProducto}`, dataProducto,
+      {
+        withCredentials: true,
+      }
+    )
+  }
+
   postProductos(dataProducto: addProductosData){
     console.log('dataProducto', dataProducto);
     return this.http.post<ProductosShowModel>(
@@ -57,7 +77,7 @@ export class ProductosService {
         withCredentials: true,
       }
     )
-  }//fin getProductos
+  }
 
   deleteProducto(id: number){
     console.log('Id del producto a eliminar ->', id);

@@ -31,7 +31,9 @@ export class ButtonComponent implements OnInit {
 
   openModal(){
     console.log('abriendo modal del boton');
-    this.element.form = this.form;
+    //this.element.form = this.form;
+    this.element.form = 'nuevoProducto';  //Nombre para ser validado en modal.component con switchCase
+    
     this.element.title = this.title;  
     this.srvModal.setForm(this.element);
 
