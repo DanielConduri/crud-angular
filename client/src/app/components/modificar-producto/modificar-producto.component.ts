@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, take, takeUntil } from 'rxjs';
 import { ModalService } from '../../core/services/modal.service';
 import { ProductosService } from '../../core/services/productos.service';
+import { productosModel, dataProductos } from '../../core/models/productos';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,6 +18,8 @@ export class ModificarProductoComponent implements OnInit {
   myForm!: FormGroup;
   idProducto!: number;
   component!: AppComponent;
+
+    isData: boolean = false;
 
   constructor(
     private srvModal: ModalService,
@@ -121,8 +124,90 @@ export class ModificarProductoComponent implements OnInit {
 
   }
 
-  modifyEstado() {
-    const modifyData = this.myForm.value;
+  modifyProduct() { 
+
+    const modifyDataProducto = this.myForm.value;
+    Swal.fire({
+      title: '¿Está seguro de modificar el producto?',
+      showDenyButton: true,
+      confirmButtonText: 'Agregar',
+      denyButtonText: 'Cancelar'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        Swal.fire({
+          title: 'Cargando...',
+          didOpen: () => {
+            Swal.showLoading()
+          }
+        });
+        this.srvProductos.putProductoById(this.idProducto, modifyDataProducto)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (dataProducto) => {
+            if(dataProducto.status){
+              Swal.close();
+              Swal.fire({
+                title: 'Producto modificado correctamente!',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2500
+              });
+              this.myForm.reset();
+              this.srvModal.closeModal();
+            }
+
+            setTimeout(() => {
+              this.myForm.reset();
+              this.showProductos();
+            })
+          }, // fin next
+          error: (err) => {
+            console.log('Error =>', err);
+          },
+          complete: () => {
+            
+          }
+        })
+
+      }// fin de if
+    })
+
+    
+
+
   }
+
+  showProductos(){
+    Swal.fire({
+      title: 'Cargando Productos...',
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+
+    this.srvProductos.getProductos()
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: (data: productosModel) => {
+        if(data.body) {
+          this.isData = true;
+          console.log('Obteniedo productos de la base de datos', data);
+          this.srvProductos.datosProductos = data.body;
+        }
+      },
+      error: (err) => {
+        console.log("Error al obtener los productos", err);
+      },
+      complete: () => {
+        Swal.close();
+      }
+
+    })
+  }
+
+  ngOnDestroy(): void { //Sino se destruye re realiza varias peticiones
+    this.destroy$.next({});
+    this.destroy$.complete();
+  };
 
 }
