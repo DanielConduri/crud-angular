@@ -16,14 +16,18 @@ import { productosModel, dataProductos } from './core/models/productos';
 export class AppComponent  implements OnInit {
 
   title: string = 'cliente';
+
+  //Establecemos los elementos "formulario" y "title" a los que les
+    //designaremos sus respectivos tipos
   elementForm: {
     form: string,
     title: string,
     special: boolean
   } = {
+    //inicializamos los elementos en vacio
     form: '',
     title: '',
-    special: false
+    special: true //true permite visualiza el modal
   }
 
   isData: boolean = false;
@@ -86,9 +90,17 @@ export class AppComponent  implements OnInit {
     });
   }
 
-  updateProduct(id_producto: number){
+  updateProduct(id_producto: number, _title: string, _form: string){
+    this.elementForm.form= _form;
+    this.elementForm.title = _title;
+    this.srvModal.setForm(this.elementForm);
+    this.srvModal.setSelectID_Producto(id_producto);
     console.log('updateProductos en app.component.ts');
-    alert('Está seguro de actualizar el producto?'+id_producto);
+
+    console.log('Ingreso al modal editar');
+    this.srvModal.openModal();
+
+    //alert('Está seguro de actualizar el producto?'+id_producto);
   }
 
   
