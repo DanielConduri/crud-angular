@@ -18,4 +18,5 @@ router.post("/productos", routeProductos.insertarProducto);
 router.put('/productos/:id', routeProductos.actualizarProducto);
 router.delete('/productos/:id', routeProductos.eliminarProducto);
 
+
 export default router;

@@ -1,7 +1,36 @@
 //import { sequelize } from '../database/database.js';
 import { Productos } from '../models/productos.js';
+import childProcess from "child_process";
+import child_process from "child_process";
+
+
+async function startServer() {
+    // Ejecuta el comando `node src/server.js`
+    try {
+    const childProcess = child_process.spawn("node", ["src/server.js"]);
+        return "En ejecución";
+    //return "Servidor ejecutado correctamente";
+    // Cierra el proceso hijo cuando termine
+    childProcess.on("exit", (code) => {
+        if (code !== 0) {
+            console.error("El servidor se cerró con código de error", code);
+            return code;
+        }
+    });
+    } catch (error) {
+        return error;
+    }
+}
+
+
 
 const obtenerProductos = async (req, res) => {
+
+    /*console.log('Antes de ejecutar el servidor');
+    const serverDos = await startServer();
+    console.log('Ejecutando servidor 2 en el puerto 8000 /n', serverDos);*/
+
+
     const datosProductos = await Productos.findAll();
 
     const resultados = datosProductos.map(objeto => {
@@ -21,7 +50,8 @@ const obtenerProductos = async (req, res) => {
         return res.json({
             status: 200,
             message: 'Productos obtenidos',
-            body: datosProductos
+            body: datosProductos,
+            //serverDos: serverDos
         });
 
     } catch (error) {
