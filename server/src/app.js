@@ -5,13 +5,13 @@ import indexRoutes from "./routes/index.routes.js";
 
 const app = express();
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://crud-angular-2at2.vercel.app/');
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3002/');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'https://crud-angular-2at2.vercel.app/');
+//   res.header('Access-Control-Allow-Origin', 'http://localhost:3002/');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 app.use(express.json());  //Para procesar datos en formato json
 const whiteList = [
