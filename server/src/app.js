@@ -8,7 +8,7 @@ app.use(express.json());  //Para procesar datos en formato json
 const whiteList = [
     "http://localhost:4200",
     "http://localhost:51769",
-    
+    "https://crud-angular-8tnp.vercel.app/",
     "https://localhost:4200",
     "https://inventario-espoch.rubenvn.com",
   ];
