@@ -33,6 +33,8 @@ const obtenerProductos = async (req, res) => {
 
     const datosProductos = await Productos.findAll();
 
+    console.log(datosProductos)
+
     const resultados = datosProductos.map(objeto => {
         return {
             producto: objeto.dataValues,

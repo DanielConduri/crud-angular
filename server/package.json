@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node index.js"
+    "start": "node src/index.js",
+    "build": "babel src -d lib"
   },
   "keywords": [],
   "author": "Daniel Tene",
@@ -24,6 +25,10 @@
     "swagger-ui-express": "^4.6.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/node": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "nodemon": "^2.0.20"
   }
 }
