@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize';
+import { configVariables } from '../config/variables.config.js';
 
 //Servidor PostgreSQL 15
 // export const sequelize = new Sequelize(
@@ -13,26 +14,44 @@ import { Sequelize } from 'sequelize';
 // );
 
 
-export const sequelize = new Sequelize(
-    "db_ventas",
-     "postgres", 
-     "ZLOMNhdAyJkufrNhYRjRxInXurvBHtpM", 
-     {
-      host: "viaduct.proxy.rlwy.net",
-      logging: false,
-      dialect: "postgres",
-      port: 39760
-    } 
-  );
+// export const sequelize = new Sequelize(
+//     "railway",
+//      "postgres", 
+//      "xbQcEKNCmflePzXphVttZDwUFsTGCXBv", 
+//      {
+//       host: "roundhouse.proxy.rlwy.net",
+//       logging: false,
+//       dialect: "postgres",
+//       port: 12556
+//     } 
+//   );
   
 // export const sequelize = new Sequelize(
-//     "db_rest",
+//     "verceldb",
 //     "postgres", 
-//     "9iZy90V7vB0PLQfrGXnO", 
+//     "wHQtNUPrT27J", 
 //     {
-//      host: "containers-us-west-91.railway.app",
+//      host: "ep-mute-poetry-a47jj8ak-pooler.us-east-1.aws.neon.techp",
 //      logging: false,
 //      dialect: "postgres",
-//      port: 7261
+//      port: 5432
 //    } 
 // );
+
+export const sequelize = new Sequelize(
+  configVariables.dbName,
+  configVariables.dbUser,
+  configVariables.dbPassword,
+  {
+      host: configVariables.dbServer,
+      dialect: configVariables.dbDialect,
+      logging: false,
+      port: configVariables.dbPort,
+      ssl: true, // Habilita SSL
+      dialectOptions: {
+          ssl: {
+              require: true // Utiliza sslmode=require
+          }
+      }
+  }
+);

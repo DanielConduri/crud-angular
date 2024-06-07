@@ -1,5 +1,6 @@
 import app from "./app.js";
 import {sequelize} from './database/database.js';
+import { configVariables } from "./config/variables.config.js";
 
 app.get("/info", (req, res) => {
     res.json({
@@ -10,10 +11,10 @@ app.get("/info", (req, res) => {
     })
   });
 
-  const port = process.env.PORT || 3002;
-async function main(){
+  //const port = process.env.PORT || 3002;
+async function main(port){
     try {
-        await sequelize.sync( { force: false }); //No recrea las tablas
+        await sequelize.sync( { force: true }); //No recrea las tablas
         console.log('Connection has been established successfully.');
         app.listen(port, () => {
             console.log("Server is listening on port", port);
@@ -25,7 +26,7 @@ async function main(){
     }
 }
 
-main(port);
+main(configVariables.port);
 
 // import  http  from 'http';
 // const PORT = 3002;
