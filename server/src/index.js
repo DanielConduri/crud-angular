@@ -14,7 +14,7 @@ app.get("/info", (req, res) => {
   //const port = process.env.PORT || 3002;
 async function main(port){
     try {
-        await sequelize.sync( { force: true }); //No recrea las tablas
+    await sequelize.sync( { /*force: true*/ }); //No recrea las tablas
         console.log('Connection has been established successfully.');
         app.listen(port, () => {
             console.log("Server is listening on port", port);

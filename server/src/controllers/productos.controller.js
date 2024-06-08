@@ -33,7 +33,7 @@ const obtenerProductos = async (req, res) => {
 
     const datosProductos = await Productos.findAll();
 
-    console.log(datosProductos)
+    //console.log(datosProductos)
 
     const resultados = datosProductos.map(objeto => {
         return {
@@ -63,7 +63,7 @@ const obtenerProductos = async (req, res) => {
 
 const obtenerProductoId = async (req, res) => {
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
 
     try {
         const producto = await Productos.findOne({
@@ -71,7 +71,7 @@ const obtenerProductoId = async (req, res) => {
                 int_producto_id: id
             }
         });
-        console.log(producto)
+        //console.log(producto)
 
         if (!producto) {
             return res.json({
@@ -93,7 +93,7 @@ const obtenerProductoId = async (req, res) => {
 
 };
 const insertarProducto = async (req, res) => {
-    console.log(req);
+    //console.log(req);
     const {
         str_producto_codigo,
         str_producto_nombre,
@@ -113,7 +113,7 @@ const insertarProducto = async (req, res) => {
             str_producto_proveedor
         });
 
-        console.log('producto ', producto);
+        //console.log('producto ', producto);
         res.json({
             status: 200,
             message: 'Producto insertado exitosamente',
@@ -126,7 +126,7 @@ const insertarProducto = async (req, res) => {
 const actualizarProducto = async (req, res) => {
 
     const { id } = req.params;
-    console.log(id);
+    //console.log(id);
     const {
         str_producto_codigo,
         str_producto_nombre,
@@ -157,7 +157,7 @@ const actualizarProducto = async (req, res) => {
             where: { int_producto_id: id }
         })*/
 
-        console.log(producto[0]);
+        //console.log(producto[0]);
         /*const producto = await Productos.findOne({
             where: { int_producto_id: id }
         });*/
