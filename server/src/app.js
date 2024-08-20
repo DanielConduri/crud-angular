@@ -19,8 +19,9 @@ const whiteList = [
     "http://localhost:51769",
     "http://localhost:3002/",
     "https://crud-angular-production-315c.up.railway.app",
-    "https://crud-angular-2at2.vercel.app",
+    "https://crud-angular-2at2-kitl-danielconduris-projects.vercel.app/",
     "https://localhost:4200",
+    "https://pruebasinventario.me"
     //"https://inventario-espoch.rubenvn.com",
   ];
   app.use(
