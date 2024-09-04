@@ -7,6 +7,8 @@ import { DatePipe } from '@angular/common';
 import { ModalService } from './core/services/modal.service';
 import { productosModel, dataProductos } from './core/models/productos';
 
+
+import { Layouts } from './layout/layout';
 @Component({
   providers: [DatePipe],
   selector: 'app-root',
@@ -15,7 +17,15 @@ import { productosModel, dataProductos } from './core/models/productos';
 })
 export class AppComponent  implements OnInit {
 
-  title: string = 'cliente';
+
+  private destroy$ = new Subject<any>()
+
+  title = 'app';
+  Layouts = Layouts;
+  layout: Layouts = Layouts.simple
+
+  showLoading: boolean = true
+
 
   //Establecemos los elementos "formulario" y "title" a los que les
     //designaremos sus respectivos tipos
@@ -34,11 +44,12 @@ export class AppComponent  implements OnInit {
   isLoading: boolean = true;
 
 
-  private destroy$ = new Subject<any>();
+
 
   constructor(
     public srvProductos: ProductosService,
-    public srvModal : ModalService
+    public srvModal : ModalService,
+    private router: Router
 
   ) {}
 

@@ -864,6 +864,17 @@ cuando se va a realizar busqueda por filtrado */
   cursor: pointer;
 }
 
+.btn-Store {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  height: 20px;
+  border-radius: 10px;
+  place-content: center;
+  border: none;
+  cursor: pointer;
+  
+}
+
 .btn-Edit {
   border: 0.5px solid var(--bs-gray-ccc);
   color: var(--bs-gray-dark);
@@ -1222,6 +1233,11 @@ cuando se va a realizar busqueda por filtrado */
 
 .btn-danger {
   background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-Store{
+  background-color: #1e85ca;
   color: #fff;
 }
 

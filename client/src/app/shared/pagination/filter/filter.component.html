@@ -1,0 +1,153 @@
+<div class="search-bar">
+  <div *ngIf="showDiv">
+    <button
+      class="page-link btn btn-h"
+      *ngFor="let option of options"
+      [class.selected]="option === selectedOption"
+      (click)="toggleInput(option)"
+    >
+      {{ formatOption(option) }}
+    </button>
+  </div>
+  <div
+    *ngIf="
+      !showDiv &&
+      selectedOption != 'estado' &&
+        selectedOption != 'estado_logico' &&
+        selectedOption != 'estado_carga' &&
+        selectedOption != 'bien_garantia' &&
+        selectedOption != 'estados'
+    "
+    class="search-BarBtn"
+  >
+    <input
+      type="text"
+      id="search-input"
+      class="form-control"
+      placeholder="Buscar..."
+      [disabled]="!isInputEnabled"
+      [(ngModel)]="searchValue"
+      (keypress)="restrictInput($event)"
+    />
+    <button id="search-button" class="btnSearch" (click)="onSearch()">
+      <i class="material-icons">search</i>
+    </button>
+    <button id="clear-button" (click)="onClear()">
+      <i class="material-icons">clear</i>
+    </button>
+  </div>
+
+  <!--Opciones EN PROCESO e FINALIZADO-->
+  <div
+    class="op-estado"
+    *ngIf="
+      (selectedOption == 'estado_carga') &&
+      !showDiv
+    "
+  >
+    <button id="clear-button" (click)="onClear()">
+      <i class="material-icons">arrow_back</i>
+    </button>
+    <button
+      [class.active]="estado === 'FINALIZADO'"
+      (click)="setEstado('FINALIZADO')"
+      class="page-link btn btn-h"
+    >
+    FINALIZADO
+    </button>
+    <button
+      [class.active]="estado === 'EN PROCESO'"
+      (click)="setEstado('EN PROCESO')"
+      class="page-link btn btn-h"
+    >
+    EN PROCESO
+    </button>
+  </div>
+
+  <!--Opciones ACTIVO e INACTIVO-->
+  <div
+    class="op-estado"
+    *ngIf="
+      (selectedOption == 'estado' || selectedOption == 'estado_logico') &&
+      !showDiv && !activarEstados
+    "
+  >
+    <button id="clear-button" (click)="onClear()">
+      <i class="material-icons">arrow_back</i>
+    </button>
+    <button
+      [class.active]="estado === 'ACTIVO'"
+      (click)="setEstado('ACTIVO')"
+      class="page-link btn btn-h"
+    >
+      ACTIVO
+    </button>
+    <button
+      [class.active]="estado === 'INACTIVO'"
+      (click)="setEstado('INACTIVO')"
+      class="page-link btn btn-h"
+    >
+      INACTIVO
+    </button>
+  </div>
+
+  <div
+    class="op-estado"
+    *ngIf="
+      (selectedOption == 'estados' || selectedOption == 'estado_logico') || activarEstados &&
+      !showDiv 
+    "
+  >
+    <button id="clear-button" (click)="onClear()">
+      <i class="material-icons">arrow_back</i>
+    </button>
+    <button
+      [class.active]="estado === 'DESARROLLO'"
+      (click)="setEstado('DESARROLLO')"
+      class="page-link btn btn-h"
+    >
+     DESARROLLO
+    </button>
+    <button
+      [class.active]="estado === 'EN PROCESO'"
+      (click)="setEstado('EN PROCESO')"
+      class="page-link btn btn-h"
+    >
+    EN PROCESO
+    </button>
+    <button
+      [class.active]="estado === 'FINALIZADO'"
+      (click)="setEstado('FINALIZADO')"
+      class="page-link btn btn-h"
+    >
+    FINALIZADO
+    </button>
+  </div>
+
+  
+
+  <div class="op-estado" *ngIf="selectedOption == 'bien_garantia' && !showDiv">
+    <button id="clear-button" (click)="onClear()">
+      <i class="material-icons">arrow_back</i>
+    </button>
+    <button
+      [class.active]="estado === 'ACTIVO'"
+      (click)="setEstado('S')"
+      class="page-link btn btn-h"
+    >
+      ACTIVO
+    </button>
+    <button
+      [class.active]="estado === 'INACTIVO'"
+      (click)="setEstado('N')"
+      class="page-link btn btn-h"
+    >
+      INACTIVO
+    </button>
+  </div>
+</div>
+
+<!-- <select [(ngModel)]="selectedOption" (change)="toggleInput()">
+      <option value="">Seleccionar opción</option>
+      <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+    </select> -->
