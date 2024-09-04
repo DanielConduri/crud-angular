@@ -7,6 +7,6 @@ export const environment = {
   urlApi: 'http://localhost:3002/',
  //urlApi: 'http://localhost:8000/'
 
-  urlOneDriveService: 'https://emailrelay.espoch.edu.ec/WebCorreoInstitucional/ServiciosCorreos/TokenOneDrive',
-  CodigoSistemaOneDrive: 'ARCHPOLI',
+  // urlOneDriveService: 'https://emailrelay.espoch.edu.ec/WebCorreoInstitucional/ServiciosCorreos/TokenOneDrive',
+  // CodigoSistemaOneDrive: 'ARCHPOLI',
 };
