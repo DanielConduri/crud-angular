@@ -2,6 +2,7 @@
 import { Productos } from '../models/productos.js';
 import childProcess from "child_process";
 import child_process from "child_process";
+import { Op } from 'sequelize';
 
 
 async function startServer() {
@@ -30,18 +31,14 @@ const obtenerProductos = async (req, res) => {
     const serverDos = await startServer();
     console.log('Ejecutando servidor 2 en el puerto 8000 /n', serverDos);*/
 
-
     const datosProductos = await Productos.findAll();
-
     //console.log(datosProductos)
-
     const resultados = datosProductos.map(objeto => {
         return {
             producto: objeto.dataValues,
         };
     });
     //console.log(resultados);
-
     try {
         if (datosProductos.length === 0 || !datosProductos) {
             return res.json({
@@ -60,6 +57,39 @@ const obtenerProductos = async (req, res) => {
         return res.status(500).json({ message: error.message });
     }
 };
+
+const findProductos = async (req, res) => {
+    const { data } = req.params;
+    console.log(data)
+    let data2 = data.toUpperCase();
+    
+    try {
+        const getData = await Productos.findAll({
+            where: {
+                str_producto_nombre: {
+                    [Op.like]: `%${data2}%`
+                }
+            }
+        });
+        
+        console.log(getData[0]);
+        if(getData.length === 0) {
+            return res.json({
+                status: false,
+                message: 'No se encontraron productos',
+                body: []
+            })
+        }
+
+        return res.json({
+            status: true,
+            message: 'Productos encontrados',
+            body: getData
+        })
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+}
 
 const obtenerProductoId = async (req, res) => {
     const { id } = req.params;
@@ -240,6 +270,7 @@ const eliminarProducto = async (req, res) => {
 };
 export default {
     obtenerProductos,
+    findProductos,
     obtenerProductoId,
     insertarProducto,
     actualizarProducto,

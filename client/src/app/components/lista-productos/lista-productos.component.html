@@ -18,15 +18,28 @@
   </button>
 </div>
 
+<!-- <div class="search-container">
+  <input
+    type="text"
+    placeholder="Buscar..."
+    class="search-input"
+  />
+  <button class="search-button">
+    🔍
+  </button>
+</div> -->
 
-<!-- <div class="search-Bar">
+<br>
+<div class="search-bar">
   <input 
   type="text" 
   id="search-input" 
-  class="form-control"
+  class="search-input2"
   placeholder="Buscar producto"
+  required
   >
-</div> -->
+  <button class="search-button2" (click)="getFindProducts($event)">🔍</button>
+</div>
 <br>
 
 <div class="tabla-cuerpo">
@@ -74,6 +87,10 @@
           </th>
           <th class="th-head">
             <div class="d-flex">Fecha de ingreso</div>
+          </th>
+          <th class="th-head">
+            <div class="d-flex">Acciones</div>
+            
           </th>
         </tr>
       </thead>

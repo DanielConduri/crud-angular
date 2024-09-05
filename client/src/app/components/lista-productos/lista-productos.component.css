@@ -1,3 +1,75 @@
 .container-button-add {
     margin-inline-start: 85%;
 }
+
+
+/*-----------------BAR ONE--------------------*/
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 8px;
+    background-color: #f1f1f1;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+ 
+
+  .search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+
+/*-----------------BAR TWO--------------------*/
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 7px;
+    background-color: #f1f1f1;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input2{
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+  }
+
+
+  .search-button2 {
+    background-color: #7ae9ec;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+  }
+  .search-button:hover {
+    background-color: #0056b3;
+  } 

@@ -24,7 +24,7 @@ const isCarga: {
 export class ProductosService {
 
   private URL_API_PRODUCTOS: string = config.URL_API_BASE + 'productos';
-
+  private URL_API_FILTRADO: string = config.URL_API_BASE + 'filtrado';
   datosProductos!: dataProductos[];
   //datosProductos!: productosModel[];
 
@@ -52,6 +52,16 @@ export class ProductosService {
   getProductoId(idProducto: number) {
     return this.http.get<any>(
       `${this.URL_API_PRODUCTOS}/${idProducto}`,
+      {
+        withCredentials: true,
+      }
+    )
+  }
+
+  getFindProductos(data: string) {
+    return this.http.get<any>(
+      this.URL_API_FILTRADO+'/'+data,
+      //`${this.URL_API_FILTRADO}/${data}`,
       {
         withCredentials: true,
       }

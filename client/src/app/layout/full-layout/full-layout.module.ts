@@ -5,9 +5,8 @@ import { FullLayoutRoutingModule } from './full-layout-routing.module';
 import { MainComponent } from 'src/app/shared/main/main.component';
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [],
   imports: [
-    MainComponent,
     CommonModule,
     FullLayoutRoutingModule
   ]

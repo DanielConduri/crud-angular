@@ -168,6 +168,38 @@ export class ListaProductosComponent implements OnInit {
     });
   }
 
+  getFindProducts(e: any) {
+    
+    let data = document.getElementById('search-input') as any;
+    console.log(data.value);
+    Swal.fire({
+      title: 'Buscando',
+      didOpen: () => {
+        Swal.showLoading()
+      }
+    });
+    this.srvProductos
+    .getFindProductos(data.value)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: (data: productosModel) => {
+        if (data.body) {
+          console.log(data.body)
+          this.srvProductos.datosProductos = data.body;
+        }
+      },
+      error: (err) => {
+        console.log("Error al obtener los productos", err);
+      },
+      complete: () => {
+        Swal.close();
+      }
+    })
+
+
+
+  }
+
     ngOnDestroy(): void { //Sino se destruye re realiza varias peticiones
       this.destroy$.next({});
       this.destroy$.complete();

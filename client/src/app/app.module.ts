@@ -14,13 +14,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModificarProductoComponent } from './components/modificar-producto/modificar-producto.component';
 import { ModalService } from './core/services/modal.service';
 import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './pages/home/home.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
     AgregarProductoComponent,
     ModificarProductoComponent,
-    ListaProductosComponent
+    ListaProductosComponent,
+
   
   ],
 
@@ -28,9 +31,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    //LayoutModule,
+    LayoutModule,
     ReactiveFormsModule, //Es importante agregar los componentes para evitar errores
     FormsModule,
+    HomeModule
     
   ],
   providers: [
