@@ -6,7 +6,8 @@ export let CONFIG = {
     CASLOGOUT: 'https://seguridad.espoch.edu.ec/cas/logout?',
     CASVALIDATE: 'https://seguridad.espoch.edu.ec/cas/p3/serviceValidate?',
     REDIRECT_URI: environment.url,
-    LOGOUT_REDIRECT: environment.urlLogOut,
+    //LOGOUT_REDIRECT: environment.urlLogOut,
+    LOGOUT_REDIRECT: environment.url,
 
   // REDIRECT_URI: 'https://pruebacomprobante.espoch.edu.ec:8080/cash',
   //   LOGOUT_REDIRECT: 'https://pruebacomprobante.espoch.edu.ec:8080/logout',
