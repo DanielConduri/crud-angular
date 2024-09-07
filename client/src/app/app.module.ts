@@ -16,6 +16,7 @@ import { ModalService } from './core/services/modal.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { FooterComponent } from './shared/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,6 @@ import { ProductosComponent } from './pages/productos/productos.component';
     AgregarProductoComponent,
     ModificarProductoComponent,
     ListaProductosComponent,
-    ProductosComponent,
   ],
 
   imports: [

@@ -14,17 +14,17 @@ import { ListaProductosComponent } from './components/lista-productos/lista-prod
 import { AdminModule } from './pages/admin/admin.module';
 
 import { ProductosModule } from './pages/productos/productos.module';
-import { WelcomeModule } from './pages/admin/welcome/welcome.module';
+import { WelcomeModule } from './pages/admin/welcome/welcome.module';import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 const routes: Routes = [
   // { path: '', redirectTo: '/productos', pathMatch: 'full'},
-  // { path: 'productos', component: ListaProductosComponent},
+  { path: 'productos2', component: ListaProductosComponent},
   
   {
     path: config.URL_BASE_PATH,
     data: {layout: Layouts.simple},
     children: [
-      
-      {path: '', loadChildren:() => ProductosModule},
+      // {path: 'welcome', loadChildren: () => WelcomeModule},
+      {path: '', loadChildren:() => HomeModule},
       {path: 'productos', loadChildren: () => ProductosModule},
       {path: '404', loadChildren:() => FailedModule},
       {path: 'denegado', loadChildren:() => DeniedModule},
@@ -38,6 +38,8 @@ const routes: Routes = [
     //canActivate: [PermisoGuard, /*PermissionsGuard*/],
     children: [
       {path: '', loadChildren:() => AdminModule},
+      {path: 'welcome', loadChildren: () => WelcomeModule},
+      {path: 'productos', loadChildren: () => ProductosModule},
       // {path: 'ajustes', loadChildren:() => ConfiguracionModule},
       // {path: 'bienes', loadChildren:() => BienesModule}
     ],

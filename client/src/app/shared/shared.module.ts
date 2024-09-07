@@ -8,6 +8,7 @@ import { BodyComponent } from './body/body.component';
 //import { AjustesModule } from '../pages/configuracion/ajustes/ajustes.module';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule } from '@angular/router';
+import { ProductosComponent } from '../pages/productos/productos.component';
 @NgModule({
     declarations: [
         AsideComponent,
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
         HeaderComponent,
         MainComponent,
         BodyComponent,
+        ProductosComponent
 
     ],
     exports: [
@@ -23,6 +25,7 @@ import { RouterModule } from '@angular/router';
         HeaderComponent,
         MainComponent,
         BodyComponent,
+        ProductosComponent
 
     ],
     imports: [

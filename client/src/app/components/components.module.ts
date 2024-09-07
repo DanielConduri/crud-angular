@@ -7,15 +7,19 @@ import { AgregarProductoComponent } from './agregar-producto/agregar-producto.co
 import { ModificarProductoComponent } from './modificar-producto/modificar-producto.component';
 import { DesplegableComponent } from './desplegable/desplegable.component';
 import { FormsModule } from '@angular/forms';
-import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { SearchComponent } from './search/search.component';
+
 @NgModule({
   declarations: [
     ButtonComponent,
-    DesplegableComponent
+    DesplegableComponent,
+    SearchComponent
   ],
   exports: [
     ButtonComponent,
-    DesplegableComponent
+    DesplegableComponent,
+    SearchComponent
+
   ],
   imports: [
     CommonModule

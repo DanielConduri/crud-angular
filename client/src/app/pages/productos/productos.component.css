@@ -83,7 +83,7 @@ section img {
     width: 100%;
     height: 0.5rem;
     width: 100%;
-    height: 1rem;
+    height: 0.3rem;
     z-index: 1;
     background: #feac5e;
     background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
@@ -175,6 +175,11 @@ section img {
 .container {
  margin-top: 5px;
  display: flex;
+}
+
+.footer-text {
+    margin-bottom: 20px;
+    display: flex;
 }
 
 .precio {
@@ -369,5 +374,197 @@ section img {
 
 
 
+  .site-footer, .page-wrap:after {
+    /* .push must be the same height as footer */
+      height: 142px; 
+  }
+  .site-footer {
+    background: orange;
+  }
 
+  /*---------------------FOOTER--------------------*/
+  ul {
+    margin: 0px;
+    padding: 0px;
+}
+.footer-section {
+    margin-top: 25px;
+    margin-left: -12px;
+    margin-right: -20px;
+    /*#f1f1f1*/
+    background: #f3dac2;
+    background: -webkit-linear-gradient(to right, #919191, #cd9bd3, #e7c09b);
+    background: linear-gradient(to right, #7bd0d6, #d096d6, #ccb095);
+    height: 170px;
+    width: flex;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: #ff5e14;
+  font-size: 30px;  
+  float: left;
+  margin-top: 8px;
+}
+.cta-text {
+    margin-top: 1.3rem;
+  padding-left: 10rem;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #f83535;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  /*color: #4f4f50;*/
+  color: #2b126e;
+  /* color: #480758; */
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+}
+.facebook-bg{
+  background: #3B5998;
+}
+.twitter-bg{
+  background: #55ACEE;
+}
+.google-bg{
+  background: #DD4B39;
+}
+.footer-widget-heading h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+.footer-widget ul li a:hover{
+  color: #ff5e14;
+}
+.footer-widget ul li a {
+  color: #878787;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+  background: #444444;
+  padding: 25px 0;
+}
+.copyright-text p {
+    
+        color: #480758;
+        /*color: #2b126e;*/
+        text-align: center; /* Centrar el texto horizontalmente */
+        padding: 20px; /* Añadir padding si deseas espacio alrededor del texto */
+        background-color:transparent; /* Fondo opcional para visualizar el contenedor */
+        margin-top: 20px; /* Espacio superior opcional */
+      
+}
+.copyright-text p a{
+  color: #ff5e14;
+  margin-top: 200px;
   
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ff5e14;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+
+.container p {
+    text-align: center;
+}
+
+.search-content {
+  margin-top: 2rem;
+}
