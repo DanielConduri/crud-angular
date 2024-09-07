@@ -16,7 +16,7 @@ import { AdminModule } from './pages/admin/admin.module';
 import { ProductosModule } from './pages/productos/productos.module';
 import { WelcomeModule } from './pages/admin/welcome/welcome.module';import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 const routes: Routes = [
-  // { path: '', redirectTo: '/productos', pathMatch: 'full'},
+  { path: '', redirectTo: '/productos', pathMatch: 'full'},
   { path: 'productos2', component: ListaProductosComponent},
   
   {

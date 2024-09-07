@@ -66,7 +66,7 @@ export class AppComponent  implements OnInit {
   getProductos() {
     console.log('getProductos en app.component.ts');
     Swal.fire({
-      title: 'Cargando Productos...xd',
+      title: 'Cargando Productos...',
       didOpen: () => {
         Swal.showLoading()
       }
