@@ -189,11 +189,11 @@ setIdPorfile(id: number){
       modalGeneral.style.display = 'block';
       modalGeneral.classList.add('show');
       modalGeneral.style.backgroundColor = 'rgba(0,0,0,0.5)';
-      setTimeout(() => {
-        if (modalGeneral) {
-          modalGeneral.style.opacity = 1;
-        }
-      }); //FOR TRANSITION
+      // setTimeout(() => {
+      //   if (modalGeneral) {
+      //     modalGeneral.style.opacity = 1;
+      //   }
+      // }); //FOR TRANSITION
     }
   }
 

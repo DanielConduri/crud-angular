@@ -9,13 +9,23 @@ import { CasErrModule } from './pages/cas-err/cas-err.module';
 import { Layouts } from './layout/layout';
 import config from 'config/config';
 import { PermisoGuard } from './core/guards/permiso.guard';
+import { HomeComponent } from './pages/home/home.component';
+import { ListaProductosComponent } from './components/lista-productos/lista-productos.component';
+import { AdminModule } from './pages/admin/admin.module';
 
+import { ProductosModule } from './pages/productos/productos.module';
+import { WelcomeModule } from './pages/admin/welcome/welcome.module';
 const routes: Routes = [
+  // { path: '', redirectTo: '/productos', pathMatch: 'full'},
+  // { path: 'productos', component: ListaProductosComponent},
+  
   {
     path: config.URL_BASE_PATH,
     data: {layout: Layouts.simple},
     children: [
-      {path: '', loadChildren:() => HomeModule},
+      
+      {path: '', loadChildren:() => ProductosModule},
+      {path: 'productos', loadChildren: () => ProductosModule},
       {path: '404', loadChildren:() => FailedModule},
       {path: 'denegado', loadChildren:() => DeniedModule},
       {path: 'logout', loadChildren:() => LogoutModule},
@@ -25,9 +35,9 @@ const routes: Routes = [
   {
     path: config.URL_BASE_PATH,
     data: {layout: Layouts.full},
-    canActivate: [PermisoGuard, /*PermissionsGuard*/],
+    //canActivate: [PermisoGuard, /*PermissionsGuard*/],
     children: [
-      // {path: '', loadChildren:() => AdminModule},
+      {path: '', loadChildren:() => AdminModule},
       // {path: 'ajustes', loadChildren:() => ConfiguracionModule},
       // {path: 'bienes', loadChildren:() => BienesModule}
     ],
@@ -37,7 +47,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

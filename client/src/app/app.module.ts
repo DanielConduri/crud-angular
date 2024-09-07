@@ -15,7 +15,7 @@ import { ModificarProductoComponent } from './components/modificar-producto/modi
 import { ModalService } from './core/services/modal.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
-
+import { ProductosComponent } from './pages/productos/productos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,8 +23,7 @@ import { HomeModule } from './pages/home/home.module';
     AgregarProductoComponent,
     ModificarProductoComponent,
     ListaProductosComponent,
-
-  
+    ProductosComponent,
   ],
 
   imports: [
