@@ -1,3 +1,11 @@
+/* app.component.css o app.component.scss */
+:host {
+  display: block;
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+  background-color: #ffffff; /* Cambia este color según tus necesidades */
+}
+
+
 /*.form-control:focus {
     border: none;
     outline: none;

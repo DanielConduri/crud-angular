@@ -20,7 +20,13 @@ export const Productos = sequelize.define('productos',{  //Define un nuevo esuqu
     },
 	str_producto_nombre:{
         type: DataTypes.STRING
-    } ,
+    },
+    str_producto_image: {
+        type: DataTypes.TEXT
+    },
+    str_producto_descripcion: {
+        type: DataTypes.JSONB
+    },
 	int_producto_cantidad:{
         type: DataTypes.INTEGER
     },

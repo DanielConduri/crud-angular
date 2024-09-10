@@ -32,7 +32,7 @@ const obtenerProductos = async (req, res) => {
     console.log('Ejecutando servidor 2 en el puerto 8000 /n', serverDos);*/
 
     const datosProductos = await Productos.findAll();
-    //console.log(datosProductos)
+    console.log(datosProductos)
     const resultados = datosProductos.map(objeto => {
         return {
             producto: objeto.dataValues,
@@ -60,7 +60,7 @@ const obtenerProductos = async (req, res) => {
 
 const findProductos = async (req, res) => {
     const { data } = req.params;
-    console.log(data)
+    //console.log(data)
     let data2 = data.toUpperCase();
     
     try {
@@ -72,7 +72,7 @@ const findProductos = async (req, res) => {
             }
         });
         
-        console.log(getData[0]);
+        //console.log(getData[0]);
         if(getData.length === 0) {
             return res.json({
                 status: false,
@@ -157,19 +157,23 @@ const actualizarProducto = async (req, res) => {
 
     const { id } = req.params;
     //console.log(id);
+    console.log(req.body)
     const {
         str_producto_codigo,
         str_producto_nombre,
+        str_producto_image,
         int_producto_cantidad,
         str_producto_marca,
         int_producto_precio,
         str_producto_proveedor,
         str_producto_estado
     } = req.body;
+
     try {
         const producto = await Productos.update({
             str_producto_codigo,
             str_producto_nombre,
+            str_producto_image,
             int_producto_cantidad,
             str_producto_marca,
             int_producto_precio,

@@ -33,6 +33,9 @@ export class ModificarProductoComponent implements OnInit {
       str_producto_nombre: [
         '', [Validators.required]
       ],
+      str_producto_image: [
+        '', [Validators.required]
+      ],
       int_producto_cantidad:[
         '', [Validators.required]
       ],
@@ -96,6 +99,9 @@ export class ModificarProductoComponent implements OnInit {
           ],
           str_producto_nombre: [
             dataProducto.body.str_producto_nombre, [Validators.required]
+          ],
+          str_producto_image: [
+            dataProducto.body.str_producto_image, [Validators.required]
           ],
           int_producto_cantidad: [
             dataProducto.body.int_producto_cantidad, [Validators.required]

@@ -15,6 +15,7 @@ export interface dataProductos {
 	int_producto_precio: number;
 	str_producto_proveedor: string;
     str_producto_estado: string;
+    str_producto_image: string;
     dt_fecha_creacion: string;
 }
 
@@ -54,6 +55,7 @@ export interface EstadosData {
 	int_producto_precio: number;
 	str_producto_proveedor: string;
     str_producto_estado: string;
+    str_producto_image: string;
     dt_fecha_creacion: string;
 }
   

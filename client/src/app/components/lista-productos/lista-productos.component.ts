@@ -47,7 +47,7 @@ export class ListaProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
+    //console.log('ngOnInit');
     setTimeout(() => {
       this.isLoading = false;
       Swal.close();
@@ -59,7 +59,7 @@ export class ListaProductosComponent implements OnInit {
   getProductos() {
     console.log('getProductos en app.component.ts');
     Swal.fire({
-      title: 'Cargando Productos...xd',
+      title: 'Cargando Productos...',
       didOpen: () => {
         Swal.showLoading()
       }

@@ -94,6 +94,7 @@ transition: all 250ms ease-in-out 0s;
 }
 
 .footer-content {
+  margin-top: 100px;
   max-width: 1200px; /* Ancho máximo del contenido */
   margin: 0 auto; /* Centramos el contenido */
   padding: 0 20px; /* Espaciado interno horizontal */

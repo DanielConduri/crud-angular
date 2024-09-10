@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
-
 * {
     box_sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -573,13 +572,14 @@ section img {
 
 
 .footer-container {
-  margin-bottom: 20px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 footer {
+  margin-top: 50px;
   background-color: #f8f9fa;
   /* background: #f3dac2;
     background: -webkit-linear-gradient(to right, #919191, #cd9bd3, #e7c09b);
