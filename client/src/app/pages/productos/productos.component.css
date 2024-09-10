@@ -597,7 +597,7 @@ footer {
 }
 
 .footer-column ul {
-  margin-left: 20%;
+  /* margin-left: 1%; */
   list-style: none;
   padding: 0;
 }
