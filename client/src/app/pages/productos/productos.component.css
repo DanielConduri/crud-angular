@@ -603,6 +603,7 @@ footer {
 }
 
 .footer-column ul li {
+  font-size: 15px;
   margin-bottom: 10px;
 }
 
@@ -622,3 +623,34 @@ footer {
       align-items: flex-start;
   }
 } */
+
+/*--------ÍCONO-------*/
+/* En tu archivo .css o en la sección de estilos del componente */
+/* En tu archivo .css o en la sección de estilos del componente */
+/* En tu archivo .css */
+
+/* En tu archivo .css */
+.icono-flotante {
+  position: fixed;
+  bottom: 1%; /* Distancia desde el borde inferior */
+  right: 10px; /* Distancia desde el borde derecho */
+  padding: 1px;
+  /*background-color: #ffffff; Color de fondo del contenedor 
+  border-radius: 50%;  Hace que el contenedor sea redondo
+  padding: 10px;  Espaciado interno del contenedor 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  Sombra alrededor del contenedor
+  cursor: pointer; Cambia el cursor al pasar sobre el ícono 
+  z-index: 1000; Asegura que el contenedor esté por encima de otros elementos
+  display: flex; Usa flexbox para centrar la imagen dentro del contenedor
+  justify-content: center; Centra horizontalmente la imagen
+  align-items: center; Centra verticalmente la imagen */
+}
+
+.icono-flotante img {
+  width: 94px; /* Ajusta el tamaño de la imagen del ícono */
+  height: 94px; /* Ajusta el tamaño de la imagen del ícono */
+  border-radius: 50%; /* Hace que la imagen sea redonda si no es cuadrada */
+}
+
+
+

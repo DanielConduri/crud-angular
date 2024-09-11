@@ -52,6 +52,13 @@
 }
 
 .header-column p {
-  font-size: 13px;
+  font-size: 14px;
 }
 
+.line {
+  border: 0;
+  margin-top: -20px;
+  height: 1px;
+  background: #e4e4e4; /* Color de la línea */
+  margin: px 0; /* Espaciado alrededor de la línea */
+  }
