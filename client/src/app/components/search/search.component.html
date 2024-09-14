@@ -1,4 +1,4 @@
-<div class="search-bar">
+<!-- <div class="search-bar">
   <input 
   type="text" 
   id="search-input" 
@@ -7,4 +7,16 @@
   required
   >
   <button class="search-button2" (click)="getFindProducts($event)">🔍</button>
+</div> -->
+
+<div class="search-bar">
+  <input 
+  type="text" 
+  id="search-input" 
+  class="search-input2"
+  placeholder="Bucar producto"
+  required
+  (input)="onSearch($event)"
+  >
+  <button class="search-button2">🔍</button>
 </div>
