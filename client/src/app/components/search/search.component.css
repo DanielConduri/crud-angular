@@ -159,6 +159,8 @@ table {
 }
 
 
+
+
 @media (max-width: 768px) {
   .floating-table th, .floating-table td {
     font-size: 14px; /* Ajusta el tamaño del texto */
@@ -178,11 +180,17 @@ table {
     font-size: 12px; /* Ajusta el tamaño del texto para pantallas más pequeñas */
     padding: 3px; /* Ajusta el relleno para pantallas más pequeñas */
   
+
+    
+  }
+
+  .search-bar {
+    width: 87%;
   }
   .floating-table {
-    margin-top: 43%;
-    margin-left: 50px;
-    width: 73%;
+    margin-top: 56%;
+    margin-left: 44px;
+    width: 71%;
     max-width: auto;
   }
 }
