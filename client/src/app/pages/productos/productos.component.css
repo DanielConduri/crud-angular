@@ -5,7 +5,7 @@
     box_sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
+} 
 
 html,
 body {
@@ -13,6 +13,13 @@ body {
     margin: 0;
  
 }
+
+:host {
+  display: block;
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+  background-color: #ffffff; /* Cambia este color según tus necesidades */
+}
+
 
 h1 {
     font-family: 32px;
@@ -109,12 +116,13 @@ section img {
   
   
   .card {
+    cursor: pointer;
     margin-left: 3%;
     margin-right: 15%;
     width: 100%;
     max-width: 295px;
     padding: 16px;
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   
@@ -653,5 +661,7 @@ footer {
   border-radius: 50%; /* Hace que la imagen sea redonda si no es cuadrada */
 }
 
+
+/*-------LISTA FLOTANTE--------*/
 
 

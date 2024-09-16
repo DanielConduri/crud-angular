@@ -3,7 +3,7 @@ import { debounceTime, Observable, Subject, switchMap, takeUntil } from 'rxjs';
 import { ModalService } from 'src/app/core/services/modal.service';
 import { ProductosService } from 'src/app/core/services/productos.service';
 import Swal from 'sweetalert2';
-import { productosModel } from 'src/app/core/models/productos';
+import { dataProductos, productosModel } from 'src/app/core/models/productos';
 
 @Component({
   selector: 'app-search',
@@ -16,6 +16,7 @@ export class SearchComponent implements OnInit {
   private destroy$ = new Subject<any>();
   
   searchTerm: string = '';
+  listFiltered!: dataProductos[];
 
   constructor( 
     public srvProductos: ProductosService,
@@ -37,8 +38,10 @@ export class SearchComponent implements OnInit {
       .subscribe({
         next: (data: productosModel) => {
           if (data.body) {
-            console.log(data.body)
-            this.srvProductos.datosProductos = data.body;
+            //console.log(data.body)
+            this.listFiltered = data.body;
+            console.log('listFiltered', this.listFiltered)
+            //this.srvProductos.datosProductos = data.body;
           }
         },
         error: (err) => {

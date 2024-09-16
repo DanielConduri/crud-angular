@@ -37,3 +37,168 @@
   .search-button2:hover {
     background-color:  #7ad1ec;
   } 
+
+
+ .list-search {
+
+background-color: black;
+  
+ }
+
+ table {
+  margin-top: 5px;;
+  margin-left: 37%;
+ }
+
+
+ .tabla-estilos-search{
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 30%;
+}
+
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente en el viewport */
+}
+
+.table-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente dentro del contenedor */
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse; /* Opcional: elimina el espacio entre bordes */
+  width: 80%; /* Ajusta el ancho de la tabla si es necesario */
+  cursor: pointer;
+}
+
+
+
+/* .tabla-estilos-search tbody tr:nth-child(even) {
+  background-color: var(--bs-white);
+} */
+
+
+/* .tabla-estilos-search {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-size: 11px;
+  width: 1
+} */
+
+
+/* productos.component.css */
+.table-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* Ajusta la altura del contenedor si es necesario */
+  display: flex;
+  justify-content: center; /* Centra la tabla horizontalmente */
+  align-items: center; /* Centra la tabla verticalmente */
+  
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+}
+
+/* @media (max-width: 480px) {
+  .floating-table, .floating-table thead, .floating-table tbody, .floating-table th, .floating-table td, .floating-table tr {
+    display: block;
+    margin-top: 20%;
+  }
+
+  .floating-table th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .floating-table tr {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+
+  .floating-table td {
+    border: none;
+    position: relative;
+    padding-left: 5%;
+    white-space: nowrap;
+  }
+
+  .floating-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+} */
+
+.floating-table {
+  position: absolute; /* Hace que la tabla sea flotante */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 9%;
+  
+  /*margin: auto;*/ /* Centra la tabla horizontal y verticalmente */
+  border-collapse: collapse;
+  background-color: white; /* Opcional: para mejor visibilidad sobre el fondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para efecto flotante */
+  width: 23.5%; /* Ajusta el ancho de la tabla según sea necesario */
+  z-index: 1000; /* Asegura que la tabla esté sobre otros elementos */
+  
+}
+
+
+@media (max-width: 768px) {
+  .floating-table th, .floating-table td {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 1px; /* Ajusta el relleno */
+  }
+
+  .floating-table {
+    margin-top: 21%;
+    margin-left: 185px;
+    width: 47%;
+    max-width: auto;
+  }
+}
+
+@media (max-width: 525px) {
+  .floating-table th, .floating-table td {
+    font-size: 12px; /* Ajusta el tamaño del texto para pantallas más pequeñas */
+    padding: 3px; /* Ajusta el relleno para pantallas más pequeñas */
+  
+  }
+  .floating-table {
+    margin-top: 43%;
+    margin-left: 50px;
+    width: 73%;
+    max-width: auto;
+  }
+}
+
+
+.floating-table th, .floating-table td {
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 0px;
+  text-align: left;
+}
+
+.floating-table th {
+  background-color: #d4d2d2;
+}
+
+tr:hover{
+  background-color: rgb(214, 223, 234);
+}

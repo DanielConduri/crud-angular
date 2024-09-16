@@ -20,3 +20,45 @@
   >
   <button class="search-button2">🔍</button>
 </div>
+
+<div style="display: grid; gap: 35px;">
+  <!-- <div class="list-search " *ngFor="let item of listFiltered" class="list">
+    {{item.str_producto_nombre}}
+    {{item.str_producto_nombre}}
+    <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
+  </div> -->
+
+  <div class="padre-check" style="height: 100%;">
+
+
+    <div class="tabla-container" style="height: 90% !important;" >
+        <table class="table floating-table">
+            <thead>
+                
+            </thead>
+            <tbody>
+
+
+                <tr *ngFor="let item of listFiltered; let i = index; let c = index">
+                    
+                    <td class="row" id="dato-check" >
+                      <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
+                     
+                    </td>
+                    <td>
+                      {{item.str_producto_nombre}}
+                    </td>
+                      
+                    
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div>
+
+
+
+

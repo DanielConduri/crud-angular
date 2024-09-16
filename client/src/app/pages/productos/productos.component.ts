@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { productosModel } from 'src/app/core/models/productos';
+import { dataProductos, productosModel } from 'src/app/core/models/productos';
 import { ProductosService } from 'src/app/core/services/productos.service';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -13,6 +13,27 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class ProductosComponent implements OnInit {
 
+  title = 'Comidas Geniales';
+  searchTerm$ = new Subject<string>();
+
+  private listDeliciousDishes = [
+    'Ceviche',
+    'Arepa',
+    'Empanadas',
+    'Asado',
+    'Pizzas',
+    'Hamburguesas',
+    'Pollo a la Brasa',
+    'Pasta 4 Quesos',
+    'Lomo Saltado',
+    'Pastel',
+    'Arroz Chaufa',
+  ];
+  
+  //listFiltered = [''];
+  listFiltered!: dataProductos[];
+
+
   private destroy$ = new Subject<any>();
 
   constructor(
@@ -20,13 +41,88 @@ export class ProductosComponent implements OnInit {
   ) { }
   isData: boolean = false;
   isLoading: boolean = true;
+
+
   ngOnInit(): void {
+    //this.filterList();
     setTimeout(() => {
       this.isLoading = false;
       Swal.close();
     }, 15.0009);
     this.getProducts();
   }
+
+
+  onSearch(e: any) {
+    //const target = event.target as HTMLInputElement;
+    length = e.target.value.length;
+    if (length > 2) {
+      const value = e.target.value;
+      console.log('Valor del input:', value);
+
+      
+      this.srvProductos
+      .getFindProductos(value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data: productosModel) => {
+          if (data.body) {
+            //console.log(data.body)
+            this.listFiltered = data.body;
+            console.log('listFiltered', this.listFiltered)
+            this.srvProductos.datosProductos = data.body;
+          }
+        },
+        error: (err) => {
+          console.log("Error al obtener los productos", err);
+        },
+        complete: () => {
+          Swal.close();
+        }
+      })
+  
+     }
+
+
+     
+    // setTimeout(() => {
+    //   if (target) {
+    //     const value = target.value;
+    //     console.log('Valor del input:', value);
+    //    }
+    // }, 1000); // 3000 milisegundos = 3 segundos
+    
+
+    // this.srvProductos.getFindProductos(target.value).pipe(
+    //   debounceTime(300), // Para evitar llamadas excesivas mientras se escribe
+    //   switchMap(() => this.srvProductos.getFindProductos(target.value)))
+    //   .subscribe({
+    //     next: (data: productosModel) => {
+    //       if (data.body) {
+    //         console.log(data.body)
+    //         this.srvProductos.datosProductos = data.body;
+    //       }
+    //     },
+    //     error: (err) => {
+    //       console.log("Error al obtener los productos", err);
+    //     },
+    //     complete: () => {
+    //       Swal.close();
+    //     }
+    //   })
+      
+
+
+      
+    }
+ 
+
+  // filterList(): void {
+  //   this.searchTerm$.subscribe(term => {
+  //     this.listFiltered = this.listDeliciousDishes
+  //       .filter(item => item.toLowerCase().indexOf(term.toLowerCase()) >= 0);
+  //   });
+  // }
 
   getProducts() {
     this.srvProductos.getProductos()
