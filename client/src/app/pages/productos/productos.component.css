@@ -622,12 +622,12 @@ footer {
 }
 
 
-/* @media (max-width: 768px) {
+ @media (max-width: 768px) {
   .footer-container {
       flex-direction: column;
       align-items: flex-start;
   }
-} */
+} 
 
 /* En tu archivo .css */
 .icono-flotante {

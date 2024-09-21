@@ -159,7 +159,33 @@ table {
 }
 
 
+@media (max-width: 1024px) {
+  .floating-table th, .floating-table td {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 1px; /* Ajusta el relleno */
+  }
 
+  .floating-table {
+    margin-top: 13%;
+    margin-left: 325px;
+    width: 34%;
+    max-width: auto;
+  }
+}
+
+@media (max-width: 580px) {
+  .floating-table th, .floating-table td {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 1px; /* Ajusta el relleno */
+  }
+
+  .floating-table {
+    margin-top: 50%;
+    margin-left: 325px;
+    width: 90%;
+    max-width: auto;
+  }
+}
 
 @media (max-width: 768px) {
   .floating-table th, .floating-table td {
@@ -168,7 +194,7 @@ table {
   }
 
   .floating-table {
-    margin-top: 21%;
+    margin-top: 19.75%;
     margin-left: 185px;
     width: 47%;
     max-width: auto;
@@ -179,9 +205,7 @@ table {
   .floating-table th, .floating-table td {
     font-size: 12px; /* Ajusta el tamaño del texto para pantallas más pequeñas */
     padding: 3px; /* Ajusta el relleno para pantallas más pequeñas */
-  
 
-    
   }
 
   .search-bar {
