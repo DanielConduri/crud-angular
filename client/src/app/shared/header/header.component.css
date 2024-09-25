@@ -58,8 +58,16 @@
 
 .line {
   border: 0;
-  margin-top: -20px;
+  margin-top: -24px;
   height: 1px;
-  background: #e4e4e4; /* Color de la línea */
+  background: #d3d2d2; /* Color de la línea */
   margin: px 0; /* Espaciado alrededor de la línea */
+  
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); Sombra de la línea */
+  }
+
+  .title h1{
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 10px;
   }
