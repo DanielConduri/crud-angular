@@ -18,6 +18,7 @@ router.post("/productos", routeProductos.insertarProducto);
 router.put('/productos/:id', routeProductos.actualizarProducto);
 router.delete('/productos/:id', routeProductos.eliminarProducto);
 router.get("/filtrado/:data", routeProductos.findProductos);
+router.get('/productos/item/:codigo', routeProductos.obtenerProductoCodigo);
 
 
 export default router;

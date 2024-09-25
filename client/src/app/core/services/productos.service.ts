@@ -58,6 +58,17 @@ export class ProductosService {
     )
   }
 
+  getProductoCodigo(codigo: string) {
+    return this.http.get<any>(
+      `${this.URL_API_PRODUCTOS}/item/${codigo}`,
+      {
+        withCredentials: true,
+      }
+    )
+  }
+
+
+
   getFindProductos(data: string) {
     return this.http.get<any>(
       this.URL_API_FILTRADO+'/'+data,

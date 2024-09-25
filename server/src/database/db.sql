@@ -44,3 +44,14 @@ CREATE TABLE IF NOT EXISTS inventario.categorias(
 
 ALTER TABLE inventario.categorias
 ADD CONSTRAINT unique_categoria_id UNIQUE (int_categoria_id);
+
+ALTER TABLE inventario.productos
+ADD COLUMN str_productos_url TEXT;
+
+ALTER TABLE inventario.productos DROP COLUMN str_producto_url;
+
+ALTER TABLE inventario.productos
+ADD COLUMN str_producto_url_images JSONB;
+
+ALTER TABLE inventario.productos
+ADD COLUMN str_producto_descripcion TEXT;

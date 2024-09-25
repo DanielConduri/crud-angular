@@ -40,10 +40,11 @@
 
 .header-container {
   margin-bottom: 20px;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  border-style:unset;
 }
 
 .header-column {

@@ -25,7 +25,7 @@ export const Productos = sequelize.define('productos',{  //Define un nuevo esuqu
         type: DataTypes.TEXT
     },
     str_producto_descripcion: {
-        type: DataTypes.JSONB
+        type: DataTypes.TEXT
     },
 	int_producto_cantidad:{
         type: DataTypes.INTEGER
@@ -47,6 +47,9 @@ export const Productos = sequelize.define('productos',{  //Define un nuevo esuqu
     dt_fecha_creacion:{
         type: DataTypes.DATE,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    },
+    str_producto_url: {
+        type: DataTypes.TEXT
     }
 },{
     schema: 'inventario',

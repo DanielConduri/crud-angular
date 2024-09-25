@@ -32,7 +32,7 @@ const obtenerProductos = async (req, res) => {
     console.log('Ejecutando servidor 2 en el puerto 8000 /n', serverDos);*/
 
     const datosProductos = await Productos.findAll();
-    console.log(datosProductos)
+    //console.log(datosProductos)
     const resultados = datosProductos.map(objeto => {
         return {
             producto: objeto.dataValues,
@@ -122,17 +122,58 @@ const obtenerProductoId = async (req, res) => {
 
 
 };
+
+
+const obtenerProductoCodigo = async (req, res) => {
+    const { codigo} = req.params;
+    //console.log(id);
+
+    try {
+        const producto = await Productos.findOne({
+            where: {
+                str_producto_codigo: codigo
+            }
+        });
+        //console.log(producto)
+
+        if (!producto) {
+            return res.json({
+                status: false,
+                message: 'El Producto a obtener no existe',
+            });
+        }
+
+        return res.json({
+            status: true,
+            message: 'Producto obtenido exitosamente',
+            body: producto
+        });
+
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+
+
+};
 const insertarProducto = async (req, res) => {
     //console.log(req);
+    
     const {
         str_producto_codigo,
         str_producto_nombre,
         int_producto_cantidad,
         str_producto_marca,
         int_producto_precio,
-        str_producto_proveedor
+        str_producto_proveedor,
+        str_producto_url
     } = req.body;
 
+    let text = req.body.str_producto_nombre;
+    let url_product = text.toLowerCase().replace(/\s+/g, '-');
+    //console.log(url_product);
+    req.body.str_producto_url = url_product;
+
+    console.log(req.body.str_producto_url)
     try {
         const producto = await Productos.create({
             str_producto_codigo,
@@ -140,7 +181,8 @@ const insertarProducto = async (req, res) => {
             int_producto_cantidad,
             str_producto_marca,
             int_producto_precio,
-            str_producto_proveedor
+            str_producto_proveedor,
+            str_producto_url
         });
 
         //console.log('producto ', producto);
@@ -155,9 +197,14 @@ const insertarProducto = async (req, res) => {
 
 const actualizarProducto = async (req, res) => {
 
+    
+
     const { id } = req.params;
     //console.log(id);
-    console.log(req.body)
+    //console.log(req.body)
+
+    
+
     const {
         str_producto_codigo,
         str_producto_nombre,
@@ -276,6 +323,7 @@ export default {
     obtenerProductos,
     findProductos,
     obtenerProductoId,
+    obtenerProductoCodigo,
     insertarProducto,
     actualizarProducto,
     eliminarProducto
