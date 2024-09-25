@@ -147,13 +147,13 @@ table {
   left: 0;
   right: 0;
   bottom: 0;
-  margin-top: 9%;
+  margin-top: 9.71%;
   
   /*margin: auto;*/ /* Centra la tabla horizontal y verticalmente */
   border-collapse: collapse;
   background-color: white; /* Opcional: para mejor visibilidad sobre el fondo */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para efecto flotante */
-  width: 23.5%; /* Ajusta el ancho de la tabla según sea necesario */
+  width: 25%; /* Ajusta el ancho de la tabla según sea necesario */
   z-index: 1000; /* Asegura que la tabla esté sobre otros elementos */
   
 }
