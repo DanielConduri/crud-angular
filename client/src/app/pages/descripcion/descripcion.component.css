@@ -1,0 +1,64 @@
+
+.header {
+    background-color: #f8f9fa;
+    /*background-color: #f0eeee;*/ /* Color gris para el fondo */
+    color: rgb(63, 63, 63); /* Color del texto */
+    padding: 10px 0; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+    /* background: #f3dac2;
+      background: -webkit-linear-gradient(to right, #919191, #cd9bd3, #e7c09b);
+      background: linear-gradient(to right, #7bd0d6, #d096d6, #ccb095);
+       */
+  }
+  
+  .header-content {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+    display: flex;
+    font-size: 13px;
+  }
+  
+  .contact-info p {
+    margin: 5px 0; /* Espacio entre las líneas de contacto */
+    font-size: 10px; /* Tamaño de fuente */
+    padding: 10px;
+  }
+  
+  .contact-info strong {
+    font-weight: bold; /* Resaltar etiquetas como Teléfono, Correo, etc. */
+  }
+  
+  .text{
+    margin-top: 0.2rem;
+    padding-left: 9.5rem;
+  }
+  
+  
+  .header {
+    padding: 20px;
+  }
+  
+  .header-container {
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .header-column {
+    flex: 1 1 200px;
+    margin: 10px;
+  }
+  
+  .header-column p {
+    font-size: 14px;
+  }
+  
+  .line {
+    border: 0;
+    margin-top: -20px;
+    height: 1px;
+    background: #e4e4e4; /* Color de la línea */
+    margin: px 0; /* Espaciado alrededor de la línea */
+    }

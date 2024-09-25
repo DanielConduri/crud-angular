@@ -12,7 +12,10 @@ app.get("/info", (req, res) => {
   });
 
   //const port = process.env.PORT || 3002;
-async function main(port){
+  //force: true -> elimina las tablas existentes y luego las vuelve a crear basándose en los modelos.
+  //alter: true -> Sequelize intentará ajustar la tabla en lugar de eliminarla completamente. Aplicará cambios en el esquema sin perder datos (agregará columnas nuevas, cambiará tipos de datos, etc.).
+
+  async function main(port){
     try {
     await sequelize.sync( { alter: true }); //No recrea las tablas
         console.log('Connection has been established successfully.');

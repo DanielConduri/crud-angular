@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
   
      }
 
-
+     
      
     // setTimeout(() => {
     //   if (target) {
@@ -82,10 +82,13 @@ export class SearchComponent implements OnInit {
     //     }
     //   })
       
-
-
-      
     }
+
+    onClickItem(name: string) {
+      console.log(name)
+      //alert(name)
+    }
+
       
   
 

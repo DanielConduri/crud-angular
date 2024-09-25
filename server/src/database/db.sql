@@ -2,8 +2,11 @@ DROP TABLE inventario.productos
 TRUNCATE TABLE inventario.productos RESTART IDENTITY
 CREATE TABLE IF NOT EXISTS inventario.productos(
 	int_producto_id SERIAL NOT NULL,
+	int_categoria_id INTEGER,
 	str_producto_codigo VARCHAR NOT NULL UNIQUE,
 	str_producto_nombre VARCHAR UNIQUE,
+	str_producto_image TEXT,
+	str_producto_descripcion jsonb,
 	int_producto_cantidad INTEGER,
 	str_producto_marca VARCHAR,
 	int_producto_precio DECIMAL,
@@ -12,6 +15,7 @@ CREATE TABLE IF NOT EXISTS inventario.productos(
 	dt_fecha_creacion TIMESTAMP DEFAULT NOW(),
 	CONSTRAINT ck_producto_estado check (str_producto_estado='ACTIVO' OR str_producto_estado='INACTIVO')
 );
+
 
 INSERT INTO inventario.productos(
 	str_producto_codigo,
@@ -32,3 +36,11 @@ VALUES
 ('LVR17','Lavadora', 12, 'WHIRLPOOL', 725.40, 'Importdora Alessa');
 
 SELECT * FROM inventario.productos
+
+CREATE TABLE IF NOT EXISTS inventario.categorias(
+	int_categoria_id SERIAL NOT NULL,
+	str_categoria_descripcion TEXT
+);
+
+ALTER TABLE inventario.categorias
+ADD CONSTRAINT unique_categoria_id UNIQUE (int_categoria_id);

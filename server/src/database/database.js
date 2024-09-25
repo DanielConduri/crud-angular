@@ -47,11 +47,11 @@ export const sequelize = new Sequelize(
       dialect: configVariables.dbDialect,
       logging: false,
       port: configVariables.dbPort,
-      ssl: true, // Habilita SSL
-      dialectOptions: {
-          ssl: {
-              require: true // Utiliza sslmode=require
-          }
-      }
+    //   ssl: true, // Habilita SSL
+    //   dialectOptions: {
+    //       ssl: {
+    //           require: true // Utiliza sslmode=require
+    //       }
+    //   }
   }
 );

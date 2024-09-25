@@ -41,11 +41,12 @@
 
                 <tr *ngFor="let item of listFiltered; let i = index; let c = index">
                     
-                    <td class="row" id="dato-check" >
+                    <td (click)="onClickItem(item.str_producto_codigo)" class="row" id="dato-check" >
                       <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
-                     
                     </td>
-                    <td>
+                    <td (click)="onClickItem(item.str_producto_codigo)"
+                    [routerLink] = "['/descripcion', item.str_producto_nombre]"
+                    >
                       {{item.str_producto_nombre}}
                     </td>
                       

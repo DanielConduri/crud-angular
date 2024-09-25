@@ -25,7 +25,7 @@ import { ProductosComponent } from '../pages/productos/productos.component';
         HeaderComponent,
         MainComponent,
         BodyComponent,
-        ProductosComponent
+
 
     ],
     imports: [

@@ -8,7 +8,7 @@ import { ModificarProductoComponent } from './modificar-producto/modificar-produ
 import { DesplegableComponent } from './desplegable/desplegable.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     ButtonComponent,
@@ -22,7 +22,8 @@ import { SearchComponent } from './search/search.component';
 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }

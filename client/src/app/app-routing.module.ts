@@ -15,6 +15,7 @@ import { AdminModule } from './pages/admin/admin.module';
 
 import { ProductosModule } from './pages/productos/productos.module';
 import { WelcomeModule } from './pages/admin/welcome/welcome.module';import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { DescripcionModule } from './pages/descripcion/descripcion.module';
 const routes: Routes = [
   { path: '', redirectTo: '/productos', pathMatch: 'full'},
   { path: 'productos2', component: ListaProductosComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
       // {path: 'welcome', loadChildren: () => WelcomeModule},
       {path: '', loadChildren:() => HomeModule},
       {path: 'productos', loadChildren: () => ProductosModule},
+      {path: 'descripcion/:id', loadChildren: ()=> DescripcionModule},
       {path: '404', loadChildren:() => FailedModule},
       {path: 'denegado', loadChildren:() => DeniedModule},
       {path: 'logout', loadChildren:() => LogoutModule},
@@ -40,6 +42,7 @@ const routes: Routes = [
       {path: '', loadChildren:() => AdminModule},
       {path: 'welcome', loadChildren: () => WelcomeModule},
       {path: 'productos', loadChildren: () => ProductosModule},
+      
       // {path: 'ajustes', loadChildren:() => ConfiguracionModule},
       // {path: 'bienes', loadChildren:() => BienesModule}
     ],
