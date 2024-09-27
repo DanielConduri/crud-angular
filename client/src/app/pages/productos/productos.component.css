@@ -65,7 +65,7 @@ section img {
     grid-template-columns: repeat(auto-fill, minmax(200px 1fr));*/
     display: grid;
     /*grid-template-columns: 1fr 1fr;*/
-    gap: 18px;
+    gap: 19px;
     justify-content: center;
     padding: 0 50px; /* Espacio a la izquierda y derecha del grid */
     
@@ -119,8 +119,8 @@ section img {
   
   .card {
     cursor: pointer;
-    margin-left: 3%;
-    margin-right: 15%;
+    margin-left: -1.15%;
+    margin-right: 2%;
     width: 100%;
     max-width: 295px;
     padding: 16px;
