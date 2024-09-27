@@ -8,6 +8,7 @@ export interface productosModel {
 
 export interface dataProductos {
     int_producto_id: number;
+    int_categoria_id: number;
     str_producto_codigo: string;
 	str_producto_nombre: string;
 	int_producto_cantidad: number;
@@ -15,8 +16,11 @@ export interface dataProductos {
 	int_producto_precio: number;
 	str_producto_proveedor: string;
     str_producto_estado: string;
+    str_producto_descripcion: string;
     str_producto_image: string;
     dt_fecha_creacion: string;
+    str_producto_url: string;
+
 }
 
 //------------------------------- AGREGAR - CRUD DE PRODUCTOS -------------------------------
@@ -48,6 +52,7 @@ export interface ProductosShowModel {
 
 export interface EstadosData {
     int_producto_id: number;
+    int_categoria_id: number;
     str_producto_codigo: string;
 	str_producto_nombre: string;
 	int_producto_cantidad: number;
@@ -55,8 +60,10 @@ export interface EstadosData {
 	int_producto_precio: number;
 	str_producto_proveedor: string;
     str_producto_estado: string;
+    str_producto_descripcion: string;
     str_producto_image: string;
     dt_fecha_creacion: string;
+    str_producto_url: string;
 }
   
 

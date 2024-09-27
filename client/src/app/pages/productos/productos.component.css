@@ -65,7 +65,9 @@ section img {
     grid-template-columns: repeat(auto-fill, minmax(200px 1fr));*/
     display: grid;
     /*grid-template-columns: 1fr 1fr;*/
-    gap: 16px;
+    gap: 18px;
+    justify-content: center;
+    padding: 0 50px; /* Espacio a la izquierda y derecha del grid */
     
     @media screen and (max-width: 580px){
         grid-template-columns: 1fr;

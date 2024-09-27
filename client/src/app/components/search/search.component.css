@@ -5,7 +5,7 @@
     width: 100%;
     max-width: 425px;
     margin: 0 auto;
-    /* padding: 7px; */
+    padding: 7px; 
     padding: 4px;
     background-color: #f1f1f1;
     /* background: #feac5e;
@@ -27,7 +27,8 @@
 
 
   .search-button2 {
-    background-color: #7ae9ec;
+    /*background-color: #7ae9ec;*/
+    background-color: #93e4fd;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -143,11 +144,12 @@ table {
 
 .floating-table {
   position: absolute; /* Hace que la tabla sea flotante */
-  top: 0;
+  /* top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  margin-top: 9.71%;
+  bottom: 0; */
+  /* margin-top: 9.71%; */
+  max-width: 900px;
   
   /*margin: auto;*/ /* Centra la tabla horizontal y verticalmente */
   border-collapse: collapse;
@@ -166,26 +168,14 @@ table {
   }
 
   .floating-table {
-    margin-top: 13%;
+    margin-top: 0.2%;
     margin-left: 325px;
     width: 34%;
     max-width: auto;
   }
 }
 
-@media (max-width: 580px) {
-  .floating-table th, .floating-table td {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    padding: 1px; /* Ajusta el relleno */
-  }
 
-  .floating-table {
-    margin-top: 50%;
-    margin-left: 325px;
-    width: 90%;
-    max-width: auto;
-  }
-}
 
 @media (max-width: 768px) {
   .floating-table th, .floating-table td {
@@ -194,30 +184,78 @@ table {
   }
 
   .floating-table {
-    margin-top: 19.75%;
-    margin-left: 185px;
-    width: 47%;
+    margin-top: 0.3%;
+    margin-left: 190px;
+    width: 46%;
     max-width: auto;
   }
 }
 
-@media (max-width: 525px) {
+@media (max-width: 425px) {
   .floating-table th, .floating-table td {
-    font-size: 12px; /* Ajusta el tamaño del texto para pantallas más pequeñas */
-    padding: 3px; /* Ajusta el relleno para pantallas más pequeñas */
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 1px; /* Ajusta el relleno */
+  }
 
+  .floating-table {
+  
+    margin-left: 85px;
+    justify-content: left;
+    width: 59.8%;
+    max-width: auto;
   }
 
   .search-bar {
-    width: 87%;
-  }
-  .floating-table {
-    margin-top: 56%;
-    margin-left: 44px;
-    width: 71%;
-    max-width: auto;
+    justify-content: center;
+    margin-left: 70px;
+    max-width: 320px;
   }
 }
+
+
+@media (max-width: 375px) {
+  .floating-table th, .floating-table td {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 1px; /* Ajusta el relleno */
+  }
+
+  .floating-table {
+  
+    margin-left: 65px;
+    justify-content: left;
+    width: 60.7%;
+    max-width: auto;
+  }
+
+  .search-bar {
+    justify-content: center;
+    margin-left: 45px;
+    max-width: 301px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .floating-table th, .floating-table td {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 1px; /* Ajusta el relleno */
+  }
+
+  .floating-table {
+  
+    margin-left: 35px;
+    justify-content: left;
+    width: 57.5%;
+    max-width: auto;
+  }
+
+  .search-bar {
+    justify-content: center;
+    margin-left: 20px;
+    max-width: 250px;
+  }
+}
+
 
 
 .floating-table th, .floating-table td {

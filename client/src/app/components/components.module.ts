@@ -9,16 +9,19 @@ import { DesplegableComponent } from './desplegable/desplegable.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { RouterModule } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     ButtonComponent,
     DesplegableComponent,
-    SearchComponent
+    SearchComponent,
+    MenuComponent
   ],
   exports: [
     ButtonComponent,
     DesplegableComponent,
-    SearchComponent
+    SearchComponent,
+    MenuComponent
 
   ],
   imports: [

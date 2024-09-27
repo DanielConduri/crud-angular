@@ -16,6 +16,11 @@
   margin: 0 auto; /* Centrar el contenido */
   display: flex;
   font-size: 13px;
+
+}
+
+.icons {
+  padding-right: 40px;
 }
 
 .contact-info p {
@@ -39,13 +44,22 @@
 }
 
 .header-container {
-  margin-bottom: 20px;
+ 
   background-color: #ffffff;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
-  border-style:unset;
+  /* border-style:unset; */
+  align-items: center;
+  position: relative;
+  padding: 4px;
+
 }
+
+.header-container h1 {
+  justify-content: left;
+}
+
 
 .header-column {
   flex: 1 1 200px;
@@ -58,7 +72,7 @@
 
 .line {
   border: 0;
-  margin-top: -24px;
+  margin-top: 1px;
   height: 1px;
   background: #d3d2d2; /* Color de la línea */
   margin: px 0; /* Espaciado alrededor de la línea */
@@ -66,8 +80,17 @@
   /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); Sombra de la línea */
   }
 
-  .title h1{
-    margin-left: 20px;
-    text-align: center;
-    margin-top: 10px;
+  .title h1 {
+  padding-left: 10px;
+  margin-bottom: 4px;
+  background-color: #ffffff;
+
   }
+
+  /*app-menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }*/
+
+  
