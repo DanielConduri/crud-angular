@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import config from 'config/config';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -43,8 +43,14 @@ export class ProductosService {
     this.iscarga$.next(data);
   }
 
-  getProductos(){ //Obtiene los productos del backend
-    return this.http.get<productosModel>(`${this.URL_API_PRODUCTOS}`, {
+  getProductos(pagination: any){ //Obtiene los productos del backend
+    
+    const params = new HttpParams()
+    .set('route', pagination.route);
+
+    //this.URL_API_PRODUCTOS + '?'+ params
+    //`${this.URL_API_PRODUCTOS}?${params}`
+    return this.http.get<productosModel>(`${this.URL_API_PRODUCTOS}?${params}`, {
       withCredentials: true,
     })
   }

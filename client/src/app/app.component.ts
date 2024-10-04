@@ -59,7 +59,7 @@ export class AppComponent  implements OnInit {
       this.isLoading = false;
       Swal.close();
     }, 1500);
-    this.getProductos();
+    //this.getProductos();
   }
 
   //Funcion para obtener los productos
@@ -71,7 +71,7 @@ export class AppComponent  implements OnInit {
         Swal.showLoading()
       }
     });
-    this.srvProductos.getProductos()
+    this.srvProductos.getProductos({})
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (data: productosModel) => {

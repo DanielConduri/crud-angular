@@ -38,6 +38,8 @@ export class ListaProductosComponent implements OnInit {
 
   isData: boolean = false;
   isLoading: boolean = true;
+  mapFiltersToRequest: any = {};
+  
 
   constructor(
     public srvProductos: ProductosService,
@@ -57,6 +59,7 @@ export class ListaProductosComponent implements OnInit {
 
   //Funcion para obtener los productos
   getProductos() {
+    this.mapFiltersToRequest = { route: 2 };
     console.log('getProductos en app.component.ts');
     Swal.fire({
       title: 'Cargando Productos...',
@@ -64,7 +67,7 @@ export class ListaProductosComponent implements OnInit {
         Swal.showLoading()
       }
     });
-    this.srvProductos.getProductos()
+    this.srvProductos.getProductos(this.mapFiltersToRequest)
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (data: productosModel) => {

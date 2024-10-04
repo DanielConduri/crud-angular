@@ -1,11 +1,27 @@
 
-<img src="{{image}}" alt="" style="width: 450px; ">
+<div class="items-container"> 
+    <h1 class="title">{{name}}</h1>
+    
+    <img class="img-description" src="{{this.image}}" alt="" style="width: 450px; ">
+    
+    <h2 style="align-items:center">${{price}}</h2>
+    
+    
+</div>
+<!-- <hr class="line"> -->
+
+<button class="btn-add-des" style="width: 150px; ">COMPRAR</button> 
+<div class="linea-contenedor">
+    <hr class="mi-linea-horizontal">
+</div>
+
+
 
 
 
 <!-- <img src="https://dlcdnwebimgs.asus.com/gain/56ad63d6-05c5-41b8-b167-b70ac4ec2644/w800" alt="" style="width: 470px"> -->
 
-<div *ngFor="let producto of srvProductos.datosProductos, let i = index">
+<div *ngFor="let producto of srvProductos.datosProductos, let i = index" >
     <img src="{{producto.str_producto_image}}" alt="">
     <h2>{{producto.str_producto_nombre}}</h2>
 </div>

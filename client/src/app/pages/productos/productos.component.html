@@ -231,7 +231,8 @@
         </p>
       </div> -->
 
-      <div class="card" *ngFor="let producto of srvProductos.datosProductos, let i = index">
+      <div (click)= "onClickItem(producto.str_producto_codigo)"
+      class="card" *ngFor="let producto of srvProductos.datosProductos, let i = index">
         <div *ngIf="producto.str_producto_estado === 'ACTIVO'">
 
           <img src="{{producto.str_producto_image}}" alt="img">

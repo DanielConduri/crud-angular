@@ -1,42 +1,39 @@
 
-.header {
-    background-color: #f8f9fa;
+.items-container {
+  justify-content: space-between;
+    background-color: #ffffff;
     /*background-color: #f0eeee;*/ /* Color gris para el fondo */
     color: rgb(63, 63, 63); /* Color del texto */
     padding: 10px 0; /* Espaciado interno */
-    text-align: center; /* Centrar el texto */
+    text-align: left; /* Centrar el texto */
+    align-items: center;
+    margin-left: 14%;
     /* background: #f3dac2;
       background: -webkit-linear-gradient(to right, #919191, #cd9bd3, #e7c09b);
       background: linear-gradient(to right, #7bd0d6, #d096d6, #ccb095);
        */
-  }
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 8%;
+  margin-left: 33%;
+  position: absolute;
+}
+h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: -22%;
+  margin-left: 33%;
+  position: absolute;
+}
+
+button {
+  margin-bottom: -50px;
+}
+
   
-  .header-content {
-    max-width: 1200px; /* Ancho máximo del contenido */
-    margin: 0 auto; /* Centrar el contenido */
-    display: flex;
-    font-size: 13px;
-  }
-  
-  .contact-info p {
-    margin: 5px 0; /* Espacio entre las líneas de contacto */
-    font-size: 10px; /* Tamaño de fuente */
-    padding: 10px;
-  }
-  
-  .contact-info strong {
-    font-weight: bold; /* Resaltar etiquetas como Teléfono, Correo, etc. */
-  }
-  
-  .text{
-    margin-top: 0.2rem;
-    padding-left: 9.5rem;
-  }
-  
-  
-  .header {
-    padding: 20px;
-  }
   
   .header-container {
     margin-bottom: 20px;
@@ -45,20 +42,76 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+
+  .linea-contenedor {
+    text-align: center; 
+}
+
+.mi-linea-horizontal {
+    margin-top: -20%;
+    border: none; /* Eliminar el borde por defecto */
+    height: 1px; /* Cambiar la altura de la línea */
+    background-color: #dfdfdf; /* Cambiar el color de la línea */
+    width: 50%; /* Cambiar el ancho de la línea (ajusta según sea necesario) */
+    margin: -90px auto; /* Añadir márgenes superior e inferior */
+}
+
+
   
-  .header-column {
-    flex: 1 1 200px;
-    margin: 10px;
-  }
-  
-  .header-column p {
-    font-size: 14px;
-  }
-  
-  .line {
+.line {
+  position: absolute;
     border: 0;
-    margin-top: -20px;
+    margin-top: -80px;
+    margin-left: 100%;
     height: 1px;
-    background: #e4e4e4; /* Color de la línea */
-    margin: px 0; /* Espaciado alrededor de la línea */
+    width: 40%;
+    background: #d8d8d8; /* Color de la línea */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+    .btn-add-des{
+
+     position: absolute;
+     margin-top: -18%;
+      z-index: 1;
+      font-size: 13px;
+      font-weight: 900;
+      margin-left: 47%;
+      text-transform: uppercase;
+      color: #000000;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      line-height: .95;
+      border: none;
+      background: none;
+      outline: none;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      overflow: hidden;
+      /* margin-left: 95px; */
+    
+      & .bg {
+          width: 101%;
+          height: 101%;
+          display: block!important;
+          z-index: -1;
+          opacity: 0;
+          transition: all .3s ease-in-out;
+          background: linear-gradient(135deg, #a61322, #d33f34);
+        }
+        
+        &:hover {
+          background-color: #d8c8c8!important;
+          border: 1px solid transparent!important;
+          
+          & .bg {
+            opacity: 10;
+          }
+        }
+    }
+    .btn-add:hover {
+      background-color: #045b70;
     }

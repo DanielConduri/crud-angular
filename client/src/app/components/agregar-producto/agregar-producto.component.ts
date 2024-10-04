@@ -106,7 +106,7 @@ export class AgregarProductoComponent implements OnInit {
   }// fin agregar producto´
 
   showProductos(){
-    this.srvProductos.getProductos()
+    this.srvProductos.getProductos({})
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (resProducto: ProductosShowModel) => {

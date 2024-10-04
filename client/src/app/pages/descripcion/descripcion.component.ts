@@ -5,6 +5,8 @@ import { ProductosService } from '../../core/services/productos.service';
 import { productosModel, dataProductos } from '../../core/models/productos';
 import { Subject, takeUntil } from 'rxjs';
 import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
+import { ProductosModule } from '../productos/productos.module';
 
 @Component({
   selector: 'app-descripcion',
@@ -16,15 +18,23 @@ export class DescripcionComponent implements OnInit {
   private destroy$ = new Subject<any>();
   constructor(
     public srvProductos: ProductosService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private http: HttpClient,
   ) { }
 
   codigo!: string | null;
   codigo_parametro!: string;
   image!: string;
-  ngOnInit(): void {
+  name!: string;
+  price!: number;
 
-    
+  cod: string | null = null;
+  codigoProducto: string | null = null;
+  productosFiltrados: dataProductos[] = []; // Array para guardar los resultados
+  data: any;
+  private urlProducts = 'https://crud-angular-production-ed75.up.railway.app/productos';
+
+  ngOnInit(): void {
      //Recuperar valor de un componente anterior
      this.route.paramMap.subscribe(params => {
       this.codigo = params.get('cod');
@@ -35,6 +45,22 @@ export class DescripcionComponent implements OnInit {
       
       //alert(this.id)
     })
+    // this.http.get<productosModel>(this.urlProducts).subscribe(
+    //   (response) => {
+    //     this.data = response.body;
+    //     console.log(this.data)
+
+    //     this.productosFiltrados = this.data.filter((producto: dataProductos) =>
+    //       producto.str_producto_codigo === this.codigo
+    //     );
+    
+    //     console.log('Productos filtrados:', this.productosFiltrados);
+    //     //this.image = this.productosFiltrados[0].str_producto_image;
+    //   },
+    //   error => {
+    //     console.log(error)
+    //   }
+    // )
     this.getProductoCodigo();
   }
 
@@ -48,6 +74,8 @@ export class DescripcionComponent implements OnInit {
         console.log('data =>', data);
         this.srvProductos.datosProductos = data.body;
         this.image = data.body.str_producto_image;
+        this.name = data.body.str_producto_nombre;
+        this.price = data.body.int_producto_precio;
       },
       error: (err) => {
         console.log('Error =>', err);

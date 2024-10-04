@@ -191,7 +191,7 @@ export class ModificarProductoComponent implements OnInit {
       }
     });
 
-    this.srvProductos.getProductos()
+    this.srvProductos.getProductos({})
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (data: productosModel) => {

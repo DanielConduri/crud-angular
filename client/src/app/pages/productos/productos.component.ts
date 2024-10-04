@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { dataProductos, productosModel } from 'src/app/core/models/productos';
 import { ProductosService } from 'src/app/core/services/productos.service';
 import { Subject, takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -38,10 +39,11 @@ export class ProductosComponent implements OnInit {
 
   constructor(
     public srvProductos: ProductosService,
+    private router: Router
   ) { }
   isData: boolean = false;
   isLoading: boolean = true;
-
+  mapFiltersToRequest: any = {};
 
   ngOnInit(): void {
     //this.filterList();
@@ -51,8 +53,15 @@ export class ProductosComponent implements OnInit {
     }, 15.0009);
     this.getProducts();
   }
-
-
+  
+  
+  
+  onClickItem(codigo: string) {
+    //[routerLink] = "['/tipo-contratacion', producto.str_producto_codigo]"
+    this.router.navigate(['/descripcion', codigo])
+    
+    //alert(codigo)
+  }
   onSearch(e: any) {
     //const target = event.target as HTMLInputElement;
     length = e.target.value.length;
@@ -125,13 +134,15 @@ export class ProductosComponent implements OnInit {
   // }
 
   getProducts() {
-    this.srvProductos.getProductos()
+    this.mapFiltersToRequest = { route: 1 };
+    this.srvProductos.getProductos(this.mapFiltersToRequest)
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (data: productosModel) => {
         if(data.body) {
           this.isData = true;
           this.srvProductos.datosProductos = data.body;
+          console.log(data)
         }
       },
       error: (err) => {

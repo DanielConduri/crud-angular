@@ -27,17 +27,25 @@ async function startServer() {
 
 const obtenerProductos = async (req, res) => {
 
-    /*console.log('Antes de ejecutar el servidor');
-    const serverDos = await startServer();
-    console.log('Ejecutando servidor 2 en el puerto 8000 /n', serverDos);*/
-
-    const datosProductos = await Productos.findAll();
-    //console.log(datosProductos)
-    const resultados = datosProductos.map(objeto => {
-        return {
-            producto: objeto.dataValues,
-        };
-    });
+    //console.log('Antes de ejecutar el servidor');
+    //const serverDos = await startServer();
+    //console.log('Ejecutando servidor 2 en el puerto 8000 /n', serverDos);
+    console.log(req.query)
+    let datosProductos;
+    if(req.query.route == 1){
+        datosProductos = await Productos.findAll({
+            where : { str_producto_estado: 'ACTIVO'} 
+        });
+    } else {
+        datosProductos = await Productos.findAll();
+    }
+    console.log(datosProductos.length)
+    //console.log(datosProductos.length)
+    // const resultados = datosProductos.map(objeto => {
+    //     return {
+    //         producto: objeto.dataValues,
+    //     };
+    // });
     //console.log(resultados);
     try {
         if (datosProductos.length === 0 || !datosProductos) {
