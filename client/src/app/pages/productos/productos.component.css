@@ -2,7 +2,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 * {
-    box_sizing: border-box;
+    box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 } 

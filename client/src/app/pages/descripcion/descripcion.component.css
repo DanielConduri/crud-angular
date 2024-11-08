@@ -91,7 +91,6 @@ button {
       border: 1px solid #000000;
       border-radius: 5px;
       overflow: hidden;
-      /* margin-left: 95px; */
     
       & .bg {
           width: 101%;
@@ -115,3 +114,7 @@ button {
     .btn-add:hover {
       background-color: #045b70;
     }
+
+    /*IMÁGENES*/
+    
+    

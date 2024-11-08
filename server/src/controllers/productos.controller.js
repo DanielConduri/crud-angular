@@ -208,8 +208,8 @@ const actualizarProducto = async (req, res) => {
     
 
     const { id } = req.params;
-    //console.log(id);
-    //console.log(req.body)
+    console.log(id);
+    console.log(req.body)
 
     
 

@@ -95,3 +95,6 @@ export class DescripcionComponent implements OnInit {
 
 
 }
+
+
+
