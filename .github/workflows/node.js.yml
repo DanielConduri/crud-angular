@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      working-directory: ./server
+      working-directory: ./server/src
     # - run: 
     #     touch ./server/.env
     #     echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
