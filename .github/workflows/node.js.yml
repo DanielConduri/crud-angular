@@ -32,5 +32,5 @@ jobs:
         touch ./server/.env
         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
 
-    - run: docker build -t server/img-productos .
-    - run: docker run --name container-productos -d -p 8000:8000 server/img-productos
+    - run: docker build -t img-productos -f ./server .
+    - run: docker run --name container-productos -d -p 8000:8000 img-productos
