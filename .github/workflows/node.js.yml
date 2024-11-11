@@ -36,6 +36,6 @@ jobs:
     # - run: docker run --name container-productos -d -p 8000:8000 img-productos
 
     - run: |
-          touch ./server/src.env
-          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src.env
-          
+          touch ./server/src/.env
+          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src/.env
+
