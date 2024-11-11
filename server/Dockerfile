@@ -5,7 +5,8 @@ WORKDIR /usr/src/app
 COPY ./server/package*.json ./
 RUN npm install
 
-COPY . .
+#COPY . .
+COPY ./server /usr/src/app
 
 EXPOSE 8000
 
