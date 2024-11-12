@@ -35,12 +35,12 @@ jobs:
     #- run: |
           #touch ./server/src/.env
           #echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src/.env
+
   deploy:
     needs: build 
     runs-on: self-hosted
     steps:
     - name: DEPLOY
-      working-directory: ./server
     - run: |
          touch .env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
