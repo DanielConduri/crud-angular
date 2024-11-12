@@ -41,10 +41,8 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: build
-    #- name: Delete old container
         run: |
           docker rm -f container-productos
-    #- name: Delete old image 
           docker rmi -f img-productos
           docker build -t img-productos -f ./server/Dockerfile .
           docker run --name container-productos -d -p 8000:8000 img-productos
