@@ -27,7 +27,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     #- name: Delete old container
-    #- run: docker rm -f container-productos
+    - run: docker rm -f container-productos
     #- name: Delete old image 
     - run: docker rmi -f img-productos
       working-directory: ./server
