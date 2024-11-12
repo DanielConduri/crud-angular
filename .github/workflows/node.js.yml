@@ -26,12 +26,13 @@ jobs:
         #cache: 'npm'
     #- run: npm ci
   env:
-    runs-on: self-hosted
+    name: SET ENV
     needs: start
+    runs-on: self-hosted
     steps:
       - name: ENV BACK
         working-directory: ./server/src
-        - run: |
+        run: |
          touch ./server/.env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
   build:
