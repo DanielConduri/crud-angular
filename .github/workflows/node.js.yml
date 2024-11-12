@@ -31,7 +31,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: ENV BACK
-        working-directory: ./server/src
+        #working-directory: ./server/src
         run: |
          touch ./server/.env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
