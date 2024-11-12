@@ -7,8 +7,14 @@ const url = '/apiv4';
 router.get(url + '/info', (req, res, next) => {
     res.json({
         status: 200,
-        message: 'OK',
-        version: '1.15',
+        message: "successfully",
+        body: [
+            {
+                api: "crud-angular",
+                port: 8000,
+                url: "/apiv4"
+            }
+        ]
     });
 });
 
