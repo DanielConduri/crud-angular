@@ -41,7 +41,7 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: DEPLOY
-    - run: |
+      run: |
          touch .env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
          echo DB_USER=${{ secrets.DB_USER }} >> .env
