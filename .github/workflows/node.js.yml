@@ -37,11 +37,18 @@ jobs:
           #echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src/.env
   deploy:
     needs: build 
+    runs-on: self-hosted
     steps:
-      working-directory: ./server/src
-    - run: |
-         touch ./server/.env
-         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+      working-directory: ./server
+    - run: 
+         touch .env
+         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
+         echo DB_USER=${{ secrets.DB_USER }} >> .env
+         echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
+         echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+         echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> .env
+         echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+         echo DB_NAME=${{ secrets.DB_NAME }} >> .env
 
     - run: docker build -t img-productos -f ./server/Dockerfile .
     - run: docker run --name container-productos -d -p 8000:8000 img-productos
