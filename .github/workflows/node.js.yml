@@ -24,20 +24,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+      working-directory: ./server/src
     #- name: Delete old container
     - run: docker rm -f container-productos
     #- name: Delete old image 
     - run: docker rmi -f img-productos
-      working-directory: ./server
+      
     - run: |
-         touch .env
-         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
-         echo DB_USER=${{ secrets.DB_USER }} >> .env
-         echo DB_SERVER=${{ secrets.DB_SERVER }} >> .env
-         echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
-         echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> .env
-         echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-         echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+         touch ./server/.env
+         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+         echo DB_USER=${{ secrets.DB_USER }} >> ./server/.env
+         echo DB_SERVER=${{ secrets.DB_SERVER }} >> ./server/.env
+         echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> ./server/.env
+         echo DB_DIALECT=${{ secrets.DB_DIALECT }} >> ./server/.env
+         echo DB_PORT=${{ secrets.DB_PORT }} >> ./server/.env
+         echo DB_NAME=${{ secrets.DB_NAME }} >> ./server/.env
 
     - run: docker build -t img-productos -f ./server/Dockerfile .
     - run: docker run --name container-productos -d -p 8000:8000 img-productos
