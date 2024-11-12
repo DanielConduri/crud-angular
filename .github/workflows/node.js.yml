@@ -12,18 +12,18 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    strategy:
-      matrix:
-        node-version: [18.x]
+    #strategy:
+      #matrix:
+        #node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
+      - uses: actions/checkout@v4
+    #- name: Use Node.js ${{ matrix.node-version }}
+      #uses: actions/setup-node@v4
+      #with:
+        #node-version: ${{ matrix.node-version }}
+        #cache: 'npm'
+    #- run: npm ci
       working-directory: ./server/src
     #- name: Delete old container
     - run: docker rm -f container-productos
