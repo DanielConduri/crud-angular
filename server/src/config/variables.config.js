@@ -4,7 +4,7 @@ dotenv.config();
 
 export const configVariables = {
     host: process.env.HOST || "localhost",
-    port: process.env.PORT || 3002,
+    port: process.env.PORT || 8000,
     dbUser: process.env.DB_USER,
     dbServer: process.env.DB_SERVER,
     dbPassword: process.env.DB_PASSWORD,

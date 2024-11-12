@@ -2,7 +2,7 @@ import app from "./app.js";
 import {sequelize} from './database/database.js';
 import { configVariables } from "./config/variables.config.js";
 
-app.get("/info", (req, res) => {
+app.get("/apiv4/info", (req, res) => {
     res.json({
         status: true,
         message: 'Welcome to the ExpressJS server',
