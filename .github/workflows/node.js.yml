@@ -30,18 +30,8 @@ jobs:
     - run: docker rm -f container-productos
     - name: Delete old image 
     - run: docker rmi -f img-productos
-
-
-    #- run: |
-          #touch ./server/src/.env
-          #echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src/.env
-
-  deploy:
-    needs: build 
-    runs-on: self-hosted
-    steps:
-    - name: DEPLOY
-      run: |
+      working-directory: ./server
+    - run: 
          touch .env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
          echo DB_USER=${{ secrets.DB_USER }} >> .env
@@ -53,4 +43,9 @@ jobs:
 
     - run: docker build -t img-productos -f ./server/Dockerfile .
     - run: docker run --name container-productos -d -p 8000:8000 img-productos
+
+    #- run: |
+          #touch ./server/src/.env
+          #echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src/.env
+
     
