@@ -21,6 +21,9 @@ router.get(url + '/info', (req, res, next) => {
                 command3: "docker build -t img-productos -f ./server/Dockerfile .",
                 command4: "docker run --name container-productos -d -p 8000:8000 img-productos",
           
+            },
+            {
+                test: "In process"
             }
         ]
     });
