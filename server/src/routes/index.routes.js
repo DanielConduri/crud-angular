@@ -24,6 +24,8 @@ router.get(url + '/info', (req, res, next) => {
             },
             {
                 test: "In process"
+            },{
+                database: "Update credentials postgres"
             }
         ]
     });
