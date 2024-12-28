@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "build": "babel src -d lib"
+    "build": "babel src -d lib",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Daniel Tene",
@@ -22,15 +23,18 @@
     "pg-hstore": "^2.3.4",
     "pm2": "^5.3.0",
     "sequelize": "^6.28.0",
+    "supertest": "^7.0.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.3",
     "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.5",
-    "@babel/core": "^7.22.5",
+    "@babel/core": "^7.26.0",
     "@babel/node": "^7.22.5",
-    "@babel/preset-env": "^7.22.5",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.7"
   }
 }

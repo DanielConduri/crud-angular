@@ -1,21 +1,22 @@
 import app from "./app.js";
 import {sequelize} from './database/database.js';
 import { configVariables } from "./config/variables.config.js";
-
-app.get("/apiv4/info", (req, res) => {
-    res.json({
-        status: true,
-        message: 'Welcome to the ExpressJS server',
-        //body: [{server:'recetas'}],
-        version: '1.0.0'
-    })
-  });
+let server;
+// app.get("/apiv4/info", (req, res) => {
+//     res.json({
+//         status: true,
+//         message: 'Welcome to the ExpressJS server',
+//         //body: [{server:'recetas'}],
+//         version: '1.0.0'
+//     })
+// });
 
   //const port = process.env.PORT || 3002;
   //force: true -> elimina las tablas existentes y luego las vuelve a crear basándose en los modelos.
   //alter: true -> Sequelize intentará ajustar la tabla en lugar de eliminarla completamente. Aplicará cambios en el esquema sin perder datos (agregará columnas nuevas, cambiará tipos de datos, etc.).
 
-  async function main(port){
+  async function startServer(port){
+
     try {
     await sequelize.sync( {}); //No recrea las tablas
         console.log('Connection has been established successfully.');
@@ -29,17 +30,11 @@ app.get("/apiv4/info", (req, res) => {
     }
 }
 
-main(configVariables.port);
+startServer(configVariables.port);
 
-// import  http  from 'http';
-// const PORT = 3002;
+function stop() {
+    console.log("Stopping server");
+    server.close();
+}
 
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader('Content-Type', 'text/plain');
-//   res.end('Hello World!');
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Server running at http://localhost:${PORT}/`);
-// });
+export  {server, startServer, stop}

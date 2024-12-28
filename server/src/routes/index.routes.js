@@ -7,7 +7,7 @@ const url = '/apiv4';
 router.get(url + '/info', (req, res, next) => {
     res.json({
         status: 200,
-        message: "get successfully",
+        message: "Get successfully",
         body: [
             {
                 api: "crud-angular",
