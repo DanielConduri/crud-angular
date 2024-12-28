@@ -113,14 +113,14 @@ const obtenerProductoId = async (req, res) => {
 
         if (!producto) {
             return res.json({
-                status: false,
-                message: 'El Producto a obtener no existe',
+                status: 500,
+                message: 'The product does not exist',
             });
         }
 
         return res.json({
-            status: true,
-            message: 'Producto obtenido exitosamente',
+            status: 200,
+            message: 'Successfully obtained product',
             body: producto
         });
 
