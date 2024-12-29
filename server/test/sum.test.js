@@ -8,12 +8,12 @@ import sumar from './sumar.js';
 import app from '../src/app.js'
 
 import {sequelize} from "../src/database/database.js"
-import {  startServer, stop} from '../src/index.js'
+import {  server, startServer, stop, stopServer} from '../src/index.js'
 
 
-// afterAll(() => {
-//     stop();
-// });
+afterAll(() => {
+    stopServer();
+});
 
 // let server;
 // beforeAll(() => {
@@ -28,17 +28,9 @@ import {  startServer, stop} from '../src/index.js'
 
 afterAll(async () => {
     await sequelize.close();
+    
 });
 
-
-
-
-// afterAll(async () => {
-//   // Opcional: Cierra el servidor si está corriendo
-//   if (server && server.close) {
-//     server.close();
-//   }
-// });
 
 
 describe("Products API Endpoints", () => {
