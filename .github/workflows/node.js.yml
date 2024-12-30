@@ -42,7 +42,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: build
-        working-directory: ../server
+        working-directory: ./server
         run: |
           #docker rm -f container-productos
           #docker rmi -f img-productos
