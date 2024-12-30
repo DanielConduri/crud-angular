@@ -48,6 +48,7 @@ jobs:
           #docker build -t img-productos -f ./server/Dockerfile .
           #docker run --name container-productos -d -p 8000:8000 img-productos
           docker-compose up --build -d
+          
 
     #- run: |
           #touch ./server/src/.env
