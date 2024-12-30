@@ -3,7 +3,7 @@ FROM node:18.17.0
 WORKDIR /usr/app
 
 COPY package*.json ./   
-RUN npm i
+RUN npm install
 
 COPY . .
 #COPY ./server /usr/app
