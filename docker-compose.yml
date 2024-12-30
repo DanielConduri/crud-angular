@@ -34,11 +34,39 @@ services:
     container_name: container-nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx:/etc/nginx/conf.d/
+      - ./data/certificates:/etc/letsencrypt # Volumen para almacenar certificados
+      - ./data/www:/var/www/certbot # Volumen para desafío HTTP de Let's Encrypt
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=Host(`app.pruebasinventario.me`)"
+      - "traefik.http.routers.nginx.entrypoints=http,https"
+      - "traefik.http.routers.nginx.tls=true"
+      - "traefik.http.routers.nginx.tls.certresolver=myresolver"
     depends_on:
       - api
     restart: always
+    networks:
+      - backend
+
+  # Contenedor de Certbot
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./data/certificates:/etc/letsencrypt # Volumen para almacenar certificados
+      - ./data/www:/var/www/certbot # Volumen para desafío HTTP de Let's Encrypt
+    entrypoint: >
+      certbot certonly
+      --webroot
+      --webroot-path=/var/www/certbot
+      --email tu-email@dominio.com
+      --agree-tos
+      --no-eff-email
+      -d tu-dominio.com
+      -d www.tu-dominio.com
     networks:
       - backend
 
