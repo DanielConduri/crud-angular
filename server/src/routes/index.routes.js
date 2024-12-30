@@ -25,7 +25,7 @@ router.get(url + '/info', (req, res, next) => {
             {
                 test: "In process"
             },{
-                database: "Update credentials postgres verify 30/12/2024--"
+                database: "Update credentials postgres verify 30/12/2024 update"
             }
         ]
     });
