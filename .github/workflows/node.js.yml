@@ -46,9 +46,11 @@ jobs:
           #docker rm -f container-productos
           #docker rmi -f img-productos
           #docker build -t img-productos -f ./server/Dockerfile .
+          #docker build -t img-productos -f ./server/Dockerfile ./server #esde la raíz del proyecto
+
           #docker run --name container-productos -d -p 8000:8000 img-productos
           docker-compose up --build -d
-          
+
 
     #- run: |
           #touch ./server/src/.env

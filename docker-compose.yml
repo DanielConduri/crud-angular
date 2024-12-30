@@ -26,8 +26,8 @@ services:
       - "8000"
     restart: always
     env_file: ./server/.env
-    #networks:
-    #  - backend
+    networks:
+      - backend
 
   # nginx:
   #   image: nginx:latest
@@ -44,6 +44,7 @@ services:
   #     - backend
 
 
-#networks:
-  #backend:
+networks:
+  backend:
+    external: true 
     #driver: bridge
