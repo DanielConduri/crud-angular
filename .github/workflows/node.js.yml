@@ -47,7 +47,20 @@ jobs:
           #docker rm -f container-productos
           #docker rmi -f img-productos
           
-          
+          if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
+            echo "Eliminando contenedor 'container-productos'..."
+          docker rm -f container-productos
+          else
+            echo "El contenedor 'container-productos' no existe."
+          fi
+
+          # Verifica si la imagen existe
+          if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "img-productos"; then
+            echo "Eliminando imagen 'img-productos'..."
+            docker rmi -f img-productos
+          else
+            echo "La imagen 'img-productos' no existe."
+          fi
 
 
           #docker build -t img-productos -f ./server/Dockerfile .
