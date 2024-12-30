@@ -1,0 +1,47 @@
+#version: "3.9"
+
+services:
+
+  # angular-app:
+  #   image: angular
+  #   container_name: container-angular
+  #   build: 
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "4200:80" # Mapea el puerto 80 del contenedor al puerto 8080 del host
+  #   #volumes:
+  #     #- ./nginx.conf:/etc/nginx/conf.d/default.conf # Opcional para desarrollo
+  #   # expose:
+  #   #   - "4200"
+  #   restart: always
+  #   networks:
+  #     - backend
+
+  api:
+    image: node18
+    container_name: container-api-node
+    build: ./server
+    expose:
+      - "8000"
+    restart: always
+    env_file: ./server/.env
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:latest
+    container_name: container-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d/
+    depends_on:
+      - api
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
+    #driver: bridge

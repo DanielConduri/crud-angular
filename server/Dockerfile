@@ -1,12 +1,12 @@
 FROM node:18.17.0
 
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
-COPY ./server/package*.json ./
+COPY package*.json ./
 RUN npm install
 
-#COPY . .
-COPY ./server /usr/src/app
+COPY . .
+#COPY ./server /usr/src/app
 
 EXPOSE 8000
 
