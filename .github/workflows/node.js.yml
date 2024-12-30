@@ -43,8 +43,8 @@ jobs:
     steps:
       - name: build
         run: |
-          docker rm -f container-productos
-          docker rmi -f img-productos
+          #docker rm -f container-productos
+          #docker rmi -f img-productos
           docker build -t img-productos -f ./server/Dockerfile .
           docker run --name container-productos -d -p 8000:8000 img-productos
 
