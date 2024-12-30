@@ -46,5 +46,5 @@ services:
 
 networks:
   backend:
-    #external: true 
-    driver: bridge
+    external: true 
+    #driver: bridge
