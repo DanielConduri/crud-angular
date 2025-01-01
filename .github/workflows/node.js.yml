@@ -34,10 +34,9 @@ jobs:
       - name: ENV BACK
         #working-directory: ./server/src
         run: |
+         npm test
          touch ./server/.env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
-         touch ./server
-         npm test
   build:
     name: DEPLOY
     needs: env
