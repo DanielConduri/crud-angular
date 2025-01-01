@@ -6,7 +6,7 @@ import { ModalService } from 'src/app/core/services/modal.service';
 import { PaginacionService } from 'src/app/core/services/paginacion.service';
 import { MenuService } from 'src/app/core/services/menu.service';
 import Swal from 'sweetalert2';
-import { HorarioService } from 'src/app/core/services/horario.service';
+//import { HorarioService } from 'src/app/core/services/horario.service';
 
 @Component({
   selector: 'app-mostrar-centros',
@@ -62,7 +62,7 @@ export class MostrarCentrosComponent implements OnInit, OnDestroy {
     public srvModal: ModalService,
     public srvPaginacion: PaginacionService,
     public srvMenu: MenuService,
-    public srvHorario: HorarioService
+    //public srvHorario: HorarioService
   ) {}
 
   ngOnInit(): void {
@@ -280,7 +280,7 @@ export class MostrarCentrosComponent implements OnInit, OnDestroy {
       id_centro: id,
       nombre_centro: nombre,
     });
-    this.srvHorario.getHorarios(id);
+    //this.srvHorario.getHorarios(id);
     this.srvCentros.idModify = id;
     this.elementForm.form = 'horarioCentro';
     this.elementForm.title = 'Agregar Horario al Centro';
