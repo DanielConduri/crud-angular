@@ -67,8 +67,8 @@ jobs:
           docker build -t img-productos -f ./server/Dockerfile ./server 
           docker run --name container-productos -d -p 8000:8000 img-productos
           #docker-compose up --build -d
-          sudo rm -f /var/www/dist
-          sudo cp -r ./client/dist /var/www
+          sudo -S rm -f /var/www/dist
+          sudo -S cp -r ./client/dist /var/www
 
 
     #- run: |
