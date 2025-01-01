@@ -26,6 +26,9 @@ services:
       - "8000"
     restart: always
     env_file: ./server/.env
+    #command: ["npm", "run", "dev"]
+    #command: ["npm", "test"]
+         
     networks:
       - backend
 

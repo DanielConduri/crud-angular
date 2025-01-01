@@ -44,9 +44,7 @@ jobs:
       - name: build
         #working-directory: ./server
         run: |
-          #docker rm -f container-productos
-          #docker rmi -f img-productos
-          
+
           if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
             echo "Eliminando contenedor 'container-productos'..."
           docker rm -f container-productos

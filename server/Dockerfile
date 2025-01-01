@@ -8,8 +8,11 @@ RUN npm i
 
 COPY . .
 #COPY ./server /usr/app
-
+#COPY start.sh /usr/app/start.sh
+#RUN chmod +x /usr/app/start.sh
 
 EXPOSE 8000
 
-CMD ["npm", "run", "dev"]
+#CMD [ "sh", "-c", "npm test && npm run coverage && npm run dev"]
+#CMD [ "sh", "-c", "npm", "test"  && "npm", "run", "dev"]
+CMD ["bash", "start.sh"]

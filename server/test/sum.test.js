@@ -39,12 +39,12 @@ describe("Products API Endpoints", () => {
         //console.log(res)
         expect(res.status).toEqual(200);
         expect(res.body).toBeTruthy();
-        // expect(res.body.body[0]).toEqual({
-        //     api: "crud-angular",
-        //     port: 8000,
-        //     url: "/apiv4",
-        //     description: ""
-        // });
+        expect(res.body.body[0]).toEqual({
+            api: "crud-angular",
+            port: 8000,
+            url: "/apiv4",
+            description: ""
+        });
         
     })
 
