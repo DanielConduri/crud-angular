@@ -32,10 +32,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: ENV BACK
-        working-directory: ./server
+        #working-directory: ./server/src
         run: |
-         touch .env
-         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
+         touch ./server/.env
+         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+         touch ./server
          npm test
   build:
     name: DEPLOY
