@@ -36,7 +36,7 @@ jobs:
         run: |
 
          touch .env
-         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > .env
          npm test
   build:
     name: DEPLOY
