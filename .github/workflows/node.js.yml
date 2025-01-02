@@ -59,14 +59,15 @@ jobs:
           fi
 
           docker build -t img-productos -f ./server/Dockerfile ./server
-          #docker run --rm --name container-productos img-productos
-          docker run --name container-productos -d -p 8000:8000 img-productos
+          docker run --rm --name container-productos img-productos
+          #docker run --name container-productos -d -p 8000:8000 img-productos
           TEST_EXIT_CODE=$?
           echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
+          echo "Exit code from container: ${{ env.exit_code }}"
 
       - name: Check test results
         run: |
-          if [ "$exit_code" -ne 0 ]; then
+          if [ "${{ env.exit_code }}" -ne 0 ]; then
             echo "❌ Tests failed. Stopping workflow."
             exit 1
           else
