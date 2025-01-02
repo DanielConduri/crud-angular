@@ -59,26 +59,29 @@ jobs:
           fi
 
           docker build -t img-productos -f ./server/Dockerfile ./server
+          docker run -d --rm --name container-productos img-productos
+
           #docker run -d --rm --name container-productos img-productos > container_logs.txt 2>&1
-          docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
-          TEST_EXIT_CODE=$?
-
+          #docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
+          #TEST_EXIT_CODE=$?
           # Capturar el código de salida del contenedor
-          TEST_EXIT_CODE=$(docker wait container-productos) 
-
+          #TEST_EXIT_CODE=$(docker wait container-productos) 
           # Guardar el código de salida en el archivo de entorno de GitHub Actions
-          echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
-          
-      - name: Print container logs
-        run: |
-          cat container_logs.txt  # Muestra los logs capturados en el archivo
+          #echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
 
+
+          TEST_EXIT_CODE=$?
           echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
           echo "Exit code from container: ${{ env.exit_code }}"
-          #docker rm -f container-productos
+      #- name: Print container logs
+      #  run: |
+          #cat container_logs.txt  # Muestra los logs capturados en el archivo
+
+          
+       
       - name: Check test results
         run: |
-          if [ "$TEST_EXIT_CODE" -ne 0 ]; then
+          if [ "${{ env.exit_code }}" -ne 0 ]; then
             if [ "$(docker ps -q -f name=container-productos)" ]; then
               docker rm -f container-productos
             fi
