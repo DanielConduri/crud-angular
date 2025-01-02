@@ -33,7 +33,7 @@ router.get(url + '/info', (req, res, next) => {
                     name: "container-api-node",
                     network: "172.18.0.2"
                 },
-                container_1: {
+                container_2: {
                     name: "container-api-node",
                     network: "172.18.20.2"
                 }
