@@ -59,7 +59,7 @@ jobs:
           fi
 
           docker build -t img-productos -f ./server/Dockerfile ./server
-          docker run -d --rm --name container-productos img-productos
+          docker run -d --name container-productos img-productos
 
           #docker run -d --rm --name container-productos img-productos > container_logs.txt 2>&1
           #docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
