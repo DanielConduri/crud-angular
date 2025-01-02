@@ -16,10 +16,16 @@ router.get(url + '/info', (req, res, next) => {
                 description: ""
             },
             {
-                command1: "docker rm -f container-productos",
-                command2: "docker rmi -f img-productos",
-                command3: "docker build -t img-productos -f ./server/Dockerfile .",
-                command4: "docker run --name container-productos -d -p 8000:8000 img-productos",
+                docker_compose_v1: {
+                    command: "docker-compose up --buld -d",
+                },
+                docker_compose_v2: {
+                    command: "docker compose up --buld -d",
+                }
+
+
+                
+
           
             },
             {
@@ -39,7 +45,8 @@ router.get(url + '/info', (req, res, next) => {
                 }, 
                  nginx:{
                     upstream: true,
-                    status: "OK"
+                    status: "OK",
+
                 }
                 
             }
