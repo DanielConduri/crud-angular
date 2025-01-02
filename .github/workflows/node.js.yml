@@ -74,8 +74,8 @@ jobs:
 
           #CAPTURAR TEST EXITOSO
           #TEST_EXIT_CODE=$?
-          #echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
-          #echo "Exit code from container: ${{ env.exit_code }}"
+          echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
+          echo "Exit code from container: ${{ env.exit_code }}"
 
           #EXIT_CODE=$(docker inspect --format='{{.State.ExitCode}}' container-productos)
           #$echo "$EXIT_CODE"
@@ -88,8 +88,8 @@ jobs:
  
       - name: Check test results
         run: |
-          if [ "$TEST_EXIT_CODE" -ne 0 ]; then
-            if docker ps -a --format '{{.Names}}' | grep -q 'container-productos'; then
+          if [ "${{ env.exit_code }}" -ne 0 ]; then
+            #if docker ps -a --format '{{.Names}}' | grep -q 'container-productos'; then
               docker rm -f container-productos
             fi
             echo "❌ Tests failed. Stopping workflow."
