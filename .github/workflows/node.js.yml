@@ -59,7 +59,7 @@ jobs:
           fi
 
           docker build -t img-productos -f ./server/Dockerfile ./server
-          docker run -d --name container-productos img-productos
+          docker run -d --name container-test img-productos
           #docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
           
           #CAPTURAR ERROR
@@ -67,7 +67,7 @@ jobs:
           # Capturar el código de salida del contenedor
           #docker stop container-productos
           
-          TEST_EXIT_CODE=$(docker wait container-productos) 
+          TEST_EXIT_CODE=$(docker wait container-test) 
         
           #Guardar el código de salida en el archivo de entorno de GitHub Actions
           #$echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
@@ -81,7 +81,7 @@ jobs:
           #$echo "$EXIT_CODE"
         
           #TEST_EXIT_CODE=$(docker inspect --format='{{.State.ExitCode}}' container-productos)
-          CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' container-productos)
+          CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' container-test)
           echo "Contenedor Status: $CONTAINER_STATUS"
           echo "Contenedor Exit Code: $TEST_EXIT_CODE"
 
@@ -97,7 +97,7 @@ jobs:
       - name: Deploy application
         if: success()
         run: |
-           docker rm -f container-productos
+           docker rm -f container-test
            docker run --name container-productos -d -p 8000:8000 img-productos
 
           #rm -f /var/www/dist
