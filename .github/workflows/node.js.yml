@@ -78,12 +78,16 @@ jobs:
           docker rm -f container-productos
       - name: Check test results
         run: |
-          if [ "${{ env.TEST_EXIT_CODE }}" -ne 0 ]; then
-            docker rm -f container-productos
+          if [ "$TEST_EXIT_CODE" -ne 0 ]; then
+            if [ "$(docker ps -q -f name=container-productos)" ]; then
+              docker rm -f container-productos
+            fi
             echo "❌ Tests failed. Stopping workflow."
             exit 1
           else
-            docker rm -f container-productos
+            if [ "$(docker ps -q -f name=container-productos)" ]; then
+              docker rm -f container-productos
+            fi
             docker run --name container-productos -d -p 8000:8000 img-productos
             echo "✅ Tests passed successfully!"
           fi
