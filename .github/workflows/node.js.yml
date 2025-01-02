@@ -65,7 +65,7 @@ jobs:
           #docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
           
           #CAPTURAR ERROR
-          TEST_EXIT_CODE=$?
+          #TEST_EXIT_CODE=$?
           # Capturar el código de salida del contenedor
           #docker stop container-productos
           
