@@ -85,10 +85,10 @@ jobs:
           
 
           # Esperar a que el contenedor termine y capturar el código de salida
-          TEST_EXIT_CODE=$(docker inspect --format='{{.State.ExitCode}}' container-productos)
+          $TEST_EXIT_CODE=$(docker inspect --format='{{.State.ExitCode}}' container-productos)
 
           # Capturar el estado del contenedor
-          CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' container-productos)
+          $CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' container-productos)
           
           echo "Contenedor Status: $CONTAINER_STATUS"
           echo "Contenedor Exit Code: $TEST_EXIT_CODE"
