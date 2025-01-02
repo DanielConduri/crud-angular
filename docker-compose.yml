@@ -26,9 +26,10 @@ services:
       - "8000"
     restart: always
     env_file: ./server/.env
-    networks:
-      backend:
-        ipv4_address: 172.18.0.2
+    #networks:
+     # - backend
+      # backend:
+      #   ipv4_address: 172.18.0.2
         
 
   api2:
@@ -36,14 +37,15 @@ services:
     container_name: container-api-node-2
     build: ./server
     expose:
-      - "8000"
+      - "8001"
     depends_on:
       - api
     restart: always
     env_file: ./server/.env
-    networks:
-      backend:
-        ipv4_address: 172.18.20.2
+    #networks:
+     # - backend
+      # backend:
+      #   ipv4_address: 172.18.20.2
         
 
   # nginx:
@@ -63,10 +65,10 @@ services:
 
 networks:
   backend:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.18.0.0/16"
+    # driver: bridge
+    # ipam:
+    #   driver: default
+    #   config:
+    #     - subnet: "172.18.0.0/16"
   
 
