@@ -65,7 +65,7 @@ jobs:
           #docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
           
           #CAPTURAR ERROR
-          #TEST_EXIT_CODE=$?
+          TEST_EXIT_CODE=$?
           # Capturar el código de salida del contenedor
           #docker stop container-productos
           
@@ -75,7 +75,7 @@ jobs:
           $echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
 
           #CAPTURAR TEST EXITOSO
-          TEST_EXIT_CODE=$?
+          #TEST_EXIT_CODE=$?
           echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
           echo "Exit code from container: ${{ env.exit_code }}"
 
