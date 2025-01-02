@@ -68,6 +68,7 @@ jobs:
 
           # Guardar el código de salida en el archivo de entorno de GitHub Actions
           echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
+          docker rm -f container-productos
 
           echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
           echo "Exit code from container: ${{ env.exit_code }}"
