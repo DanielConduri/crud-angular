@@ -28,7 +28,15 @@ router.get(url + '/info', (req, res, next) => {
                 database: "Update credentials, postgres verify 01/01/2025 update"
             }, 
             {
-                containers: 2
+                containers: 2,
+                container_1: {
+                    name: "container-api-node",
+                    network: "172.18.0.2"
+                },
+                container_1: {
+                    name: "container-api-node",
+                    network: "172.18.20.2"
+                }
             }
 
         ]
