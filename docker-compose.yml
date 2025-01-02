@@ -26,11 +26,19 @@ services:
       - "8000"
     restart: always
     env_file: ./server/.env
-    #command: ["npm", "run", "dev"]
-    #command: ["npm", "test"]
-         
     networks:
       - backend
+
+  api2:
+    image: node18
+    container_name: container-api-node-2
+    build: ./server
+    expose:
+      - "8000"
+    restart: always
+    env_file: ./server/.env
+    networks:
+      - test
 
   # nginx:
   #   image: nginx:latest
@@ -49,5 +57,5 @@ services:
 
 networks:
   backend:
-    external: true 
+  test:
     #driver: bridge
