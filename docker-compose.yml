@@ -26,22 +26,22 @@ services:
       - "8000"
     restart: always
     env_file: ./server/.env
-    #networks:
-     # - backend
+    networks:
+      - backend
       # backend:
       #   ipv4_address: 172.18.0.2
         
 
-  api2:
-    image: node18
-    container_name: container-api-node-2
-    build: ./server
-    expose:
-      - "8001"
-    depends_on:
-      - api
-    restart: always
-    env_file: ./server/.env
+  # api2:
+  #   image: node18
+  #   container_name: container-api-node-2
+  #   build: ./server
+  #   expose:
+  #     - "8001"
+  #   depends_on:
+  #     - api
+  #   restart: always
+  #   env_file: ./server/.env
     #networks:
      # - backend
       # backend:
