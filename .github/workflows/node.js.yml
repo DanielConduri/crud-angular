@@ -59,7 +59,8 @@ jobs:
           fi
 
           docker build -t img-productos -f ./server/Dockerfile ./server
-          docker run --rm --name container-productos img-productos
+          #docker run --rm --name container-productos img-productos
+          docker run --name container-productos -d -p 8000:8000 img-productos
           TEST_EXIT_CODE=$?
           echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
 
@@ -71,10 +72,10 @@ jobs:
           else
             echo "✅ Tests passed successfully!"
           fi
-      - name: Deploy application
-        if: success()
-        run: |
-          docker run --name container-productos -d -p 8000:8000 img-productos
+      # - name: Deploy application
+      #   if: success()
+      #   run: |
+      #     docker run --name container-productos -d -p 8000:8000 img-productos
 
           #rm -f /var/www/dist
           #cp -r ./client/dist /var/www
