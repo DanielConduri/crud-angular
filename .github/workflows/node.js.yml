@@ -68,11 +68,12 @@ jobs:
       - name: Check test results
         run: |
           if [ "${{ env.exit_code }}" -ne 0 ]; then
-          docker rm -f container-productos
+            docker rm -f container-productos
             echo "❌ Tests failed. Stopping workflow."
             exit 1
           else
-          docker run --name container-productos -d -p 8000:8000 img-productos
+            docker rm -f container-productos
+            docker run --name container-productos -d -p 8000:8000 img-productos
             echo "✅ Tests passed successfully!"
           fi
       # - name: Deploy application
