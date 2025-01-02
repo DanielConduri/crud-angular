@@ -30,7 +30,7 @@ router.get(url + '/info', (req, res, next) => {
           
             },
             {
-                test: "Unit tests completed"
+                test: "Unit tests completed with jest"
             },{
                 database: "Update credentials, postgres verify 02/01/2025 update"
             }, 
