@@ -13,6 +13,6 @@ COPY . .
 
 EXPOSE 8000
 
-CMD [ "sh", "-c", "npm test && npm run coverage && npm start"]
+CMD [ "sh", "-c", "npm test && npm run coverage && exit 0"]
 #CMD [ "sh", "-c", "npm", "test"  && "npm", "run", "dev"]
 #CMD ["bash", "start.sh"]
