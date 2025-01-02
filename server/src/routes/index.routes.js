@@ -31,7 +31,7 @@ router.get(url + '/info', (req, res, next) => {
             {
                 test: "Unit tests completed"
             },{
-                database: "Update credentials, postgres verify 01/01/2025 update"
+                database: "Update credentials, postgres verify 02/01/2025 update"
             }, 
             {
                 containers: 2,
