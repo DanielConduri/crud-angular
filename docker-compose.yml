@@ -27,7 +27,9 @@ services:
     restart: always
     env_file: ./server/.env
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.18.0.2
+        
 
   api2:
     image: node18
@@ -35,10 +37,14 @@ services:
     build: ./server
     expose:
       - "8000"
+    depends_on:
+      - api
     restart: always
     env_file: ./server/.env
     networks:
-      - test
+      backend:
+        ipv4_address: 172.18.20.2
+        
 
   # nginx:
   #   image: nginx:latest
@@ -57,5 +63,10 @@ services:
 
 networks:
   backend:
-  test:
-    #driver: bridge
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.18.0.0/16"
+  
+
