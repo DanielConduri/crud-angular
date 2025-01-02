@@ -60,7 +60,7 @@ jobs:
 
           docker build -t img-productos -f ./server/Dockerfile ./server
           docker run --name container-productos -d -p 8000:8000 img-productos
-          docker run --name container-productos-2 -d -p 8001:8000 img-productos
+          #docker run --name container-productos-2 -d -p 8001:8000 img-productos
           #docker-compose up --build -d
           #rm -f /var/www/dist
           #cp -r ./client/dist /var/www

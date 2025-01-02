@@ -23,9 +23,10 @@ router.get(url + '/info', (req, res, next) => {
                     command: "docker compose up --buld -d",
                 }
 
-
-                
-
+            },
+            {
+                command1: "docker build -t img-productos -f ./server/Dockerfile ./server",
+                command2: "docker run --name container-productos -d -p 8000:8000 img-productos"
           
             },
             {
