@@ -98,7 +98,7 @@ jobs:
         if: success()
         run: |
            docker rm -f container-test
-           docker run --name container-productos -d -p 8000:8000 img-productos
+           docker run --name container-productos -d -p 8000:8000 --restart=always img-productos
 
           #rm -f /var/www/dist
           #cp -r ./client/dist /var/www
