@@ -38,7 +38,8 @@ router.get(url + '/info', (req, res, next) => {
                     network: "172.18.20.2"
                 }, 
                  nginx:{
-                    upstream: true
+                    upstream: true,
+                    status: "OK"
                 }
                 
             }
