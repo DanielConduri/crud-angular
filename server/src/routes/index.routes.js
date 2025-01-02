@@ -41,12 +41,12 @@ router.get(url + '/info', (req, res, next) => {
                     network: "172.18.0.2"
                 },
                 container_2: {
-                    name: "container-api-node",
+                    name: "container-api-node-2",
                     network: "172.18.20.2"
                 }, 
                  nginx:{
                     upstream: true,
-                    status: "OK!!!!",
+                    status: "OK",
 
                 }
                 
