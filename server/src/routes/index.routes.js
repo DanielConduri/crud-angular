@@ -36,7 +36,11 @@ router.get(url + '/info', (req, res, next) => {
                 container_2: {
                     name: "container-api-node",
                     network: "172.18.20.2"
+                }, 
+                dos:{
+                    tres :1
                 }
+                
             }
 
         ]
