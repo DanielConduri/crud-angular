@@ -72,7 +72,7 @@ jobs:
           #TEST_EXIT_CODE=$(docker wait container-productos) 
         
           # Guardar el código de salida en el archivo de entorno de GitHub Actions
-          $echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
+          #$echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
 
           #CAPTURAR TEST EXITOSO
           #TEST_EXIT_CODE=$?
