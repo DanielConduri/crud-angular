@@ -90,7 +90,7 @@ jobs:
  
       - name: Check test results
         run: |
-          if [ "$TEST_EXIT_CODE" -ne 0 ]; then
+          if [ "$CONTAINER_STATUS" -ne 0 ]; then
             if [ "$(docker ps -q -f name=container-productos)" ]; then
               docker rm -f container-productos
             fi
