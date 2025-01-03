@@ -1,7 +1,9 @@
 import app from "./app.js";
 import {sequelize} from './database/database.js';
 import { configVariables } from "./config/variables.config.js";
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 // app.get("/apiv4/info", (req, res) => {
 //     res.json({
 //         status: true,
@@ -20,9 +22,9 @@ let sever2 = null;
     try {
     //await sequelize.sync( {}); //No recrea las tablas
         console.log('Connection has been established successfully.');
-
-        server = app.listen(port, () => {
-            console.log(`server is listening on port" :${port}`)
+        const port2 = configVariables.PORT || 8000;
+        server = app.listen(port2, () => {
+            console.log(`server is listening on port" :${port2}`)
           
         });
        

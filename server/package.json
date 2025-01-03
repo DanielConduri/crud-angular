@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "build": "babel src -d lib",
-    "test": "set port=8005 && jest",
+    "test": "set PORT=8005 && jest",
     "coverage": "jest --coverage"
   },
   "keywords": [],
