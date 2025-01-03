@@ -32,7 +32,7 @@ router.get(url + '/info', (req, res, next) => {
             {
                 test: "Unit tests completed with jest and verify container!"
             },{
-                database: "Update credentials, postgres verify 02/01/2025 update"
+                database: "Update credentials, postgres verify 02/01/2025 update ===="
             }, 
             {
                 containers: 2,
