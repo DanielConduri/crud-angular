@@ -1,0 +1,111 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" ]
+
+jobs:
+  start:
+    name: PULL
+    runs-on: self-hosted
+    # strategy:
+    #   matrix:
+    #     node-version: [18.x]
+    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+      - uses: actions/checkout@v4
+    #   - name: Use Node.js ${{ matrix.node-version }}
+    #     uses: actions/setup-node@v4
+    #     with:
+    #       node-version: ${{ matrix.node-version }}
+    #       cache: 'npm'
+    #   - run: npm ci
+    #   - run: npm test
+  env:
+    name: SET ENV
+    needs: start
+    runs-on: self-hosted
+    steps:
+      - name: ENV BACK
+        #working-directory: ./server/src
+        run: |
+         touch ./server/.env
+         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+  build:
+    name: DEPLOY
+    needs: env
+    runs-on: self-hosted
+    steps:
+      - name: build
+        #working-directory: ./server
+        run: |
+          if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
+            echo "Eliminando contenedor 'container-productos'..."
+          docker rm -f container-productos
+          else
+            echo "El contenedor 'container-productos' no existe."
+          fi
+          
+          if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "img-productos"; then
+            echo "Eliminando imagen 'img-productos'..."
+            docker rmi -f img-productos
+          else
+            echo "La imagen 'img-productos' no existe."
+          fi
+
+          docker build -t img-productos -f ./server/Dockerfile ./server
+          docker run -d --name container-test img-productos
+          #docker run --name container-productos -d -p 8000:8000 img-productos > container_logs.txt 2>&1
+          
+          #CAPTURAR ERROR
+          TEST_EXIT_CODE=$?
+          # Capturar el código de salida del contenedor
+          #docker stop container-productos
+          
+          TEST_EXIT_CODE=$(docker wait container-test) 
+        
+          #Guardar el código de salida en el archivo de entorno de GitHub Actions
+          #$echo "TEST_EXIT_CODE=$TEST_EXIT_CODE" >> $GITHUB_ENV
+
+          #CAPTURAR TEST EXITOSO
+          #TEST_EXIT_CODE=$?
+          echo "exit_code=$TEST_EXIT_CODE" >> $GITHUB_ENV
+          echo "Exit code from container: ${{ env.exit_code }}"
+
+          #EXIT_CODE=$(docker inspect --format='{{.State.ExitCode}}' container-productos)
+          #$echo "$EXIT_CODE"
+        
+          #TEST_EXIT_CODE=$(docker inspect --format='{{.State.ExitCode}}' container-productos)
+          CONTAINER_STATUS=$(docker inspect --format='{{.State.Status}}' container-test)
+          echo "Contenedor Status: $CONTAINER_STATUS"
+          echo "Contenedor Exit Code: $TEST_EXIT_CODE"
+
+ 
+      - name: Check test results
+        run: |
+          if [ "${{ env.exit_code }}" -eq 0 ]; then
+            echo "✅ Tests passed successfully!"
+          else
+            echo "❌ Tests failed. Stopping workflow."
+            exit 1
+          fi
+      - name: Deploy application
+        if: success()
+        run: |
+           docker rm -f container-test
+           docker run --name container-productos -d -p 8000:8000 img-productos
+
+          #rm -f /var/www/dist
+          #cp -r ./client/dist /var/www
+
+
+    #- run: |
+          #touch ./server/src/.env
+          #echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/src/.env
+
+    
