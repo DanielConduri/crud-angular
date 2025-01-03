@@ -27,11 +27,8 @@ jobs:
         run: |
           touch ./server/.env
           echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
-          cd server # Cambiar al directorio donde está el package.json
+          cd server 
           npm ci
-      - name: Run tests
-        run: |
-          cd server # Cambiar al directorio donde está el package.json
           npm test
   env:
     name: SET ENV
@@ -43,6 +40,9 @@ jobs:
         run: |
          touch ./server/.env
          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+         docker build -t img-productos -f ./server/Dockerfile ./server
+         docker run --name container-productos -d -p 8000:8000 img-productos
+         
   # build:
   #   name: DEPLOY
   #   needs: env
