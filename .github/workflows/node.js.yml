@@ -10,7 +10,7 @@ on:
     #branches: [ "main" ]
 
 jobs:
-  build:
+  start:
     runs-on: self-hosted
     strategy:
       matrix:
