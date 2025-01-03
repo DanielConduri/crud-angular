@@ -40,7 +40,7 @@ describe("Products API Endpoints", () => {
         //console.log(res)
         expect(res.status).toEqual(200);
         expect(res.body).toBeTruthy();
-        expect(res.body.body[1]).toEqual({
+        expect(res.body.body[0]).toEqual({
             api: "crud-angular",
             port: 8000,
             url: "/apiv4",
@@ -49,9 +49,9 @@ describe("Products API Endpoints", () => {
         
     })
 
-    test("GET /apiv4/productos/:id/item/0", async () => {
+    test("GET /apiv4/productos/:id", async () => {
 
-        const res = await request(app).get("/apiv4/productos/1");
+        const res = await request(app).get("/apiv4/productos/1/0");
         //console.log(res)
         expect(res.status).toEqual(200);
         expect(res.body).toBeTruthy();
