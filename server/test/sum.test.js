@@ -8,23 +8,24 @@ import sumar from './sumar.js';
 import app from '../src/app.js'
 
 import {sequelize} from "../src/database/database.js"
-import {  server, startServer, stop, stopServer} from '../src/index.js'
+import {  startServer, stop, stopServer} from '../src/index.js'
 
 
 afterAll(() => {
     stopServer();
 });
 
-// let server;
-// beforeAll(() => {
-//     // Inicia el servidor si es necesario (en pruebas con sockets, por ejemplo)
-//     server = app.listen(8000, () => console.log("Test server running"));
-// });
+let server;
+beforeAll(() => {
+    // Inicia el servidor si es necesario (en pruebas con sockets, por ejemplo)
+    const port = 3005; 
+    server = app.listen(port, () => console.log("Test server running in port", port));
+});
   
-// afterAll((done) => {
-//     // Cierra el servidor y otros recursos asíncronos
-//     server.close(done);
-// });
+afterAll((done) => {
+    // Cierra el servidor y otros recursos asíncronos
+    server.close(done);
+});
 
 afterAll(async () => {
     await sequelize.close();
@@ -39,7 +40,7 @@ describe("Products API Endpoints", () => {
         //console.log(res)
         expect(res.status).toEqual(200);
         expect(res.body).toBeTruthy();
-        expect(res.body.body[1]).toEqual({
+        expect(res.body.body[0]).toEqual({
             api: "crud-angular",
             port: 8000,
             url: "/apiv4",

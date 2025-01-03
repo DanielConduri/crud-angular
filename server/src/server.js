@@ -38,8 +38,8 @@ async function main(){
     try {
         await sequelize.sync( { force: false }); //No recrea las tablas
         console.log('Connection has been established successfully.');
-        app.listen(8000)
-        console.log('Server is  listening on port', 8000)
+        app.listen(8001)
+        console.log('Server is  listening on port', 8001)
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
