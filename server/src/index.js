@@ -19,7 +19,7 @@ let server;
     try {
     //await sequelize.sync( {}); //No recrea las tablas
         console.log('Connection has been established successfully.');
-        //const port = 8000
+        const port = 8001
 
         server = app.listen(port, () => {
             console.log(`server is listening on port" :${port}`)
