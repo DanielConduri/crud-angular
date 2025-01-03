@@ -10,8 +10,7 @@ on:
     #branches: [ "main" ]
 
 jobs:
-  start:
-    name: PULL
+  build:
     runs-on: self-hosted
     strategy:
       matrix:
