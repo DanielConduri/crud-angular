@@ -8,12 +8,12 @@ import sumar from './sumar.js';
 import app from '../src/app.js'
 
 import {sequelize} from "../src/database/database.js"
-import {  startServer, stop, stopServer} from '../src/index.js'
+// import {  startServer, stop, stopServer} from '../src/index.js'
 
 
-afterAll(() => {
-    stopServer();
-});
+// afterAll(() => {
+//     stopServer();
+// });
 
 let server;
 beforeAll(() => {
