@@ -51,7 +51,7 @@ describe("Products API Endpoints", () => {
 
     test("GET /apiv4/productos/:id", async () => {
 
-        const res = await request(app).get("/apiv4/productos/1/0");
+        const res = await request(app).get("/apiv4/productos/1");
         //console.log(res)
         expect(res.status).toEqual(200);
         expect(res.body).toBeTruthy();
