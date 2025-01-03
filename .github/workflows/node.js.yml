@@ -30,7 +30,6 @@ jobs:
           echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
           cd server 
           npm ci
-          docker stop container-productos 
           npm test
   env:
     name: DEPLOY
