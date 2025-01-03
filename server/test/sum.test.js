@@ -48,7 +48,7 @@ describe("Products API Endpoints", () => {
         
     })
 
-    test("GET /apiv4/productos/:id", async () => {
+    test("GET /apiv4/productos/:id/item", async () => {
 
         const res = await request(app).get("/apiv4/productos/1");
         //console.log(res)

@@ -11,6 +11,7 @@ on:
 
 jobs:
   start:
+    name: PULL
     runs-on: self-hosted
     strategy:
       matrix:
@@ -31,7 +32,7 @@ jobs:
           npm ci
           npm test
   env:
-    name: SET ENV
+    name: DEPLOY
     needs: start
     runs-on: self-hosted
     steps:
