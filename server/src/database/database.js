@@ -44,7 +44,7 @@ export const sequelize = new Sequelize(
   configVariables.dbPassword,
   {
       host: configVariables.dbServer,
-      dialect: configVariables.dbDialect,
+      dialect: 'postgres',
       logging: false,
       port: configVariables.dbPort,
     //   ssl: true, // Habilita SSL
