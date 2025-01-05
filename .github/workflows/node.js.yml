@@ -63,11 +63,11 @@ jobs:
          cd client
          npm install
          ng build --configuration production
-         sudo chown -R tenejonathan:tenejonathan /var/www
-         sudo chmod -R u+rwx /var/www
-         sudo chown -R www-data:www-data /var/www/
-         sudo chmod -R 755 /var/www/
-         sudo -S cp -rf dist/ /var/www
+         #sudo chown -R tenejonathan:tenejonathan /var/www
+         #sudo chmod -R u+rwx /var/www
+         #sudo chown -R www-data:www-data /var/www/
+         #sudo chmod -R 755 /var/www/
+         #sudo -S cp -rf dist/ /var/www
          
 
          
