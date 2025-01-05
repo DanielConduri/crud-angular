@@ -59,7 +59,9 @@ jobs:
          docker build -t img-productos -f ./server/Dockerfile ./server
          docker run --name container-productos -d -p 8000:8000 img-productos
 
-         npm run build -- --prod --output-path=/var/www/html
+         #npm run build --prod --output-path=/var/www/html
+         sudo ng build --configuration production
+         sudo cp -rf /actions-runner-angular/_work/crud-angular/crud-angular/client/dist /var/www
          
 
          
