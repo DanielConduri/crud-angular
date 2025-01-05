@@ -63,7 +63,6 @@ jobs:
          cd client
          npm install
          ng build --configuration production
-         cd /actions-runner-angular/_work/crud-angular/crud-angular/client/
          cp -rf dist /var/www
          
 
