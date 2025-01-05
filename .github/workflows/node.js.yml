@@ -63,7 +63,9 @@ jobs:
          cd client
          npm install
          ng build --configuration production
-         cp -rf dist /var/www
+         sudo chown -R www-data:www-data /var/www/
+         sudo chmod -R 755 /var/www/
+         cp -rf dist/ /var/www
          
 
          
