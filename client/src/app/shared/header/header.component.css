@@ -93,4 +93,25 @@
     justify-content: center;
   }*/
 
+
+  .header-menu{
+    display: flex;
+    justify-content: center;  /* Alinea a la derecha */
+    position: absolute;
+
+    width: 70%;
+  }
+    .header-search {
+      display: flex;
+      justify-content: flex-end;  /* Alinea a la derecha */
+      position: absolute;
+      top: 1px;  /* Ajusta el valor si es necesario */
+      margin-top: 2px;
+      right: 100px;  /* Ajusta el valor si es necesario */
+      width: 100%;
+    }
+
+
+
+
   
