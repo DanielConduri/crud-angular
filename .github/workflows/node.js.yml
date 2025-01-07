@@ -56,9 +56,9 @@ jobs:
           echo "La imagen 'img-productos' no existe."
          fi
 
-         #docker build -t img-productos -f ./server/Dockerfile ./server
-         #docker run --name container-productos -d -p 8000:8000 img-productos
-         docker-compose up --build -d
+         docker build -t img-productos -f ./server/Dockerfile ./server
+         docker run --name container-productos -d -p 8000:8000 img-productos
+         #docker-compose up --build -d
 
          #npm run build --prod --output-path=/var/www/html
          cd client
