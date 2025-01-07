@@ -56,20 +56,16 @@ jobs:
           echo "La imagen 'img-productos' no existe."
          fi
 
-         docker build -t img-productos -f ./server/Dockerfile ./server
-         docker run --name container-productos -d -p 8000:8000 img-productos
+         #docker build -t img-productos -f ./server/Dockerfile ./server
+         #docker run --name container-productos -d -p 8000:8000 img-productos
+         docker-compose up --build -d
 
          #npm run build --prod --output-path=/var/www/html
          cd client
          npm install
          ng build --configuration production
-         echo 'tenejonathan ALL=(ALL) NOPASSWD:ALL' | sudo EDITOR='tee -a' visudo
          sudo cp -rf dist/ /var/www
          
-         #sudo chown -R tenejonathan:tenejonathan /var/www
-         #sudo chmod -R u+rwx /var/www
-         #sudo chown -R www-data:www-data /var/www/
-         #sudo chmod -R 755 /var/www/
          
          
 
