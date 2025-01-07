@@ -75,13 +75,13 @@
 	display:block
 }
 
-#primary_nav_wrap {
+/* #primary_nav_wrap {
 	position: fixed; /* Fija el menú en la pantalla */
-	top: 0; /* Lo coloca en la parte superior */
-	left: 1;
+	/*top: 0;  Lo coloca en la parte superior */
+	/*left: 1;
 	width: 50%; /* Hace que ocupe todo el ancho de la pantalla */
-	z-index: 9999; /* Asegura que el menú quede por encima de otros elementos */
-  }
+	/*z-index: 9999; /* Asegura que el menú quede por encima de otros elementos */
+  /*}*/ 
 
 #primary_nav_wrap a:hover {
   background-color: #f7f3e6; /* Color de fondo al pasar el ratón */
