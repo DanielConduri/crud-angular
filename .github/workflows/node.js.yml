@@ -65,6 +65,16 @@ jobs:
          npm install
          ng build --configuration production
          sudo cp -rf dist/ /var/www
+  # metrics:
+  #   name: METRICS
+  #   runs-on: self-hosted
+  #   steps: 
+  #     - name: DORA
+  #       run: | 
+  #       echo GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  #       node ../scripts/deployment-frecuency.mjs
+
+
          
          
          

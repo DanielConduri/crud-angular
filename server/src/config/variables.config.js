@@ -12,6 +12,8 @@ export const configVariables = {
     dbDialect: process.env.DB_DIALECT,
     dbName: process.env.DB_NAME,
     dbPort: process.env.DB_PORT,
+    token: process.env.GITHUB_TOKEN
+
 
 }
 
