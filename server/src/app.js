@@ -3,6 +3,8 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import indexRoutes from "./routes/index.routes.js";
 
+import client from 'prom-client';
+
 const app = express();
 
 app.use((req, res, next) => {
@@ -33,6 +35,14 @@ const whiteList = [
   );
   app.use(cookieParser());
 
-app.use(indexRoutes);   
+app.use(indexRoutes);  
+
+// Creamos un registro de métricas
+const register = new client.Registry();
+// Endpoint para exponer las métricas
+app.get('/metrics', async (req, res) => {
+  res.set('Content-Type', register.contentType);
+  res.end(await register.metrics());
+});
 
 export default app;
