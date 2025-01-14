@@ -55,7 +55,7 @@ meanTimeToRestoreGauge.set({ pipeline: 'ci' }, 200); // MTTR en segundos
 changeFailureRateGauge.set({ pipeline: 'ci' }, 0.02); // Tasa de fallos de cambios
 
 // Endpoint para exponer las métricas
-app.get('/metrics', async (req, res) => {
+app.get('/apiv4/metrics', async (req, res) => {
   res.set('Content-Type', register.contentType);
   res.end(await register.metrics());
 });
