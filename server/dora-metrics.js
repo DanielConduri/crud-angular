@@ -149,13 +149,15 @@ export async function getData (){
     let i = 1;
     let deployments = null;
     let totalSize = 0;
+    let timeAdd = 0;
+    let time = 0;
     do{
         deployments = await getDeployments(i);
 
         //console.log('Tamaño', await getSize(deployments.workflow_runs));
-        lenght = await getSize(deployments.workflow_runs);
+        lenght= await getSize(deployments.workflow_runs);
         totalSize += lenght
-
+        timeAdd +=  time
         //console.log('totalSize', totalSize)
         //console.log('Total Deployments', deployments.workflow_runs[0])
         i++;
@@ -167,6 +169,7 @@ export async function getData (){
     async function getSize(workflow_runs) {
         // Calcular el tamaño total del array
         let j = 0;
+        let time1 = 0;
         workflow_runs.forEach(run => {
             //console.log(run.conclusion)
             if (run.conclusion === 'success') {
@@ -179,7 +182,10 @@ export async function getData (){
                 cancelled++;
             }
             j++;
+
         });
+
+        //time1 = await getTimeDeployment(workflow_runs, j)
         //console.log(successCount, failureCount, startup_failure, cancelled)
         return j;
     }
@@ -188,35 +194,66 @@ export async function getData (){
     console.log('failureCount', failureCount)
     console.log('startup_failure', startup_failure)
     console.log('cancelled', cancelled)
+    console.log('AverageTime', timeAdd/totalRuns)
+
     //const deployments = await getDeployments();
     //console.log('Total Deployments', deployments.workflow_runs.lenght)
 
     //console.log(`Total Deployments ${deployments.total_count}`)
     //console.log('Worflow_runs:', deployments.workflow_runs)
     
-    // const id = deployments.workflow_runs[0].id;
-    // const conclusion = deployments.workflow_runs[0].conclusion;
-    // const created_at = deployments.workflow_runs[0].created_at;
-    // const updated_at = deployments.workflow_runs[0].updated_at;
+    async function getTimeDeployment(workflow_runs, count){
+        let totalTime2 = 0
+        //console.log(count)
+        if(count > 0) {
+        workflow_runs.forEach(i => {
+            const id = i.id;
+            const conclusion = i.conclusion;
+            const created_at = i.created_at;
+            const updated_at = i.updated_at;
+        
+        
+            const { minutes, seconds, description }= calculateTime (created_at, updated_at);
 
+            // Convertir segundos a fracción de minuto
+            const secondsInMinutes = seconds / 60;
 
-    // const { minutes, seconds, description }= calculateTime (created_at, updated_at);
-    // const item1 = [ 
-    //     {
-    //         id: id,
-    //         conclusion: conclusion,
-    //         created_at: created_at,
-    //         updated_at: updated_at,
-    //         deployment_time: description,
-    //         minutes: minutes,
-    //         seconds: seconds
-    //         // deployment_time:{
-    //         //     minutes: minutes,
-    //         //     seconds: seconds
-    //         // }
-    //     }
-    // ];
-    // console.log ('array',item1)
+            // Sumar la fracción a los minutos
+            const time = minutes + secondsInMinutes;
+           
+            totalTime2 += time;
+        })
+
+        return totalTime2
+        // const id = deployments.workflow_runs[0].id;
+        // const conclusion = deployments.workflow_runs[0].conclusion;
+        // const created_at = deployments.workflow_runs[0].created_at;
+        // const updated_at = deployments.workflow_runs[0].updated_at;
+    
+    
+        // const { minutes, seconds, description }= calculateTime (created_at, updated_at);
+        // const item1 = [ 
+        //     {
+        //         id: id,
+        //         conclusion: conclusion,
+        //         created_at: created_at,
+        //         updated_at: updated_at,
+        //         deployment_time: description,
+        //         minutes: minutes,
+        //         seconds: seconds
+        //         // deployment_time:{
+        //         //     minutes: minutes,
+        //         //     seconds: seconds
+        //         // }
+        //     }
+        // ];
+        // console.log ('array',item1)
+        }
+        
+    }
+
+    
+    
    
    
     //create array
