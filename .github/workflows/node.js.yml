@@ -61,10 +61,11 @@ jobs:
          #docker-compose up --build -d
 
          #npm run build --prod --output-path=/var/www/html
-         cd client
-         npm install
-         ng build --configuration production
-         sudo cp -rf dist/ /var/www
+         
+         #cd client
+         #npm install
+         #ng build --configuration production
+         #sudo cp -rf dist/ /var/www
   # metrics:
   #   name: METRICS
   #   runs-on: self-hosted

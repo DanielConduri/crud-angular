@@ -27,11 +27,9 @@ app.get('/apiv4/metrics', async (req, res) => {
   res.end(await register.metrics());
 });
 
-
 // Función que ejecuta un script en un proceso separado
 function fetchMetrics() {
   const process = spawn('node', ['fetchMetricsScript.js']); // Aquí se ejecuta un script externo
-
   process.stdout.on('data', (data) => {
     console.log(`Data from child process: ${data}`);
     // Aquí puedes parsear los datos y actualizar las métricas

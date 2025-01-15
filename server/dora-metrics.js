@@ -163,7 +163,7 @@ export async function getData (){
         i++;
     }while(lenght != 0);
     totalRuns = deployments.total_count;
-    //console.log('totalSize', totalSize)
+    console.log('totalSize', totalSize)
     //console.log('Número de páginas:', i)
 
     async function getSize(workflow_runs) {
