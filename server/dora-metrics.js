@@ -1,6 +1,7 @@
 //const fetch = require('node-fetch');
 import fetch from "node-fetch";
 import { configVariables } from './src/config/variables.config.js';
+import client from 'prom-client';
 
 const TOKEN = process.env.GITHUB_TOKEN;
 const urlDeploymets = 'https://api.github.com/repos/DanielConduri/crud-angular/deployments';
@@ -14,6 +15,99 @@ async function getDeployments(i) {
     });
     if (!response.ok) throw new Error(`Error fetching deployments: ${response.status}`);
         return await response.json();
+}
+
+const register = new client.Registry();
+
+// Métricas DORA (ejemplo de métricas fijas)
+const leadTimeGauge = new client.Gauge({
+    name: 'dora_lead_time_seconds',
+    help: 'Lead Time for Changes (seconds)',
+    labelNames: ['pipeline']
+  });
+  const deploymentFreqCounter = new client.Counter({
+    name: 'dora_deployment_frequency_count',
+    help: 'Deployment Frequency count',
+    labelNames: ['pipeline']
+  });
+  const meanTimeToRestoreGauge = new client.Gauge({
+    name: 'dora_mean_time_to_restore_seconds',
+    help: 'Mean Time to Restore (seconds)',
+    labelNames: ['pipeline']
+  });
+  const changeFailureRateGauge = new client.Gauge({
+    name: 'dora_change_failure_rate',
+    help: 'Change Failure Rate',
+    labelNames: ['pipeline']
+  });
+
+
+
+  const totalDeployments = new client.Gauge({
+    name: 'dora_total_deployments',
+    help: 'Total deployments',
+    labelNames: ['pipeline']
+  });
+
+  const successDeployments = new client.Gauge({
+    name: 'dora_success_deployments',
+    help: 'Total success deployments',
+    labelNames: ['pipeline']
+  });
+
+  const failureDeployments = new client.Gauge({
+    name: 'dora_failure_deployments',
+    help: 'Total failure deployments',
+    labelNames: ['pipeline']
+  });
+
+  const startupFailureDeployments = new client.Gauge({
+    name: 'dora_startup_failure_deployments',
+    help: 'Total startup failure deployments',
+    labelNames: ['pipeline']
+  });
+
+  const cancelledDeployments = new client.Gauge({
+    name: 'dora_cancelled_deployments',
+    help: 'Total cancelled deployments',
+    labelNames: ['pipeline']
+  });
+
+
+
+  // Registramos las métricas
+  register.registerMetric(leadTimeGauge);
+  register.registerMetric(deploymentFreqCounter);
+  register.registerMetric(meanTimeToRestoreGauge);
+  register.registerMetric(changeFailureRateGauge);
+
+  register.registerMetric(totalDeployments);
+  register.registerMetric(successDeployments);
+  register.registerMetric(failureDeployments);
+  register.registerMetric(startupFailureDeployments);
+  register.registerMetric(cancelledDeployments);
+
+async function updateMetrics() {
+
+    let { totalRuns, successCount, failureCount, startup_failure, cancelled } = await getData();
+    
+    let deployment_frequency = 219;
+    let lead_time = 120;
+    let mean_time_to_restore = 60;
+    let change_failure_rate = 0.1;
+    
+    // Asignamos valores a las métricas (puedes actualizarlos según el estado del pipeline)
+    leadTimeGauge.set({ pipeline: 'ci' }, lead_time); // Tiempo de lead time en segundos
+    deploymentFreqCounter.inc({ pipeline: 'ci' }, deployment_frequency); // Frecuencia de despliegue
+    meanTimeToRestoreGauge.set({ pipeline: 'ci' }, mean_time_to_restore); // MTTR en segundos
+    changeFailureRateGauge.set({ pipeline: 'ci' }, change_failure_rate); // Tasa de fallos de cambios
+
+    totalDeployments.set({pipeline: 'ci'}, totalRuns);
+    successDeployments.set({pipeline: 'ci'}, successCount);
+    failureDeployments.set({pipeline: 'ci'}, failureCount);
+    startupFailureDeployments.set({pipeline: 'ci'}, startup_failure);
+    cancelledDeployments.set({pipeline: 'ci'}, cancelled);
+    
 }
 
 getData();
@@ -42,61 +136,87 @@ function calculateTime (created_at, updated_at) {
     //console.log(`La diferencia entre las dos fechas es de ${timeDifferenceSec} segundos.`);
 
 }
-async function getData (){
+export async function getData (){
 
+    let successCount = 0;
+    let failureCount = 0;
+    let totalDuration = 0;
+    let startup_failure = 0
+    let cancelled = 0;
+    let lenght = 0;
+    let totalRuns = 0;
     
     let i = 1;
     let deployments = null;
     let totalSize = 0;
     do{
         deployments = await getDeployments(i);
-        //console.log('Tamaño',getSize(deployments.workflow_runs));
-        totalSize += getSize(deployments.workflow_runs);
+
+        //console.log('Tamaño', await getSize(deployments.workflow_runs));
+        lenght = await getSize(deployments.workflow_runs);
+        totalSize += lenght
+
         //console.log('totalSize', totalSize)
         //console.log('Total Deployments', deployments.workflow_runs[0])
         i++;
-    }while(i < 2)//getSize(deployments.workflow_runs) != 0);
-    console.log('totalSize', totalSize)
-    console.log('Número de páginas:', i)
+    }while(lenght != 0);
+    totalRuns = deployments.total_count;
+    //console.log('totalSize', totalSize)
+    //console.log('Número de páginas:', i)
 
-    function getSize(workflow_runs) {
+    async function getSize(workflow_runs) {
         // Calcular el tamaño total del array
         let j = 0;
-        workflow_runs.forEach(item => {
+        workflow_runs.forEach(run => {
+            //console.log(run.conclusion)
+            if (run.conclusion === 'success') {
+                successCount++;
+            } else if (run.conclusion === 'failure') {
+                failureCount++;
+            } else if (run.conclusion === 'startup_failure'){
+                startup_failure++;
+            } else if (run.conclusion === 'cancelled') {
+                cancelled++;
+            }
             j++;
         });
+        //console.log(successCount, failureCount, startup_failure, cancelled)
         return j;
     }
    
+    console.log('successCount', successCount)
+    console.log('failureCount', failureCount)
+    console.log('startup_failure', startup_failure)
+    console.log('cancelled', cancelled)
     //const deployments = await getDeployments();
     //console.log('Total Deployments', deployments.workflow_runs.lenght)
 
     //console.log(`Total Deployments ${deployments.total_count}`)
     //console.log('Worflow_runs:', deployments.workflow_runs)
     
-    const id = deployments.workflow_runs[0].id;
-    const conclusion = deployments.workflow_runs[0].conclusion;
-    const created_at = deployments.workflow_runs[0].created_at;
-    const updated_at = deployments.workflow_runs[0].updated_at;
+    // const id = deployments.workflow_runs[0].id;
+    // const conclusion = deployments.workflow_runs[0].conclusion;
+    // const created_at = deployments.workflow_runs[0].created_at;
+    // const updated_at = deployments.workflow_runs[0].updated_at;
 
 
-    const { minutes, seconds, description }= calculateTime (created_at, updated_at);
-    const item1 = [ 
-        {
-            id: id,
-            conclusion: conclusion,
-            created_at: created_at,
-            updated_at: updated_at,
-            deployment_time: description,
-            minutes: minutes,
-            seconds: seconds
-            // deployment_time:{
-            //     minutes: minutes,
-            //     seconds: seconds
-            // }
-        }
-    ];
-    console.log ('array',item1)
+    // const { minutes, seconds, description }= calculateTime (created_at, updated_at);
+    // const item1 = [ 
+    //     {
+    //         id: id,
+    //         conclusion: conclusion,
+    //         created_at: created_at,
+    //         updated_at: updated_at,
+    //         deployment_time: description,
+    //         minutes: minutes,
+    //         seconds: seconds
+    //         // deployment_time:{
+    //         //     minutes: minutes,
+    //         //     seconds: seconds
+    //         // }
+    //     }
+    // ];
+    // console.log ('array',item1)
    
    
     //create array
@@ -109,10 +229,11 @@ async function getData (){
 
     let url = []
 
-    deployments.workflow_runs.forEach(item => {
-        console.log(item.display_title)
-        //url.push(deployment.statuses_url)
-    });
+    // deployments.workflow_runs.forEach(item => {
+    //     //console.log(item.display_title)
+    //     console.log('conclusion', item.conclusion)
+    //     //url.push(deployment.statuses_url)
+    // });
     //console.log(url)
     let status = []
     //let data2 = await getDeploymentsStatus(url);
@@ -126,7 +247,14 @@ async function getData (){
         console.log(item)
     })
 
-    return 0;
+    return { 
+        totalRuns, 
+        successCount, 
+        failureCount, 
+        startup_failure, 
+        cancelled
+    };
+
 }
 
 
@@ -227,3 +355,8 @@ async function getDeploymentsStatus(data) {
 // calculateMetrics()
 
 
+
+export {
+    register,
+    updateMetrics
+}
