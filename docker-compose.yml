@@ -24,7 +24,7 @@ services:
     build: ./server
     expose:
       - "8000"
-    restart: always
+    #restart: always
     env_file: ./server/.env
     networks:
       - backend
@@ -52,7 +52,7 @@ services:
     image: nginx:latest
     container_name: container-nginx
     ports:
-      - "8080:80"   # Redirige el puerto 8080 del host al puerto 80 del contenedor
+      - "80:80"   # Redirige el puerto 8080 del host al puerto 80 del contenedor
       - "8443:443"  # Redirige el puerto 8443 del host al puerto 443 del contenedor
     volumes:
       - ./nginx:/etc/nginx/conf.d/

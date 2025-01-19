@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './pages/home/home.module';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     AgregarProductoComponent,
     ModificarProductoComponent,
     ListaProductosComponent,
+    LoginComponent
   ],
 
   imports: [

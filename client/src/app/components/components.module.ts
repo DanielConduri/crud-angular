@@ -10,12 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
+
 @NgModule({
   declarations: [
     ButtonComponent,
     DesplegableComponent,
     SearchComponent,
-    MenuComponent
+    MenuComponent,
   ],
   exports: [
     ButtonComponent,

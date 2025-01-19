@@ -30,11 +30,40 @@
     <app-search></app-search>
 
     <div class="icons">
-      <img src="../../.././assets/img/person-login-black.png" alt="" style="width: 28px; /*background-color:green;*/">
+      <img 
+        (click)= "login('Iniciar Sesión', 'iniciarSesion')" 
+        src="../../.././assets/img/person-login-black.png" 
+        alt="" style="width: 28px; /*background-color:green;*/"
+      >
       <!-- <h4>Iniciar Sesión</h4> -->
       <img src="../../../assets/img/shopping-cart-black.png" alt="" style="width: 28px;">
       
     </div>
+
+
+    
+    
+    
+
+    <!-- <div class="container-button-add">
+      <button
+        class="btn-primary-add"
+        type="submit"
+        (click)= "login('Iniciar Sesión', 'iniciarSesion')"
+        [disabled]=""
+        >
+        INICIAR SESIÓN
+      </button>
+    </div> -->
+
+    <!-- <button 
+      class="btn btn-Store"
+      (click)="login('Iniciar Sesión', 'iniciarSesion')"
+      >
+      <i class="material-icons">person</i>
+    </button> -->
+
+
     
     
     <!-- <div class="header-column">

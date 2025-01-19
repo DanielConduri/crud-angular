@@ -1,8 +1,11 @@
 import { Router } from "express";
 import  routeProductos  from "../controllers/productos.controller.js";
-
+import seguridadRoute from "./seguridad.routes.js"
 const router = Router();
 const url = '/apiv4';
+
+
+router.get(url + '/login', seguridadRoute);
 
 router.get(url + '/info', (req, res, next) => {
     res.json({
@@ -64,6 +67,8 @@ router.put(url + '/productos/:id', routeProductos.actualizarProducto);
 router.delete(url + '/productos/:id', routeProductos.eliminarProducto);
 router.get(url + "/filtrado/:data", routeProductos.findProductos);
 router.get(url + '/productos/item/:codigo', routeProductos.obtenerProductoCodigo);
+
+
 
 
 export default router;

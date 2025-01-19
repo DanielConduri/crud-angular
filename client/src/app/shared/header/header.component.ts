@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 // import { PersonasService } from '../../core/services/personas.service';
 // import { dataPerfiles } from '../../core/models/personas';
 // import { CasClient } from '../../core/security/CasClient/CasClient';
 import { ModalService } from 'src/app/core/services/modal.service';
 import { SidebarService } from 'src/app/core/services/sidebar.service';
+import { LoginComponent } from '../../components/login/login.component'; // Asegúrate de importar LoginComponent
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import { SidebarService } from 'src/app/core/services/sidebar.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  @ViewChild('loginComponent') loginComponent!: LoginComponent; // Usamos @ViewChild para acceder al componente Login
  // @ViewChild('idAside', { static: false }) div: ElementRef | undefined;
 
 
@@ -26,16 +27,20 @@ export class HeaderComponent implements OnInit {
       //inicializamos los elementos en vacio
       form: '',
       title: '',
-      special: false
+      special: true
     }
 
-private destroy$ = new Subject<any>()
-id_Per: number = 0;
-roles: string[] = [];
-nameRol: string = '';
-getBolean?: boolean;
-status: boolean = false;
-//div: ElementRef = {} as ElementRef;
+    isData: boolean = false;
+    isLoading: boolean = true;
+    mapFiltersToRequest: any = {};
+
+  private destroy$ = new Subject<any>()
+  id_Per: number = 0;
+  roles: string[] = [];
+  nameRol: string = '';
+  getBolean?: boolean;
+  status: boolean = false;
+  //div: ElementRef = {} as ElementRef;
 
 
   constructor(
@@ -89,11 +94,22 @@ status: boolean = false;
 
   }
 
+  login(_title: string, _form: string) {
+    this.elementForm.form = _form;
+    this.elementForm.title = _title;
+    this.srvModal.setForm(this.elementForm);
+    this.srvModal.openModal();
+  }
+
+
+  
+  
+
   ngAfterViewInit() {
-
     this.toggleSidebar();
+  }
 
-}
+  
 
   toggleSidebar(){
 
