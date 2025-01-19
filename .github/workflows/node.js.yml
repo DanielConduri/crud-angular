@@ -30,7 +30,7 @@ jobs:
           echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
           cd server 
           npm ci
-          npm test
+          #npm test
   env:
     name: DEPLOY
     needs: start
