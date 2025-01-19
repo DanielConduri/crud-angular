@@ -43,7 +43,7 @@ describe("Products API Endpoints", () => {
         expect(res.body.body[0]).toEqual({
             api: "crud-angular",
             port: 8000,
-            url: "/apiv4ddd",
+            url: "/apiv4",
             description: ""
         });
         
