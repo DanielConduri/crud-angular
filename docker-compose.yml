@@ -19,12 +19,12 @@ services:
   #     - backend
 
   api:
-    image: node18
-    container_name: container-api-node
+    image: img-productos
+    container_name: container-productos
     build: ./server
-    expose:
-      - "8000"
-    #restart: always
+    ports:
+      - "8000:8000"
+    restart: always
     env_file: ./server/.env
     networks:
       - backend
@@ -48,19 +48,19 @@ services:
       #   ipv4_address: 172.18.20.2
         
 
-  nginx:
-    image: nginx:latest
-    container_name: container-nginx
-    ports:
-      - "80:80"   # Redirige el puerto 8080 del host al puerto 80 del contenedor
-      - "8443:443"  # Redirige el puerto 8443 del host al puerto 443 del contenedor
-    volumes:
-      - ./nginx:/etc/nginx/conf.d/
-    depends_on:
-      - api
-    restart: always
-    networks:
-      - backend
+  # nginx:
+  #   image: nginx:latest
+  #   container_name: container-nginx
+  #   ports:
+  #     - "80:80"   # Redirige el puerto 8080 del host al puerto 80 del contenedor
+  #     - "8443:443"  # Redirige el puerto 8443 del host al puerto 443 del contenedor
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d/
+  #   depends_on:
+  #     - api
+  #   restart: always
+  #   networks:
+  #     - backend
 
 
 networks:

@@ -44,9 +44,9 @@ jobs:
           chmod +x ./server/start.sh
           ./server/start.sh
 
-          docker build -t img-productos -f ./server/Dockerfile ./server
-          docker run --name container-productos -d -p 8000:8000 img-productos
-          #docker-compose up --build -d
+          #docker build -t img-productos -f ./server/Dockerfile ./server
+          #docker run --name container-productos -d -p 8000:8000 img-productos
+          docker-compose up --build -d
 
           #cd client
           #npm install
