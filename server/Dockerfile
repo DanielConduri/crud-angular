@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm i
 
 COPY . .
-#COPY ./server /usr/app
+
 COPY start.sh /usr/app/start.sh
 RUN chmod +x /usr/app/start.sh
 

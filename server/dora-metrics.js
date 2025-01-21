@@ -137,7 +137,6 @@ function calculateTime (created_at, updated_at) {
 
 }
 export async function getData (){
-
     let successCount = 0;
     let failureCount = 0;
     let totalDuration = 0;
@@ -182,9 +181,7 @@ export async function getData (){
                 cancelled++;
             }
             j++;
-
         });
-
         //time1 = await getTimeDeployment(workflow_runs, j)
         //console.log(successCount, failureCount, startup_failure, cancelled)
         return j;
@@ -252,10 +249,7 @@ export async function getData (){
         
     }
 
-    
-    
-   
-   
+
     //create array
     // const data = [];
     // for (let i = 1; i <= 5; i++) {
