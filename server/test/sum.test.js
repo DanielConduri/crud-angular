@@ -44,7 +44,7 @@ describe("Products API Endpoints", () => {
             api: "crud-angular",
             port: 8000,
             url: "/apiv4",
-            description: ""
+            description: "start.sh"
         });
         
     })
