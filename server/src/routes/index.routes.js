@@ -56,9 +56,9 @@ router.get(url + '/info', (req, res, next) => {
             },
             {
                 dora_metrics: 3,
-                frecuencia_de_despliegue: 'In Process',
-                tiempo_de_espera_para_los_cambios: 'Done',
-                Tasa_de_fallo_de_cambios: 'Done',
+                deployment_frequency: 'In Process',
+                leat_time_for_change: 'Done',
+                change_failure_rate: 'Done',
 
             }
 
