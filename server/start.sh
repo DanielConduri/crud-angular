@@ -9,7 +9,7 @@
 #     exit 1
 # fi
 
-if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
+# if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
     echo "Eliminando contenedor 'container-productos'..."
     docker rm -f container-productos
 else
