@@ -160,10 +160,9 @@ export async function getData() {
 
         //console.log('Tamaño', await getSize(deployments.workflow_runs));
         lenght = await getSize(deployments.workflow_runs);
-        if( lenght > 0) {
+        if( lenght > 0)
             totalTimejobs = await getTimeDeployment(deployments.workflow_runs, lenght)
-            console.log('totalTimejobs', totalTimejobs)
-        }
+            
         
         totalSize += lenght
         timeAdd += time
@@ -173,6 +172,7 @@ export async function getData() {
     } while (lenght != 0);
     totalRuns = deployments.total_count;
     console.log('totalSize', totalSize)
+    console.log('totalTimejobs', totalTimejobs)
     //console.log('Número de páginas:', i)
 
     async function getSize(workflow_runs) {
@@ -193,7 +193,7 @@ export async function getData() {
             j++;
         });
         //time1 = await getTimeDeployment(workflow_runs, j)
-        console.log(successCount, failureCount, startup_failure, cancelled)
+        //console.log(successCount, failureCount, startup_failure, cancelled)
         return j;
     }
 
@@ -211,7 +211,7 @@ export async function getData() {
 
     async function getTimeDeployment(workflow_runs, count) {
         let totalTime2 = 0
-        console.log('count', count)
+        //console.log('count', count)
         if (count > 0) {
             workflow_runs.forEach(i => {
                 const id = i.id;
@@ -245,7 +245,7 @@ export async function getData() {
                 totalTime2 += time;
                 //console.log(totalTime2)
             })
-            console.log(totalTime2)
+            //console.log(totalTime2)
             return totalTime2
             // const id = deployments.workflow_runs[0].id;
             // const conclusion = deployments.workflow_runs[0].conclusion;
