@@ -16,7 +16,7 @@ router.get(url + '/info', (req, res, next) => {
                 api: "crud-angular",
                 port: 8000,
                 url: "/apiv4",
-                description: ""
+                description: "start.sh"
             },
             {
                 docker_compose_v1: {

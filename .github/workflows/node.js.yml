@@ -44,20 +44,6 @@ jobs:
           chmod +x ./server/start.sh
           ./server/start.sh
 
-          if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
-            echo "Eliminando contenedor 'container-productos'..."
-            docker rm -f container-productos
-          else
-            echo "El contenedor 'container-productos' no existe."
-          fi
-            
-          if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "img-productos"; then
-            echo "Eliminando imagen 'img-productos'..."
-            docker rmi -f img-productos
-          else
-            echo "La imagen 'img-productos' no existe."
-          fi
-
           docker build -t img-productos -f ./server/Dockerfile ./server
           docker run --name container-productos -d -p 8000:8000 img-productos
           #docker-compose up --build -d
