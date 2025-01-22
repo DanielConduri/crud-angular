@@ -60,6 +60,8 @@ router.get(url + '/info', (req, res, next) => {
                 leat_time_for_change: 'Done',
                 change_failure_rate: 'Done',
 
+            },{
+                endpoint_metrics: '/apiv4/metrics'
             }
 
         ]
