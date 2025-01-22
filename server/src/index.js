@@ -24,10 +24,12 @@ let sever2 = null;
 // Endpoint para exponer las métricas
 app.get('/apiv4/metrics', async (req, res) => {
 
-  
-  // res.json({
-  //   data: true
-  // })
+  // setTimeout(() => {
+  //   updateMetrics().catch((error) => {
+  //     console.error('Error al calcular las métricas:', error);
+  //   });
+  // }, 0); // Se ejecuta inmediatamente después de que el servidor inicie
+
   res.set('Content-Type', register.contentType);
   res.end(await register.metrics());
 });
@@ -57,6 +59,7 @@ function fetchMetrics() {
         console.log(`server is listening on port :${port}`)
       });
 
+       // Calcular las métricas de forma asíncrona después de iniciar el servidor
        // Calcular las métricas de forma asíncrona después de iniciar el servidor
        setTimeout(() => {
         updateMetrics().catch((error) => {
