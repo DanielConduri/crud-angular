@@ -103,7 +103,7 @@ p{
     grid-template-columns: repeat(3, 1fr);
   } */
 
-  @media screen and (width: 320px) {
+  @media screen and (max-width: 425px) {
     /* 2 columnas en móviles */
     grid-template-columns: repeat(2, 1fr);
     /* grid-template-columns: repeat(auto-fit, minmax(295px, 2fr)); */
@@ -160,7 +160,7 @@ p{
   }
 }
 
-@media screen and (width:320px) {
+@media screen and (width:375px) {
   .card {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
