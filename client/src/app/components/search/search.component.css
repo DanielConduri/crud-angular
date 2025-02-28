@@ -10,8 +10,8 @@
   width: 30%;
   max-width:500px;
   background: #ffffff;
-  padding: 1px;
-  border-radius: 10px;
+  /* padding: 1px; */
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
@@ -24,32 +24,45 @@
   gap: 10px;
   padding: 1px;
   border: 1px solid #ccc;
-  border-radius: 12px;
+  border-radius: 15px;
 }
 
 
 .search-input-3 {
-  flex: 1;
+  /* flex: 1;
   padding: 10px;
   font-size: 16px;
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: 5px; */
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+  
 }
 
 .search-button-3 {
   /* background: #78d8f0; */
-  background: #45c6f5;
+  /* background: #45c6f5;
   color: white;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 16px; */
+
+  background-color: #93e4fd;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
 }
 
 .search-button-3:hover {
-  background: #1addeb;
+  background:#7ad1ec;
 }
 
 /* Tabla */
@@ -101,14 +114,14 @@
     max-width:800px;
     background: #ffffff;
     padding: 1px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
   }
   .search-button-3 {
     /*display: none;*/ /* Oculta el botón en dispositivos con ancho menor a 768px */
      /* background: #78d8f0; */
-      background: #45c6f5;
+     background-color: #93e4fd;
       color: white;
       border: none;
       margin-top: -1px;
@@ -117,6 +130,10 @@
       font-size: 16px;
       position: absolute;
       right: 1px;
+      height: 37px;
+      border-radius: 0 15px 15px 0;
+      cursor: pointer;
+      
   }
 
   
@@ -143,6 +160,7 @@
 
 @media screen and (max-width: 580px) {
   .search-table {
+    margin-top: 5px;
     /*position: fixed;*/ /* Fija la barra de búsqueda en la pantalla */
     position: absolute;
     top: 50px; /* Distancia desde la parte superior */
@@ -152,15 +170,15 @@
     max-width:400px;
     background: #ffffff;
     padding: 1px;
-    border-radius: 10px;
+    border-radius: 17px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
   }
   .search-button-3 {
     /*display: none;*/ /* Oculta el botón en dispositivos con ancho menor a 768px */
      /* background: #78d8f0; */
-      background: #45c6f5;
-      color: white;
+ 
+      /* color: white;
       border: none;
       margin-top: -1px;
       cursor: pointer;
@@ -168,6 +186,16 @@
       font-size: 16px;
       position: absolute;
       right: 1px;
+      border-radius: 0 10px 10px 0;
+      outline: none; */
+
+      height: 37px;
+      background-color: #93e4fd;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 0 15px 15px 0;
+      cursor: pointer;
   }
 
 }
