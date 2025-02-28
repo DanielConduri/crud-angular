@@ -99,15 +99,13 @@ p{
 
   /*grid-template-columns: 1fr 1fr;*/
 
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
-    /* 3 columnas en tablets */
-  }
+  } */
 
-  @media screen and (max-width: 580px) {
+  @media screen and (width: 320px) {
     /* 2 columnas en móviles */
-
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     /* grid-template-columns: repeat(auto-fit, minmax(295px, 2fr)); */
     /*gap: 10px;  Espacio más pequeño entre tarjetas */
     padding: 0 20px;
@@ -132,6 +130,7 @@ p{
 
   
     .card-container {
+      gap: 10px;
       flex: 1; /* Asegura que el contenido dentro de la card ocupe el espacio disponible */
     }
 
@@ -149,6 +148,7 @@ p{
     
   
     .precio {
+      display: none;
       font-size: 16px;
       position: flex;
       margin-top: 5px;
@@ -159,6 +159,14 @@ p{
     
   }
 }
+
+@media screen and (width:320px) {
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+}
+
 
 /* .btn-add{
   z-index: 1;
@@ -247,7 +255,7 @@ p{
 }
 
 /* Ajustes para pantallas pequeñas */
-@media screen and (max-width: 580px) {
+@media screen and (width: 580px) {
   .price-button-container {
     display: flex;
     flex-direction: column;
