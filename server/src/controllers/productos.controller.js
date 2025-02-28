@@ -164,7 +164,7 @@ const obtenerProductoCodigo = async (req, res) => {
 
 };
 const insertarProducto = async (req, res) => {
-    //console.log(req);
+    console.log(req.body);
     
     const {
         str_producto_codigo,
@@ -173,7 +173,10 @@ const insertarProducto = async (req, res) => {
         str_producto_marca,
         int_producto_precio,
         str_producto_proveedor,
-        str_producto_url
+        str_producto_url,
+        str_producto_descripcion,
+        str_producto_image
+
     } = req.body;
 
     let text = req.body.str_producto_nombre;
@@ -190,7 +193,10 @@ const insertarProducto = async (req, res) => {
             str_producto_marca,
             int_producto_precio,
             str_producto_proveedor,
-            str_producto_url
+            str_producto_url,
+            str_producto_descripcion,
+            str_producto_image
+
         });
 
         //console.log('producto ', producto);
@@ -221,7 +227,8 @@ const actualizarProducto = async (req, res) => {
         str_producto_marca,
         int_producto_precio,
         str_producto_proveedor,
-        str_producto_estado
+        str_producto_estado,
+        str_producto_descripcion
     } = req.body;
 
     try {
@@ -233,7 +240,9 @@ const actualizarProducto = async (req, res) => {
             str_producto_marca,
             int_producto_precio,
             str_producto_proveedor,
-            str_producto_estado
+            str_producto_estado,
+            str_producto_descripcion
+            
 
         }, {
             where: { int_producto_id: id }

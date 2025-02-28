@@ -6,9 +6,11 @@
         <!-- Contenedor derecho con texto, precio y botón -->
         <div class="info">
             <h1 class="title">{{name}}</h1> <!-- Nombre del producto -->
-            <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam officiis, recusandae amet aut deserunt eaque, ipsam illo minus fuga blanditiis commodi deleniti. Consequatur cumque iste provident suscipit in vitae rem.
+            <!-- <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam officiis, recusandae amet aut deserunt eaque, ipsam illo minus fuga blanditiis commodi deleniti. Consequatur cumque iste provident suscipit in vitae rem.
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam officiis, recusandae amet aut deserunt eaque, ipsam illo minus fuga blanditiis commodi deleniti. Consequatur cumque iste provident suscipit in vitae rem
-            </p>
+            </p> -->
+            <p>{{description}}</p>
+            
             <!-- Contenedor para el precio y el botón en la misma línea -->
             <div class="price-button-container">
                 
@@ -23,9 +25,10 @@
     </div>
 
     <!-- Productos relacionados -->
-    <div class="related-products" *ngFor="let producto of srvProductos.datosProductos, let i = index">
+    <!-- <div class="related-products" *ngFor="let producto of srvProductos.datosProductos, let i = index">
         <h2 class="product-name">{{producto.str_producto_nombre}}</h2>
-    </div>
+        
+    </div> -->
 </div>
 
 

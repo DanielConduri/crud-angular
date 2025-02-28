@@ -31,6 +31,11 @@ export class AgregarProductoComponent implements OnInit {
         null,
         [Validators.required, Validators.pattern(/^[a-zA-Z]/)]
       ],
+
+      str_producto_image: [
+        null,
+        [Validators.required, Validators.pattern(/^[a-zA-Z]/)]
+      ],
       int_producto_cantidad:[
         null,
         [Validators.required, Validators.pattern(/^[0-9]/)]
@@ -44,6 +49,11 @@ export class AgregarProductoComponent implements OnInit {
         [Validators.required, Validators.pattern(/^[0-9]/)]
       ],
       str_producto_proveedor: [
+        null,
+        [Validators.required, Validators.pattern(/^[a-zA-Z]/)]
+      ],
+
+      str_producto_descripcion: [
         null,
         [Validators.required, Validators.pattern(/^[a-zA-Z]/)]
       ]

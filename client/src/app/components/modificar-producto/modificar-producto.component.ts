@@ -49,6 +49,10 @@ export class ModificarProductoComponent implements OnInit {
         '', [Validators.required]
       ],
       
+      str_producto_descripcion: [
+        '', [Validators.required]
+      ],
+      
     });
   }
 
@@ -114,6 +118,10 @@ export class ModificarProductoComponent implements OnInit {
           ],
           str_producto_proveedor: [
             dataProducto.body.str_producto_proveedor, [Validators.required]
+          ],
+
+          str_producto_descripcion: [
+            dataProducto.body.str_producto_descripcion, [Validators.required]
           ]
         });
         

@@ -233,8 +233,10 @@
           <img src="{{producto.str_producto_image}}" alt="img">
           <h2>{{producto.str_producto_nombre}}</h2>
           <div class="container-details">
-            <p class="description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus.
+            <p class="">
+              <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus.
+                -->
+              {{ producto.str_producto_descripcion | slice:0:100}}
             </p>
             <!-- <p class="description">
               Procesador: Intel Core i7-12700H

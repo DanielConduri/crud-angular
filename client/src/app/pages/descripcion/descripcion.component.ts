@@ -27,6 +27,7 @@ export class DescripcionComponent implements OnInit {
   image!: string;
   name!: string;
   price!: number;
+  description!: string;
 
   cod: string | null = null;
   codigoProducto: string | null = null;
@@ -76,6 +77,7 @@ export class DescripcionComponent implements OnInit {
         this.image = data.body.str_producto_image;
         this.name = data.body.str_producto_nombre;
         this.price = data.body.int_producto_precio;
+        this.description = data.body.str_producto_descripcion;
       },
       error: (err) => {
         console.log('Error =>', err);

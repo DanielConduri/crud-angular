@@ -1612,5 +1612,14 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-
+textarea {
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  height: 200px; /* Establece una altura personalizada */
+  padding: 10px; /* Opcional: agrega espacio interno */
+  font-size: 16px; /* Ajusta el tamaño de la fuente */
+  border: 1px solid #ccc; /* Establece el borde */
+  text-align: left;
+  border-radius: 4px; /* Redondea las esquinas */
+  resize: both; /* Permite redimensionar tanto en ancho como en alto */
+}
 
