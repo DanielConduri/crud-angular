@@ -164,9 +164,9 @@
     /*position: fixed;*/ /* Fija la barra de búsqueda en la pantalla */
     position: absolute;
     top: 50px; /* Distancia desde la parte superior */
-    left: 50%;
+    left: 49.75%;
     transform: translateX(-50%);
-    width: 71%;
+    width: 73%;
     max-width:400px;
     background: #ffffff;
     padding: 1px;
@@ -196,6 +196,17 @@
       padding: 10px 15px;
       border-radius: 0 15px 15px 0;
       cursor: pointer;
+  }
+
+  .search-input-3 {
+
+    flex-grow: 1;
+    border: none;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 25px;
+    outline: none;
+    
   }
 
 }
