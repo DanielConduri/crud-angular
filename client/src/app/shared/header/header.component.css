@@ -16,7 +16,6 @@
   margin: 0 auto; /* Centrar el contenido */
   display: flex;
   font-size: 13px;
-
 }
 
 .icons {
@@ -45,16 +44,15 @@
 }
 
 .header-container {
- 
   background-color: #ffffff;
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-between;
+  margin: 5px;
   /* border-style:unset; */
   align-items: center;
   position: relative;
   padding: 4px;
-
 }
 
 .header-container h1 {

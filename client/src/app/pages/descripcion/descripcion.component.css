@@ -1,143 +1,162 @@
-
+/* Contenedor principal centrado */
 .items-container {
-  justify-content: space-between;
-    background-color: #ffffff;
-    color: rgb(63, 63, 63); /* Color del texto */
-    padding: 10px 0; /* Espaciado interno */
-    text-align: left; /* Centrar el texto */
-    align-items: center;
-    margin-left: 14%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
 }
 
+/* Contenedor de la imagen y la información */
+.item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* Espacio entre imagen y contenido */
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Imagen del producto */
+.img-description {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* Contenedor derecho con texto, precio y botón */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 450px;
+  /* Ajusta este valor según el diseño */
+}
+
+.description {
+  text-align: justify;
+}
+
+
+
+
+/* Nombre del producto */
 .title {
   font-size: 24px;
-  text-align: center;
-  margin-top: 8%;
-  margin-left: 33%;
-  position: absolute;
-}
-h2 {
-  font-size: 24px;
-  text-align: center;
-  margin-top: -22%;
-  margin-left: 33%;
-  position: absolute;
+  margin-bottom: 10px;
+  text-align: justify;
+
 }
 
-/* button {
-  margin-bottom: -50px;
-} */
+/* Precio alineado a la izquierda */
+.price {
+  font-size: 20px;
 
-  
-  
-  /* .header-container {
-    margin-bottom: 20px;
-    background-color: #f8f9fa;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  } */
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.price-button-container {
+  display: flex;
+  /* Para que precio y botón estén en la misma fila */
+  align-items: center;
+  /* Alineación vertical */
+  justify-content: space-between;
+  /* Espaciado entre precio y botón */
+  width: 100%;
+  gap: 20px;
+  /* Espacio entre ellos */
+}
 
 
-  .linea-contenedor {
-    text-align: center; 
+
+/* Botón alineado a la derecha */
+.btn-add-des {
+  width: 150px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 900;
+  color: #000000;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  line-height: .85;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  align-self: flex-end;
+  border: 1px solid #000000;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #d8c8c8 !important;
+    border: 1px solid transparent !important;
+
+    & .bg {
+      opacity: 10;
+    }
+  }
+
+}
+
+.btn-add-des:hover {
+  background-color: #999b9c;
+}
+
+/* Línea debajo de todo */
+.linea-contenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .mi-linea-horizontal {
-    margin-top: -20%;
-    border: none; /* Eliminar el borde por defecto */
-    height: 1px; /* Cambiar la altura de la línea */
-    background-color: #dfdfdf; /* Cambiar el color de la línea */
-    width: 50%; /* Cambiar el ancho de la línea (ajusta según sea necesario) */
-    margin: -90px auto; /* Añadir márgenes superior e inferior */
+  width: 100%;
+  border-top: 1px solid #ccc;
 }
 
+/* 📌 RESPONSIVE */
 
-  
-.line {
-  position: absolute;
-    border: 0;
-    margin-top: -80px;
-    margin-left: 100%;
-    height: 1px;
-    width: 40%;
-    background: #d8d8d8; /* Color de la línea */
-    margin-left: 0;
-    margin-right: 0;
+/* Para móviles (máx. 768px) */
+@media screen and (max-width: 768px) {
+  .item-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .price-button-container {
+    flex-direction: column;
+    /* Precio y botón en columna */
+    gap: 10px;
+    /* align-items: center; */
+  }
+
+  .img-description {
+    max-width: 100%;
+  }
+
+  .info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .price {
+    align-self: center;
+  }
+
+  .btn-add-des {
+    align-self: center;
+    width: 100%; /* Hace que el botón ocupe todo el ancho */
+  }
+  .mi-linea-horizontal {
+    display: none;
+  }
 }
-
-    /* .btn-add-des{
-
-     position: absolute;
-     margin-top: -18%;
-      z-index: 1;
-      font-size: 13px;
-      font-weight: 900;
-      margin-left: 47%;
-      text-transform: uppercase;
-      color: #000000;
-      padding: 12px 18px;
-      cursor: pointer;
-      transition: all .3s ease-in-out;
-      line-height: .95;
-      border: none;
-      background: none;
-      outline: none;
-      border: 1px solid #000000;
-      border-radius: 5px;
-      overflow: hidden;
-    
-      & .bg {
-          width: 101%;
-          height: 101%;
-          display: block!important;
-          z-index: -1;
-          opacity: 0;
-          transition: all .3s ease-in-out;
-          background: linear-gradient(135deg, #a61322, #d33f34);
-        }
-        
-        &:hover {
-          background-color: #d8c8c8!important;
-          border: 1px solid transparent!important;
-          
-          & .bg {
-            opacity: 10;
-          }
-        }
-    }
-    .btn-add:hover {
-      background-color: #045b70;
-    } */
-
-    /*IMÁGENES*/
-    
-    @media screen and (max-width: 580px) {
-      
-      .img-description {
-        max-width: 350px;
-       
-      }
-      
-      .btn-add-des{
-        position: relative;
-        /* Elimina el posicionamiento absoluto en móviles */
-        margin: 10px auto;
-        /* Centra el botón en la card */
-        display: block;
-        width: fit-content;
-        max-width: 150px;
-        margin-top: 20px;
-        /* Añadir un margen superior */
-        margin-left: auto;
-        margin-right: auto;
-        /* Centrado horizontal */
-      }
-
-      .img-description {
-        margin-right: 10px;
-        justify-content: ce;
-        width: 100px;
-        
-      }
-    }

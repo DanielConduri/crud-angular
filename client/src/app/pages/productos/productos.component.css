@@ -70,6 +70,18 @@ section img {
 }
 
 
+p{
+  text-align: justify;
+}
+
+.price-button-container {
+  margin-top: 15px;
+  display: flex; /* Para que precio y botón estén en la misma fila */
+  align-items: center; /* Alineación vertical */
+  justify-content: space-between; /* Espaciado entre precio y botón */
+  width: 100%;
+  gap: 20px; /* Espacio entre ellos */
+}
 
 .card-container {
   
@@ -95,24 +107,25 @@ section img {
   @media screen and (max-width: 580px) {
     /* 2 columnas en móviles */
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     /* grid-template-columns: repeat(auto-fit, minmax(295px, 2fr)); */
     /*gap: 10px;  Espacio más pequeño entre tarjetas */
     padding: 0 20px;
     /* Reducir padding en móviles */
+    
 
     .card {
       width: 100%; /* En pantallas móviles, las cards ocupan todo el ancho */
       height: auto; /* Ajusta la altura para que el contenido se acomode */
-
+      
       position: relative;/* Esto asegura que los elementos dentro de la card (como el botón) se posicionen correctamente */
       /* display: flex; */
       flex-direction: column; /* Asegura que los elementos dentro de la card se apilen verticalmente */
       padding-bottom: 50px; /* Deja espacio en la parte inferior de la card para el botón */
       justify-content: space-between; /* Esto distribuye el espacio entre los elementos, dejando el botón al final */
-      
+    
       /*max-width: 140px;  Reducir tamaño máximo de la card */
-      padding: 13px; /* Menos padding interno */
+      padding: 15px; /* Menos padding interno */
       font-size: 12px;
       /* Reducir el tamaño de la fuente dentro de la card */
     }
@@ -133,12 +146,7 @@ section img {
     }
 
 
-    .container-details {
-      align-items: center;
-      flex-direction: column; /* Apila los elementos en columna */
-      align-items: center; /* Centra los elementos */
-      justify-content: flex-start; /* Asegura que los elementos empiecen desde arriba */
-    }
+    
   
     .precio {
       font-size: 16px;
@@ -147,13 +155,7 @@ section img {
       text-align: center;
     }
     
-    .btn-add {
-      width: fit-content; /* El botón mantiene su tamaño original */
-      margin-top: 15px; /* Separación entre el precio y el botón */
-      position: relative; /* Se posiciona de manera natural */
-      align-self: center; /* Centra el botón en el contenedor */
-    }
-
+  
     
   }
 }
@@ -246,20 +248,32 @@ section img {
 
 /* Ajustes para pantallas pequeñas */
 @media screen and (max-width: 580px) {
-  .btn-add {
-    position: relative;
-    /* Elimina el posicionamiento absoluto en móviles */
-    margin: 10px auto;
-    /* Centra el botón en la card */
-    display: block;
-    width: fit-content;
-    max-width: 150px;
-    margin-top: 20px;
-    /* Añadir un margen superior */
-    margin-left: auto;
-    margin-right: auto;
-    /* Centrado horizontal */
+  .price-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    width: 100%;
   }
+
+  .card-container{
+    margin-left: 27px ;
+  }
+  /* .btn-add {
+    width: 100%; 
+    text-align: center;
+    margin-top: 10px; 
+    position: relative;
+    bottom: 0;
+    margin-left: 20px;
+  } */
+
+
+  /* .btn-add {
+    display: none;
+  } */
+  
+  
 }
 
 
@@ -307,8 +321,6 @@ section img {
 
 .card {
   cursor: pointer;
-  /* margin-left: -1.15%;
-    margin-right: 2%; */
   width: 100%;
   max-width: 295px;
   padding: 16px;
@@ -316,14 +328,9 @@ section img {
   border-radius: 8px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border: 1px solid #d3d3d3;
-  /* Borde de 1px con color gris claro */
-
   animation: fade-in linear both;
-  /* view function */
   animation-timeline: view();
   animation-range: entry 10% entry 80%;
-
-
 }
 
 
@@ -498,7 +505,7 @@ section img {
   width: 90%;
 }
 
-.cards {
+/* .cards {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -516,13 +523,13 @@ section img {
   background-color: #490A3D;
   margin: 0;
   padding: 10px;
-}
+} */
 
-.cards p {
+/* .cards p {
   padding: 10px;
-}
+} */
 
-.flex {
+/* .flex {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -10px;
@@ -531,7 +538,7 @@ section img {
 .flex li {
   flex: 1 1 200px;
   margin: 10px;
-}
+} */
 
 .grid {
   display: grid;
@@ -539,9 +546,6 @@ section img {
   /*grid-template-columns: repeat(auto-fill, minmax(200px 1fr));*/
   grid-gap: 20px;
 }
-
-
-
 
 
 
@@ -574,7 +578,7 @@ section img {
 
 } */
 
-.footer-cta {
+/* .footer-cta {
   border-bottom: 1px solid #373636;
 }
 
@@ -596,7 +600,7 @@ section img {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 2px;
-}
+} */
 
 .cta-text span {
   /*color: #4f4f50;*/
@@ -605,7 +609,7 @@ section img {
   font-size: 15px;
 }
 
-.footer-content {
+/* .footer-content {
   position: relative;
   z-index: 2;
 }
@@ -734,7 +738,7 @@ section img {
 .copyright-area {
   background: #444444;
   padding: 25px 0;
-}
+} */
 
 .copyright-text p {
 
@@ -752,7 +756,7 @@ section img {
 
 }
 
-.copyright-text p a {
+/* .copyright-text p a {
   color: #ff5e14;
   margin-top: 200px;
 
@@ -778,7 +782,7 @@ section img {
 
 .search-content {
   margin-top: 2rem;
-}
+} */
 
 
 

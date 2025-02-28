@@ -233,7 +233,7 @@
           <img src="{{producto.str_producto_image}}" alt="img">
           <h2>{{producto.str_producto_nombre}}</h2>
           <div class="container-details">
-            <p>
+            <p class="description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus.
             </p>
             <!-- <p class="description">
@@ -242,9 +242,19 @@
               Almacenamiento: 1TB SSD
               Pantalla: 16"
             </p> -->
-            <h2 class="precio">${{producto.int_producto_precio}}</h2>
-            <button class="btn-add">COMPRAR</button>
-          </div>
+
+            <!-- <span>
+              Procesador: Intel Core i7-1215U 
+              Memoria RAM: 8GB 
+              Almacenamiento: 512GB 
+              Pantalla: 15.6"
+    
+            </span> <br> -->
+            <div class="price-button-container">
+              <h2 class="precio">${{producto.int_producto_precio}}</h2>
+              <button class="btn-add">COMPRAR</button>
+            </div>
+             </div>
         </div>
       </div>
 
