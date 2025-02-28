@@ -1,274 +1,140 @@
-/*-----------------BAR TWO--------------------*/
-.search-bar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 425px;
-    margin: 0 auto;
-    padding: 7px; 
-    padding: 4px;
-    background-color: #f1f1f1;
-    /* background: #feac5e;
-    background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
-    background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e); */
-    /* background-color: #d8c8c8; */
 
-    border-radius: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/*----------TABLE---------*/
+.search-table {
+  /*position: fixed;*/ /* Fija la barra de búsqueda en la pantalla */
+  position: absolute;
+  top: 50px; /* Distancia desde la parte superior */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  max-width:500px;
+  background: #ffffff;
+  padding: 1px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
 
-.search-input2{
-    flex-grow: 1;
-    border: none;
-    padding: 10px;
-    border-radius: 25px 0 0 25px;
-    outline: none;
-  }
-
-
-  .search-button2 {
-    /*background-color: #7ae9ec;*/
-    background-color: #93e4fd;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
-  }
-  .search-button2:hover {
-    background-color:  #7ad1ec;
-  } 
-
-
- .list-search {
-
-background-color: black;
-  
- }
-
- table {
-  margin-top: 5px;;
-  margin-left: 37%;
- }
-
-
- .tabla-estilos-search{
-  justify-content: center;
+/* Barra de búsqueda */
+.search-bar-1 {
+  display: flex;
   align-items: center;
-  width: 25%;
-  height: 30%;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-/* styles.css */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center; /* Centra horizontalmente en el viewport */
+
+.search-input-3 {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
 
-.table-container {
+.search-button-3 {
+  /* background: #78d8f0; */
+  background: #45c6f5;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-button-3:hover {
+  background: #1addeb;
+}
+
+/* Tabla */
+.tabla-container-3 {
+  margin-top: 1px; 
+  overflow-x: auto;
+  /* width: 100%;
   display: flex;
-  justify-content: center; /* Centra horizontalmente dentro del contenedor */
+  justify-content: center;  */
+}
+
+.table-3 {
   width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+  border: none;
+
 }
 
-table {
-  border-collapse: collapse; /* Opcional: elimina el espacio entre bordes */
-  width: 80%; /* Ajusta el ancho de la tabla si es necesario */
+.table-3 th, .table-3 td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-3 tr:hover {
+  background: #f5f5f5;
   cursor: pointer;
 }
 
-
-
-/* .tabla-estilos-search tbody tr:nth-child(even) {
-  background-color: var(--bs-white);
-} */
-
-
-/* .tabla-estilos-search {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  margin: 0;
-  font-size: 11px;
-  width: 1
-} */
-
-
-/* productos.component.css */
-.table-container {
-  position: relative;
-  width: 100%;
-  height: auto; /* Ajusta la altura del contenedor si es necesario */
-  display: flex;
-  justify-content: center; /* Centra la tabla horizontalmente */
-  align-items: center; /* Centra la tabla verticalmente */
-  
-  overflow-x: auto; /* Permite el desplazamiento horizontal */
+/* Imágenes dentro de la tabla */
+.table-3 img {
+  width: 80px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
-/* @media (max-width: 480px) {
-  .floating-table, .floating-table thead, .floating-table tbody, .floating-table th, .floating-table td, .floating-table tr {
-    display: block;
-    margin-top: 20%;
-  }
-
-  .floating-table th {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
-  .floating-table tr {
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-  }
-
-  .floating-table td {
-    border: none;
-    position: relative;
-    padding-left: 5%;
-    white-space: nowrap;
-  }
-
-  .floating-table td:before {
-    content: attr(data-label);
-    position: absolute;
-    left: 0;
-    width: 45%;
-    padding-left: 10px;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-} */
-
-.floating-table {
-  position: absolute; /* Hace que la tabla sea flotante */
-  top: 1;
-  left: 1;
-  right: 1;
-  bottom: 1;
-  /* margin-top: 9.71%; */
-  max-width: 900px;
-  
-  /*margin: auto;*/ /* Centra la tabla horizontal y verticalmente */
-  border-collapse: collapse;
-  background-color: white; /* Opcional: para mejor visibilidad sobre el fondo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para efecto flotante */
-  width: 25%; /* Ajusta el ancho de la tabla según sea necesario */
-  z-index: 1000; /* Asegura que la tabla esté sobre otros elementos */
-  
-}
-
-
-@media (max-width: 1024px) {
-  .floating-table th, .floating-table td {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    padding: 1px; /* Ajusta el relleno */
-  }
-
-  .floating-table {
-    margin-top: 0.2%;
-    margin-left: 325px;
-    width: 34%;
-    max-width: auto;
-  }
-}
-
-
-
+/* Diseño responsivo */
 @media (max-width: 768px) {
-  .floating-table th, .floating-table td {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    padding: 1px; /* Ajusta el relleno */
+  .search-table {
+    padding: 10px;
   }
 
-  .floating-table {
-    margin-top: 0.3%;
-    margin-left: 190px;
-    width: 46%;
-    max-width: auto;
-  }
-}
-
-@media (max-width: 425px) {
-  .floating-table th, .floating-table td {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    padding: 1px; /* Ajusta el relleno */
+  .search-bar-1 {
+    flex-direction: column;
+    gap: 5px;
   }
 
-  .floating-table {
-  
-    margin-left: 75px;
-    justify-content: left;
-    width: 56.8%;
-    max-width: auto;
+  .search-input-3 {
+    width: 100%;
   }
 
-  .search-bar {
-    justify-content: center;
-    margin-left: 57px;
-    max-width: 310px;
+  .table-3 img {
+    width: 60px;
   }
 }
 
 
-@media (max-width: 375px) {
-  .floating-table th, .floating-table td {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    padding: 1px; /* Ajusta el relleno */
+@media screen and (max-width: 580px) {
+  .search-table {
+    /*position: fixed;*/ /* Fija la barra de búsqueda en la pantalla */
+    position: absolute;
+    top: 50px; /* Distancia desde la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 82%;
+    max-width:500px;
+    background: #ffffff;
+    padding: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  .search-button-3 {
+    /*display: none;*/ /* Oculta el botón en dispositivos con ancho menor a 768px */
+     /* background: #78d8f0; */
+      background: #45c6f5;
+      color: white;
+      border: none;
+      margin-top: -1px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+      position: absolute;
+      right: 1px;
   }
 
-  .floating-table {
-  
-    margin-left: 65px;
-    justify-content: left;
-    width: 60.7%;
-    max-width: auto;
-  }
-
-  .search-bar {
-    justify-content: center;
-    margin-left: 45px;
-    max-width: 301px;
-  }
 }
-
-
-@media (max-width: 320px) {
-  .floating-table th, .floating-table td {
-    font-size: 14px; /* Ajusta el tamaño del texto */
-    padding: 1px; /* Ajusta el relleno */
-  }
-
-  .floating-table {
-  
-    margin-left: 35px;
-    justify-content: left;
-    width: 57.5%;
-    max-width: auto;
-  }
-
-  .search-bar {
-    justify-content: center;
-    margin-left: 20px;
-    max-width: 250px;
-  }
-}
-
-
-
-.floating-table th, .floating-table td {
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  padding: 0px;
-  text-align: left;
-}
-
-.floating-table th {
-  background-color: #d4d2d2;
-}
-
-/* tr:hover{
-  background-color: rgb(214, 223, 234);
-} */

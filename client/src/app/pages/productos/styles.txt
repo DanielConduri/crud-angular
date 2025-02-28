@@ -22,9 +22,7 @@ body {
   /* Cambia este color según tus necesidades */
 }
 
-.products-info {
-  margin-bottom: 20px;
-}
+
 h1 {
   font-size: 32px;
   font-style: italic;
@@ -32,7 +30,7 @@ h1 {
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -69,17 +67,14 @@ section img {
 
 }
 
-
-
 .card-container {
-  
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /*repeat(auto-fit, minmax(200px, 1fr));*/
   gap: 19px;
   justify-content: center;
-  padding: 0 85px;
-  
+  padding: 0 50px;
   /* Espacio a la izquierda y derecha del grid */
 
   /*grid-template-columns: repeat(3,1fr);
@@ -102,22 +97,17 @@ section img {
     /* Reducir padding en móviles */
 
     .card {
-      width: 100%; /* En pantallas móviles, las cards ocupan todo el ancho */
-      height: auto; /* Ajusta la altura para que el contenido se acomode */
-
       position: relative;/* Esto asegura que los elementos dentro de la card (como el botón) se posicionen correctamente */
       /* display: flex; */
       flex-direction: column; /* Asegura que los elementos dentro de la card se apilen verticalmente */
       padding-bottom: 50px; /* Deja espacio en la parte inferior de la card para el botón */
       justify-content: space-between; /* Esto distribuye el espacio entre los elementos, dejando el botón al final */
       
-      /*max-width: 140px;  Reducir tamaño máximo de la card */
-      padding: 13px; /* Menos padding interno */
+      max-width: 140px; /* Reducir tamaño máximo de la card */
+      padding: 10px; /* Menos padding interno */
       font-size: 12px;
       /* Reducir el tamaño de la fuente dentro de la card */
     }
-
-  
     .card-container {
       flex: 1; /* Asegura que el contenido dentro de la card ocupe el espacio disponible */
     }
@@ -131,30 +121,26 @@ section img {
     .card {
       padding-bottom: 20px; /* Menos espacio inferior en móviles */
     }
-
-
-    .container-details {
-      align-items: center;
-      flex-direction: column; /* Apila los elementos en columna */
-      align-items: center; /* Centra los elementos */
-      justify-content: flex-start; /* Asegura que los elementos empiecen desde arriba */
-    }
-  
-    .precio {
-      font-size: 16px;
-      position: flex;
-      margin-top: 5px;
-      text-align: center;
-    }
     
     .btn-add {
-      width: fit-content; /* El botón mantiene su tamaño original */
-      margin-top: 15px; /* Separación entre el precio y el botón */
-      position: relative; /* Se posiciona de manera natural */
-      align-self: center; /* Centra el botón en el contenedor */
+    height: 35px;
+    position: absolute;
+    font-size: 10px;
+    margin: 10px auto; /* Centra el botón */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+    /* max-width: 150px; */
+    margin-top: 30px; /* Añadir un margen superior */
+    margin-left: auto;
+    margin-right: auto; /* Centrado horizontal */
     }
 
-    
+    .precio {
+      font-size: 14px;
+      /* Reducir el tamaño del precio */
+    }
   }
 }
 
@@ -323,7 +309,7 @@ section img {
   animation-timeline: view();
   animation-range: entry 10% entry 80%;
 
-
+ 
 }
 
 
@@ -375,50 +361,32 @@ section img {
 }
 
 
-.precio {
 
+.precio {
+  /* margin-top: 5px; */
   /* float: left; */
   color: #000000;
   font-size: 22px;
   font-weight: 900;
   padding-top: 2px;
   transition: color .3s ease-in-out;
-
-}
-
-.precio {
   margin-top: 4px;
-  position: absolute;
-  bottom: 10px; /* Asegura que el precio se alinee abajo */
-  left: 10px; /* Alinea el precio a la izquierda */
-  font-size: 22px;
-  font-weight: 900;
-  color: #000000;
-  margin-bottom: 5px; /* Espacio debajo de la imagen */
+  /* position: relative; */
 
-}
-
-
-.container-details {
-  margin-bottom: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  flex-grow: 1; /* Hace que el contenedor de detalles crezca para llenar el espacio restante */
+    /* Asegura que se ubique en la esquina derecha y abajo en pantallas grandes */
+    position: absolute;
+    /* bottom: 10px; */
+    left: 10px;
+    margin-bottom: 5px; /* Espacio debajo de la imagen */
+ 
 }
 
 .container-details p {
-  color: #777;
   margin-bottom: 10px;
+  
 }
 
 
-.line-gray {
-  border: 0;
-  border-top: 1px solid rgb(190, 189, 189); /* Ajusta el grosor y el color */
-  margin: 20px 0; /* Espaciado arriba y abajo de la línea */
-}
 
 
 /*--------------------------BUTTON BLACK----------------------------------*/

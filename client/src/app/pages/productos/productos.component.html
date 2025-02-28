@@ -32,15 +32,11 @@
         <img src="https://dlcdnwebimgs.asus.com/gain/7adac3c9-a8d5-46f4-9507-a1df684f683d/w800" alt="">
 
         <h2>ASUS Vivobook 16</h2>
-
         <p>
-
           Procesador: Intel® Core™ i9-13900H
           Memoria RAM: 16GB DDR4
           Almacenamiento: 1TB M.2 <br>
-          Pantalla: 16" <br>
-
-
+          Pantalla: 16" <br> <br><br>
         </p>
 
         <div class="container">
@@ -68,8 +64,8 @@
         <p>
           Procesador: Intel Core i7-1215U <br>
           Memoria RAM: 8GB <br>
-          Almacenamiento: 512GB SSD <br>
-          Pantalla: 15.6" FHD IPS <br>
+          Almacenamiento: 512GB <br>
+          Pantalla: 15.6"<br>
 
         </p>
         <!-- <ul class="custom-bullets">
@@ -231,17 +227,21 @@
         </p>
       </div> -->
 
-      <div (click)= "onClickItem(producto.str_producto_codigo)"
-      class="card" *ngFor="let producto of srvProductos.datosProductos, let i = index">
-        <div *ngIf="producto.str_producto_estado === 'ACTIVO'">
-
+      <div (click)="onClickItem(producto.str_producto_codigo)" class="card"
+        *ngFor="let producto of srvProductos.datosProductos, let i = index">
+        <div class="products-info" *ngIf="producto.str_producto_estado === 'ACTIVO'">
           <img src="{{producto.str_producto_image}}" alt="img">
           <h2>{{producto.str_producto_nombre}}</h2>
-          <p>Descripción
-
-          </p>
-
-          <div class="container">
+          <div class="container-details">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem necessitatibus.
+            </p>
+            <!-- <p class="description">
+              Procesador: Intel Core i7-12700H
+              Memoria RAM: 8GB
+              Almacenamiento: 1TB SSD
+              Pantalla: 16"
+            </p> -->
             <h2 class="precio">${{producto.int_producto_precio}}</h2>
             <button class="btn-add">COMPRAR</button>
           </div>
@@ -314,10 +314,12 @@
       <!-- En tu archivo .html -->
       <div class="icono-flotante">
         <a href="https://wa.me/593968857043" target="_blank" rel="noopener noreferrer">
-          <img src="https://i.postimg.cc/x8HsFDkb/vecteezy-whatsapp-logo-png-whatsapp-icon-png-whatsapp-transparent-18930748.png" alt="">
+          <img
+            src="https://i.postimg.cc/x8HsFDkb/vecteezy-whatsapp-logo-png-whatsapp-icon-png-whatsapp-transparent-18930748.png"
+            alt="">
         </a>
         <!-- <img src="https://static.vecteezy.com/system/resources/previews/018/930/564/original/whatsapp-logo-whatsapp-icon-whatsapp-transparent-free-png.png" alt="" > -->
-        
+
       </div>
 
 

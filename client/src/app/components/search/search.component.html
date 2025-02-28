@@ -9,58 +9,69 @@
   <button class="search-button2" (click)="getFindProducts($event)">🔍</button>
 </div> -->
 
-<div class="search-bar">
-  <input 
-  type="text" 
-  id="search-input" 
-  class="search-input2"
-  placeholder="Bucar producto"
-  required
-  (input)="onSearch($event)"
-  >
-  <button class="search-button2">🔍</button>
+<div class="search-table">
+  <div class="search-bar-1">
+    <input type="text" id="search-input-3" class="search-input-3" placeholder="Bucar producto" required
+      (input)="onSearch($event)">
+    <button class="search-button-3">🔍</button>
+  </div>
+
+  <div class="padre-check" style="height: 100%;">
+    <div class="tabla-container-3" style="height: 90% !important;">
+      <table class="table-3">
+        <thead>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listFiltered; let i = index; let c = index">
+            <td (click)="onClickItem(item.str_producto_codigo)" class="row" id="dato-check"
+              [routerLink]="['/descripcion', item.str_producto_codigo]">
+              <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
+            </td>
+            <td (click)="onClickItem(item.str_producto_codigo)"
+              [routerLink]="['/descripcion', item.str_producto_codigo]">
+              {{item.str_producto_nombre}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
+
+<!-- <div class="search-bar">
+  <input type="text" id="search-input" class="search-input2" placeholder="Bucar producto" required
+    (input)="onSearch($event)">
+  <button class="search-button2">🔍</button>
+</div> -->
+
 <div style="display: grid; gap: 35px;">
-  <!-- <div class="list-search " *ngFor="let item of listFiltered" class="list">
+  <!-- <div class="list-search" *ngFor="let item of listFiltered" class="list">
     {{item.str_producto_nombre}}
     {{item.str_producto_nombre}}
     <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
   </div> -->
 
-  <div class="padre-check" style="height: 100%;">
-
-
-    <div class="tabla-container" style="height: 90% !important;" >
-        <table class="table floating-table">
-            <thead>
-                
-            </thead>
-            <tbody>
-
-
-                <tr *ngFor="let item of listFiltered; let i = index; let c = index">
-                    
-                    <td (click)="onClickItem(item.str_producto_codigo)" class="row" id="dato-check"
-                    [routerLink] = "['/descripcion', item.str_producto_codigo]" >
-                      <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
-                    </td>
-                    <td (click)="onClickItem(item.str_producto_codigo)"
-                    [routerLink] = "['/descripcion', item.str_producto_codigo]"
-                    >
-                      {{item.str_producto_nombre}}
-                    </td>
-                      
-                    
-                   
-                </tr>
-            </tbody>
-        </table>
+  <!-- <div class="padre-check" style="height: 100%;">
+    <div class="tabla-container" style="height: 90% !important;">
+      <table class="table floating-table">
+        <thead>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listFiltered; let i = index; let c = index">
+            <td (click)="onClickItem(item.str_producto_codigo)" class="row" id="dato-check"
+              [routerLink]="['/descripcion', item.str_producto_codigo]">
+              <img src="{{item.str_producto_image}}" alt="" style="width: 100px">
+            </td>
+            <td (click)="onClickItem(item.str_producto_codigo)"
+              [routerLink]="['/descripcion', item.str_producto_codigo]">
+              {{item.str_producto_nombre}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div> -->
+
 
 </div>
-</div>
-
-
-
-
