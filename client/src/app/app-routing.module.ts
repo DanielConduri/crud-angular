@@ -27,7 +27,7 @@ const routes: Routes = [
     path: config.URL_BASE_PATH,
     data: {layout: Layouts.simple},
     children: [
-      {path: '', loadChildren: () => WelcomeModule},
+      {path: '', loadChildren: () => ProductosModule},
       {path: '', loadChildren:() => HomeModule},
       {path: 'productos', loadChildren: () => ProductosModule},
       {path: 'descripcion/:cod', loadChildren: ()=> DescripcionModule},
