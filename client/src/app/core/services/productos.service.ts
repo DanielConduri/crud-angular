@@ -50,7 +50,7 @@ export class ProductosService {
 
     //this.URL_API_PRODUCTOS + '?'+ params
     //`${this.URL_API_PRODUCTOS}?${params}`
-    return this.http.get<productosModel>(`${this.URL_API_PRODUCTOS}?${params}`, {
+    return this.http.get<any>(`${this.URL_API_PRODUCTOS}?${params}`, {
       withCredentials: true,
     })
   }
@@ -69,6 +69,7 @@ export class ProductosService {
       `${this.URL_API_PRODUCTOS}/item/${codigo}`,
       {
         withCredentials: true,
+        
       }
     )
   }

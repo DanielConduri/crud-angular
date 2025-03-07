@@ -1,26 +1,9 @@
-<!-- <div class="items-container">
-    <div class="item-content">
-        <img class="img-description" [src]="url_images[0]" alt="">
+<!-- <p>carousel works!</p>
+<div *ngFor="let img of url_images">
+    <img [src]="img" alt="">
+  </div>
 
-        <div class="info">
-            <h1 class="title">{{name}}</h1> 
-            <p class="description">{{description}}</p>
-
-            <div class="price-button-container">
-                <h2 class="price">${{price}}</h2>
-                <button class="btn-add-des">COMPRAR</button>
-
-            </div>
-            <div>
-                <h2>Imágenes</h2>
-                <div class="linea-contenedor">
-                    <hr class="mi-linea-horizontal">
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
+  <img [src]="url_images[0]" alt=""> -->
 
 <div class="contenedor-slider">
     <!-- Lista de imágenes (Izquierda) -->
@@ -55,7 +38,7 @@
             *ngFor="let imagen of obtenerImagenesVisibles()" 
             [src]="imagen" 
             [class.seleccionada]="imagen === imagenSeleccionada" 
-            (click)="seleccionarImagen(imagen)"
+            
             (mouseenter)="imagenSeleccionada = imagen"
             >
         </div>
@@ -81,8 +64,11 @@
 
     <!-- Descripción y Compra (Derecha) -->
     <div class="detalle-producto">
-        <h1 class="title">{{ dataProduct.str_producto_nombre }}</h1>
+        <h2>{{ this.dataProduct.str_producto_nombre }}</h2>
         <p>{{ this.dataProduct.str_producto_descripcion}}</p>
         <h3>Precio: ${{ this.dataProduct.int_producto_precio }}</h3>
-        <button class="btn-description">COMPRAR</button>
+        <button class="boton-comprar">COMPRAR</button>
     </div>
+
+
+</div>

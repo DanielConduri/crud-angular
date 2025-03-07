@@ -7,6 +7,8 @@ import { MainComponent } from './main/main.component';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule } from '@angular/router';
 import { ProductosComponent } from '../pages/productos/productos.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
     declarations: [
         FooterComponent,
@@ -20,6 +22,7 @@ import { ProductosComponent } from '../pages/productos/productos.component';
         FooterComponent,
         HeaderComponent,
         MainComponent,
+        ReactiveFormsModule
 
 
     ],

@@ -1,0 +1,137 @@
+.contenedor-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .imagen-principal img {
+    width: 500px;
+    height: 350px;
+    object-fit: contain;
+    /* border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); */
+  }
+  
+  .detalle-producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Alinea los elementos de arriba a abajo */
+    gap: 10px;
+    max-width: 700px;       /* Limita el tamaño del contenedor de texto */
+  }
+  
+  .boton-comprar {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .boton-comprar:hover {
+    background-color: #e65c00;
+  }
+  
+  /* Contenedor de miniaturas debajo */
+  .contenedor-lista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Miniaturas en columna (máximo 3 visibles) */
+  .lista-imagenes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    max-height: 500px; /* 3 imágenes con 80px cada una */
+    overflow: hidden;
+  }
+  
+  .lista-imagenes img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain; /* Ajusta la imagen dentro sin recortarla */
+    /*object-fit: cover;  Mantiene la proporción de las imágenes */
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 5px;
+    background: white; /* Fondo para evitar cortes de imagen */
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); */
+    transition: transform 0.2s, border-color 0.2s;
+    /* border-color: #d8d8d8; */
+    cursor: pointer;
+  }
+  
+  .lista-imagenes img:hover {
+    /* transform: scale(1.1); */
+    /* border-color: #007bff;  */
+    
+  }
+  
+  .seleccionada {
+    border-color: #007bff; /* Borde azul en imagen seleccionada */
+  }
+  
+  /* Flechas arriba y abajo */
+  .flecha {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #b1b1b1;
+    transition: color 0.3s;
+  }
+  
+  .flecha:hover {
+    color: #333;
+  }
+
+  .arrow {
+    background: none;
+    border: none;
+    font-size: 20px;
+    size: 50px;
+    cursor: pointer;
+    color: #b1b1b1;
+    transition: color 0.3s;
+  }
+
+  /* 📌 Miniatura seleccionada por defecto */
+.lista-imagenes img.seleccionada {
+    border: 2px solid #007bff;
+  }
+  
+
+  /* 📌 Botones de navegación */
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+  }
+
+  /* button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  } */
+
+  
+  /* 📌 Espacio reservado para los botones */
+button.oculto {
+    visibility: hidden;  /* Oculta el botón sin afectar el espacio */
+  }
+  

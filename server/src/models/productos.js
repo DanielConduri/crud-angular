@@ -50,6 +50,9 @@ export const Productos = sequelize.define('productos',{  //Define un nuevo esuqu
     },
     str_producto_url: {
         type: DataTypes.TEXT
+    },
+    json_producto_imagenes: {
+        type: DataTypes.JSONB
     }
 },{
     schema: 'inventario',

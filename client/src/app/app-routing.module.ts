@@ -16,15 +16,18 @@ import { AdminModule } from './pages/admin/admin.module';
 import { ProductosModule } from './pages/productos/productos.module';
 import { WelcomeModule } from './pages/admin/welcome/welcome.module';import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { DescripcionModule } from './pages/descripcion/descripcion.module';
+import { DescripcionComponent } from './pages/descripcion/descripcion.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/productos', pathMatch: 'full'},
+  // { path: '', redirectTo: '/productos', pathMatch: 'full'},
+  // { path: '', redirectTo: '/productos', pathMatch: 'full'},
   { path: 'productos2', component: ListaProductosComponent},
-  
+  { path: 'carousel', component: CarouselComponent},
   {
     path: config.URL_BASE_PATH,
     data: {layout: Layouts.simple},
     children: [
-      // {path: 'welcome', loadChildren: () => WelcomeModule},
+      {path: '', loadChildren: () => WelcomeModule},
       {path: '', loadChildren:() => HomeModule},
       {path: 'productos', loadChildren: () => ProductosModule},
       {path: 'descripcion/:cod', loadChildren: ()=> DescripcionModule},

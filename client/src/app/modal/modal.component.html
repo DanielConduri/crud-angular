@@ -10,9 +10,14 @@
 
             <div class="modal-body">
                 <div [ngSwitch]="formType">
+
                     <div *ngSwitchCase="'nuevoProducto'"> 
                         <app-agregar-producto></app-agregar-producto>
                     </div> 
+
+                    <div *ngSwitchCase="'addInfoBien'">
+                        <app-agregar-informacion></app-agregar-informacion>
+                      </div>
 
                     <div *ngSwitchCase="'editarProducto'">
                         <app-modificar-producto></app-modificar-producto>

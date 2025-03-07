@@ -212,7 +212,7 @@
 }
 
 
-@media screen and (width:320px) {
+@media screen and (max-width: 425px) {
  
   .search-table {
     margin-top: 5px;
@@ -221,8 +221,8 @@
     top: 50px; /* Distancia desde la parte superior */
     left: 50%;
     transform: translateX(-50%);
-    width: 73%;
-    max-width:400px;
+    width: 85%;
+    max-width:500px;
     background: #ffffff;
     padding: 1px;
     border-radius: 17px;

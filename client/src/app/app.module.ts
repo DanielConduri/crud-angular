@@ -18,6 +18,10 @@ import { HomeModule } from './pages/home/home.module';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { AgregarInformacionComponent } from './components/agregar-informacion/agregar-informacion.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { DescripcionComponent } from './pages/descripcion/descripcion.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +29,10 @@ import { LoginComponent } from './components/login/login.component';
     AgregarProductoComponent,
     ModificarProductoComponent,
     ListaProductosComponent,
-    LoginComponent
+    LoginComponent,
+    AgregarInformacionComponent,
+    CarouselComponent,
+    DescripcionComponent
   ],
 
   imports: [
@@ -35,7 +42,8 @@ import { LoginComponent } from './components/login/login.component';
     LayoutModule,
     ReactiveFormsModule, //Es importante agregar los componentes para evitar errores
     FormsModule,
-    HomeModule
+    HomeModule,
+    
     
   ],
   providers: [

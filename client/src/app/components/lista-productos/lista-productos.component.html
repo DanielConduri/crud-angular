@@ -152,6 +152,15 @@
           </td>
 
           <td>
+
+            <button
+              class="btn btn-primary"
+              
+              (click)="ModifyBienById(producto.int_producto_id, 'Información Adicional', 'addInfoBien')"
+              >
+              <i class="material-icons"> add_circle_outline</i>
+            </button>
+            
             <button class="btn btn-primary"
               (click)="updateProduct(producto.int_producto_id, 'Editar Producto', 'editarProducto')">
               <i class="material-icons">create</i>
@@ -191,3 +200,6 @@
 <div>
   <script src="https://cdn.kushkipagos.com/kushki.min.js"></script>
 </div>
+
+
+

@@ -175,7 +175,8 @@ const insertarProducto = async (req, res) => {
         str_producto_proveedor,
         str_producto_url,
         str_producto_descripcion,
-        str_producto_image
+        str_producto_image,
+        json_producto_imagenes
 
     } = req.body;
 
@@ -195,7 +196,8 @@ const insertarProducto = async (req, res) => {
             str_producto_proveedor,
             str_producto_url,
             str_producto_descripcion,
-            str_producto_image
+            str_producto_image,
+            json_producto_imagenes
 
         });
 
@@ -228,7 +230,8 @@ const actualizarProducto = async (req, res) => {
         int_producto_precio,
         str_producto_proveedor,
         str_producto_estado,
-        str_producto_descripcion
+        str_producto_descripcion,
+        json_producto_imagenes
     } = req.body;
 
     try {
@@ -241,7 +244,8 @@ const actualizarProducto = async (req, res) => {
             int_producto_precio,
             str_producto_proveedor,
             str_producto_estado,
-            str_producto_descripcion
+            str_producto_descripcion,
+            json_producto_imagenes
             
 
         }, {

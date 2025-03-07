@@ -10,24 +10,27 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
-
+import { AgregarInformacionComponent } from './agregar-informacion/agregar-informacion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ButtonComponent,
     DesplegableComponent,
     SearchComponent,
     MenuComponent,
+
   ],
   exports: [
     ButtonComponent,
     DesplegableComponent,
     SearchComponent,
-    MenuComponent
+    MenuComponent,
+
 
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class ComponentsModule { }

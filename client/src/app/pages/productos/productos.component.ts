@@ -142,7 +142,7 @@ export class ProductosComponent implements OnInit {
         if(data.body) {
           this.isData = true;
           this.srvProductos.datosProductos = data.body;
-          console.log(data)
+          //console.log(data)
         }
       },
       error: (err) => {

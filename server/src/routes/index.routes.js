@@ -1,5 +1,5 @@
 import { Router } from "express";
-import  routeProductos  from "../controllers/productos.controller.js";
+import  routeProductos  from "../controllers/productos.controllers.js";
 import seguridadRoute from "./seguridad.routes.js"
 const router = Router();
 const url = '/apiv4';

@@ -98,6 +98,14 @@ export class ListaProductosComponent implements OnInit {
   }
 
 
+  ModifyBienById(idBien: number, _tittle:string, _form:string){
+    // console.log("Funcion para editar el bien por ID")
+    this.elementForm.form = _form;
+    this.elementForm.title = _tittle;
+    this.srvModal.setForm(this.elementForm);
+    this.srvModal.setSelectID_Bien(idBien);
+    this.srvModal.openModal();
+  };
 
   addProduct(_title: string, _form: string){
     this.elementForm.form= _form;
