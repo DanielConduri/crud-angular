@@ -10,9 +10,19 @@
 </div> -->
 
 <div class="search-table">
-  <div class="search-bar-1">
-    <input type="text" id="search-input-3" class="search-input-3" placeholder="Bucar producto" required
-      (input)="onSearch($event)">
+  <div class="search-bar-1" [class.overlay-active]="isSearching">
+    <input 
+      type="text" 
+      id="search-input-3" 
+      class="search-input-3" 
+      placeholder="Bucar producto" 
+      required
+      (input)="onSearch($event)"
+      (focus)="isSearching = true"
+      (click)="dataRecovery()"
+      
+      >
+      <!-- Alternativa en el input(blur)="isSearching = false" -->
     <button class="search-button-3">🔍</button>
   </div>
 
@@ -37,6 +47,8 @@
     </div>
   </div>
 </div>
+
+<div class="overlay" *ngIf="isSearching && hasResults" (click)="clearData()"></div>
 
 
 <!-- <div class="search-bar">

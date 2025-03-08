@@ -41,6 +41,7 @@ export class DescripcionComponent implements OnInit {
 
   codigo!: string | null;
   codigo_parametro!: string;
+  nombre_parametro!: string;
   image!: string;
   name!: string;
   price!: number;
@@ -63,17 +64,23 @@ export class DescripcionComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
   ngOnInit(): void {
+    // const productName = this.route.snapshot.paramMap.get('product');
+    // console.log('name', productName)
 
     this.isLoading = true;
+
     //Recuperar valor de un componente anterior
     this.route.paramMap.subscribe(params => {
-      this.codigo = params.get('cod');
+      this.codigo = params.get('product');
       if (this.codigo)
-        this.codigo_parametro = this.codigo
-      //this.codigoProducto = this.cod;
-      console.log('parámetro recibido', this.codigo)
-      //alert(this.id)
+        this.nombre_parametro = this.codigo
+        //console.log('parámetro nombre recibido', this.nombre_parametro)
     })
+
+    this.route.queryParams.subscribe(params => {
+      this.codigo_parametro = params['code'];
+      //console.log('parámetro de consulta recibido', this.codigo_parametro)
+    });
 
 
     // this.http.get<productosModel>(this.urlProducts).subscribe(

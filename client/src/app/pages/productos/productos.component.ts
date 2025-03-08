@@ -56,12 +56,26 @@ export class ProductosComponent implements OnInit {
   
   
   
-  onClickItem(codigo: string) {
+  onClickItem(productName: string, productCode: string) {
+    const slug = this.slugify(productName);
+    //console.log('slug', slug)
+
+    //productName = slug;
+
     //[routerLink] = "['/tipo-contratacion', producto.str_producto_codigo]"
-    this.router.navigate(['/descripcion', codigo])
+    this.router.navigate(['/descripcion', slug], { queryParams: { code: productCode}})
     
     //alert(codigo)
   }
+
+  slugify(text: string): string {
+    return text
+      .toLowerCase() // convertir a minúsculas
+      .replace(/ /g, '-') // reemplazar espacios por guiones
+      .replace(/[^\w-]+/g, ''); // eliminar caracteres no válidos
+  }
+
+  
   onSearch(e: any) {
     //const target = event.target as HTMLInputElement;
     length = e.target.value.length;

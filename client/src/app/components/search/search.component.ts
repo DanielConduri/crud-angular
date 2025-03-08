@@ -17,6 +17,10 @@ export class SearchComponent implements OnInit {
   
   searchTerm: string = '';
   listFiltered!: dataProductos[];
+  getDataRecovery!: dataProductos[];
+  isSearching = false;
+  hasResults = false; // Indica si hay datos encontrados
+
 
   constructor( 
     public srvProductos: ProductosService,
@@ -24,23 +28,39 @@ export class SearchComponent implements OnInit {
   ) { }
 
 
+  clearData () {
+    this.isSearching = false
+    if(!this.isSearching)  this.listFiltered = [];
+  }
+
+  dataRecovery() {
+    this.listFiltered = this.getDataRecovery;
+  }
+
   onSearch(e: any) {
     //const target = event.target as HTMLInputElement;
     length = e.target.value.length;
     if (length > 2) {
       const value = e.target.value;
       console.log('Valor del input:', value);
-
-      
       this.srvProductos
       .getFindProductos(value)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data: productosModel) => {
           if (data.body) {
-            //console.log(data.body)
+            console.log(data.body)
             this.listFiltered = data.body;
             console.log('listFiltered', this.listFiltered)
+            this.getDataRecovery = this.listFiltered
+
+            if ( this.listFiltered.length > 0) {
+              this.hasResults = true;
+            } else {
+              this.hasResults = false;
+            }
+            
+            //this.hasResults = this.listFiltered.length > 0 ? this.hasResults = true : this.hasResults = false;
             //this.srvProductos.datosProductos = data.body;
           }
         },
