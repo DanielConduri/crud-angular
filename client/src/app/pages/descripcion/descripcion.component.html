@@ -81,8 +81,12 @@
 
     <!-- Descripción y Compra (Derecha) -->
     <div class="detalle-producto">
-        <h1 class="title">{{ dataProduct.str_producto_nombre }}</h1>
-        <p>{{ this.dataProduct.str_producto_descripcion}}</p>
-        <h3>Precio: ${{ this.dataProduct.int_producto_precio }}</h3>
+        <h1 class="title">{{ dataProduct?.str_producto_nombre }}</h1>
+        <p>{{ dataProduct?.str_producto_descripcion}}</p>
+        <h3>Precio: ${{ dataProduct?.int_producto_precio }}</h3>
         <button class="btn-description">COMPRAR</button>
     </div>
+
+    <!-- <h1 class="title">{{ name}}</h1>
+        <p>{{ description}}</p>
+        <h3>Precio: ${{ price }}</h3> -->

@@ -39,7 +39,7 @@ export class DescripcionComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  codigo!: string | null;
+  nameProduct!: string | null;
   codigo_parametro!: string;
   nombre_parametro!: string;
   image!: string;
@@ -50,10 +50,11 @@ export class DescripcionComponent implements OnInit {
   cod: string | null = null;
   codigoProducto: string | null = null;
   productosFiltrados: dataProductos[] = []; // Array para guardar los resultados
+  dataProduct!: any;
   data: any;
   url_imagenes: string[] = [];
   url_images: string[] = [];
-  dataProduct!: any;
+  
   private urlProducts = 'https://crud-angular-production-ed75.up.railway.app/productos';
   isLoading!: boolean;
 
@@ -71,9 +72,9 @@ export class DescripcionComponent implements OnInit {
 
     //Recuperar valor de un componente anterior
     this.route.paramMap.subscribe(params => {
-      this.codigo = params.get('product');
-      if (this.codigo)
-        this.nombre_parametro = this.codigo
+      this.nameProduct = params.get('product');
+      if (this.nameProduct)
+        this.nombre_parametro = this.nameProduct
         //console.log('parámetro nombre recibido', this.nombre_parametro)
     })
 
@@ -159,9 +160,6 @@ export class DescripcionComponent implements OnInit {
 
   
   getProductoCodigo() {
-    
-    //this.url_imagenes = data_images.body.json_producto_imagenes.imagenes;
-    console.log(this.codigo);
     this.srvProductos.getProductoCodigo(this.codigo_parametro)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
@@ -170,20 +168,16 @@ export class DescripcionComponent implements OnInit {
           this.srvProductos = data.body;
           this.datosf = data.body;
 
-          //console.log(' this.srvProductos.datosProductos', this.datosf)
-          this.image = data.body.str_producto_image;
-          this.name = data.body.str_producto_nombre;
-          this.price = data.body.int_producto_precio;
-          this.description = data.body.str_producto_descripcion;
+          // this.image = data.body.str_producto_image;
+          // this.name = data.body.str_producto_nombre;
+          // this.price = data.body.int_producto_precio;
+          // this.description = data.body.str_producto_descripcion;
 
           
           this.url_images = this.datosf.json_producto_imagenes.imagenes;
-          
           this.imagenSeleccionada = this.url_images[0];
+          //this.srvProductos.datosProductos = data.body;
           this.dataProduct = this.datosf;
-          //console.log('imagen',this.url_imagenes[0])
-          //console.log(this.url_imagenes);
-
         },
         error: (err) => {
           console.log('Error =>', err);

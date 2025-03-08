@@ -106,7 +106,7 @@ export class HeaderComponent implements OnInit {
   
 
   ngAfterViewInit() {
-    this.toggleSidebar();
+    //this.toggleSidebar();
   }
 
   

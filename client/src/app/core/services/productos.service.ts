@@ -26,6 +26,7 @@ export class ProductosService {
   private URL_API_PRODUCTOS: string = config.URL_API_BASE + 'productos';
   private URL_API_FILTRADO: string = config.URL_API_BASE + 'filtrado';
   datosProductos!: dataProductos[];
+  dataProduct!: dataProductos[];
   //datosProductos!: productosModel[];
 
   isModify!: number;

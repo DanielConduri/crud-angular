@@ -4,6 +4,7 @@ import { ModalService } from 'src/app/core/services/modal.service';
 import { ProductosService } from 'src/app/core/services/productos.service';
 import Swal from 'sweetalert2';
 import { dataProductos, productosModel } from 'src/app/core/models/productos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -25,6 +26,7 @@ export class SearchComponent implements OnInit {
   constructor( 
     public srvProductos: ProductosService,
     public srvModal : ModalService,
+     private router: Router
   ) { }
 
 
@@ -104,9 +106,16 @@ export class SearchComponent implements OnInit {
       
     }
 
-    onClickItem(name: string) {
-      console.log(name)
-      //alert(name)
+    onClickItem(productName: string, productCode: string) {
+      const slug = this.slugify(productName);
+      this.router.navigate(['/descripcion', slug], { queryParams: { code: productCode}})
+    }
+
+    slugify(text: string): string {
+      return text
+        .toLowerCase() // convertir a minúsculas
+        .replace(/ /g, '-') // reemplazar espacios por guiones
+        .replace(/[^\w-]+/g, ''); // eliminar caracteres no válidos
     }
 
       
