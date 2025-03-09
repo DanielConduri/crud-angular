@@ -8,6 +8,8 @@ import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
 import { ProductosModule } from '../productos/productos.module';
 import { DomSanitizer } from '@angular/platform-browser';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 interface ImageItem {
   url: string;
@@ -32,8 +34,16 @@ export class DescripcionComponent implements OnInit {
     public route: ActivatedRoute,
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
-    private sanitizer: DomSanitizer
-  ) { }
+    private sanitizer: DomSanitizer,
+    private breakpointObserver: BreakpointObserver
+  ) { 
+    
+    this.breakpointObserver.observe(['(max-width: 768px)']).subscribe(result => {
+    //this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      console.log('Breakpoint detectado:', result.matches);
+      this.isMobile = result.matches;
+    });
+  }
 
   ngAfterViewInit() {
     this.cdr.detectChanges();
@@ -46,6 +56,7 @@ export class DescripcionComponent implements OnInit {
   name!: string;
   price!: number;
   description!: string;
+  
 
   cod: string | null = null;
   codigoProducto: string | null = null;
@@ -57,6 +68,7 @@ export class DescripcionComponent implements OnInit {
   
   private urlProducts = 'https://crud-angular-production-ed75.up.railway.app/productos';
   isLoading!: boolean;
+  isMobile = false;
 
 
 

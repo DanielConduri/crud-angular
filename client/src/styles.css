@@ -1623,3 +1623,6 @@ textarea {
   resize: both; /* Permite redimensionar tanto en ancho como en alto */
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

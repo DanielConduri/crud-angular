@@ -21,7 +21,11 @@ import { LoginComponent } from './components/login/login.component';
 import { AgregarInformacionComponent } from './components/agregar-informacion/agregar-informacion.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { DescripcionComponent } from './pages/descripcion/descripcion.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatButton, MatButtonModule } from '@angular/material/button'; // Botones
+import { MatIconModule } from '@angular/material/icon'; // Íconos
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar'; // Barra de navegación
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +47,9 @@ import { DescripcionComponent } from './pages/descripcion/descripcion.component'
     ReactiveFormsModule, //Es importante agregar los componentes para evitar errores
     FormsModule,
     HomeModule,
+    BrowserAnimationsModule,
+
+    MatIconModule,
     
     
   ],

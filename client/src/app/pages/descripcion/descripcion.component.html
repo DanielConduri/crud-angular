@@ -44,10 +44,14 @@
         <button (click)="moverArriba()" class="flecha" 
             [class.oculto]="indiceInicio === 0"
         >
-            ▲
+        <i  *ngIf="isMobile" class="material-icons flecha-movil">arrow_back_ios</i>
+        <i  *ngIf="!isMobile" class="material-icons flecha-desktop"> keyboard_arrow_up</i>
+        <!-- <mat-icon *ngIf="!isMobile" fontSize="36px">keyboard_arrow_up</mat-icon> -->
+
         </button>
+
         <!-- <button class="arrow">
-            <i class="material-icons"> keyboard_arrow_up</i>
+            <i class="material-icons">stat_1</i>
         </button> -->
 
         <div class="lista-imagenes" >
@@ -61,14 +65,19 @@
         </div>
 
         <button (click)="moverAbajo()" class="flecha"
-            
             [class.oculto]="indiceInicio + cantidadPorPagina >= url_images.length"
         >
-            ▼
+        <i  *ngIf="isMobile" class="material-icons flecha-movil">arrow_forward_ios</i>
+        <i  *ngIf="!isMobile" class="material-icons flecha-desktop">keyboard_arrow_down</i>
+        <!-- <mat-icon>keyboard_arrow_down</mat-icon>
+        <mat-icon>keyboard_arrow_left</mat-icon>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <mat-icon>keyboard_arrow_up</mat-icon> -->
         </button>
-<!-- 
-        <button class="arrow">
-            <i class="material-icons">keyboard_arrow_down</i>
+
+
+        <!-- <button class="arrow">
+           <i *ngIf="!isMobile" class="material-icons">stat_minus_1</i>
         </button> -->
        
            
@@ -85,8 +94,7 @@
         <p>{{ dataProduct?.str_producto_descripcion}}</p>
         <h3>Precio: ${{ dataProduct?.int_producto_precio }}</h3>
         <button class="btn-description">COMPRAR</button>
-    </div>
+ </div>
 
-    <!-- <h1 class="title">{{ name}}</h1>
-        <p>{{ description}}</p>
-        <h3>Precio: ${{ price }}</h3> -->
+
+ 

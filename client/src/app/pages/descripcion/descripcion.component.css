@@ -267,6 +267,7 @@ https://codepen.io/ancaspatariu/pen/WpQYOP
   /* Flechas arriba y abajo */
   .flecha {
     background: none;
+    font-size: large;
     border: none;
     font-size: 20px;
     cursor: pointer;
@@ -275,8 +276,19 @@ https://codepen.io/ancaspatariu/pen/WpQYOP
   }
   
   .flecha:hover {
-    color: #333;
+    color: #252525;
   }
+ 
+  .flecha-desktop {
+    font-weight: 100 !important;  /* Reduce el grosor */
+    transform: scaleY(); /* Reduce el grosor verticalmente */
+    font-size: 45px !important; /* Ajusta el tamaño */
+  }
+
+  .flecha-movil {
+    font-size: 25px !important; /* Ajusta el tamaño */
+  }
+  
 
   .arrow {
     background: none;
@@ -317,3 +329,54 @@ button.oculto {
     visibility: hidden;  /* Oculta el botón sin afectar el espacio */
   }
   
+
+ /* Pantallas de hasta 768px (Móviles) */
+ @media (max-width: 768px) {
+  .contenedor-slider {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .contenedor-lista {
+      flex-direction: row;
+      max-width: 100%;
+      overflow-x: auto;
+      justify-content: center;
+  }
+
+  .lista-imagenes {
+      flex-direction: row;
+      max-width: 100%;
+      overflow-x: auto;
+
+      display: flex;
+
+    gap: 1px;
+  
+    overflow: hidden;
+  }
+
+  .lista-imagenes img {
+      width: 80px;
+      height: 80px;
+  }
+
+  .imagen-principal img {
+      max-width: 275px;
+      height: 275px;
+  }
+
+  .detalle-producto {
+      max-width: 90%;
+  }
+
+  .boton-comprar {
+      font-size: 14px;
+      padding: 8px 15px;
+  }
+}
+
+.flecha-movil-iz {
+  size: 50px;
+}
