@@ -79,7 +79,6 @@ export class DescripcionComponent implements OnInit {
   ngOnInit(): void {
     // const productName = this.route.snapshot.paramMap.get('product');
     // console.log('name', productName)
-
     this.isLoading = true;
 
     //Recuperar valor de un componente anterior
@@ -94,7 +93,6 @@ export class DescripcionComponent implements OnInit {
       this.codigo_parametro = params['code'];
       //console.log('parámetro de consulta recibido', this.codigo_parametro)
     });
-
 
     // this.http.get<productosModel>(this.urlProducts).subscribe(
     //   (response) => {
