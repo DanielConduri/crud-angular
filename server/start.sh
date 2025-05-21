@@ -13,7 +13,7 @@ if docker ps -a --format '{{.Names}}' | grep -q "node_backend"; then
     echo "Eliminando contenedor 'node_backend'..."
     docker rm -f node_backend
 else
-    echo "El contenedor 'container-productos' no existe."
+    echo "El contenedor 'node_backend' no existe."
 fi
           
 if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "crud-angular_backend"; then

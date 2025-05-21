@@ -8,7 +8,7 @@ import client from 'prom-client';
 const app = express();
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://34.155.83.51/');
+  res.header('Access-Control-Allow-Origin', 'http://34.155.83.51');
   //res.header('Access-Control-Allow-Origin', 'http://localhost:3002/');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
