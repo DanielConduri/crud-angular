@@ -49,10 +49,10 @@ jobs:
          #docker run --name container-productos -d -p 8000:8000 img-productos
          docker-compose up --build -d
 
-         cd client
-         npm install
-         ng build --configuration production
-         sudo cp -rf dist/ /var/www
+         #cd client
+         #npm install
+         #ng build --configuration production
+         #sudo cp -rf dist/ /var/www
   # metrics:
   #   name: METRICS
   #   runs-on: self-hosted
@@ -62,22 +62,3 @@ jobs:
   #       echo GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
   #       node ../scripts/deployment-frecuency.mjs
 
-
-         
-         
-         
-
-         
-  # build:
-  #   name: DEPLOY
-  #   needs: env
-  #   runs-on: self-hosted
-  #   steps:
-  #     - name: build
-  #       #working-directory: ./server
-  #       run: |
-
-  #         #rm -f /var/www/dist
-  #         #cp -r ./client/dist /var/www
-
-    
