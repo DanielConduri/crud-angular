@@ -1,5 +1,6 @@
 # Etapa 1: Build Angular app
-FROM node:18 as build
+FROM node:18 AS build
+#FROM node:24-slim AS build
 
 WORKDIR /app
 
