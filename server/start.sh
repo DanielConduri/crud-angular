@@ -9,16 +9,20 @@
 #     exit 1
 # fi
 
-if docker ps -a --format '{{.Names}}' | grep -q "container-productos"; then
-    echo "Eliminando contenedor 'container-productos'..."
-    docker rm -f container-productos
+if docker ps -a --format '{{.Names}}' | grep -q "node_backend"; then
+    echo "Eliminando contenedor 'node_backend'..."
+    docker rm -f node_backend
 else
     echo "El contenedor 'container-productos' no existe."
 fi
           
-if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "img-productos"; then
-    echo "Eliminando imagen 'img-productos'..."
-    docker rmi -f img-productos
+if docker images --format '{{.Repository}}:{{.Tag}}' | grep -q "crud-angular_backend"; then
+    echo "Eliminando imagen 'crud-angular_backend'..."
+    docker rmi -f crud-angular_backend
 else
-    echo "La imagen 'img-productos' no existe."
+    echo "La imagen 'crud-angular_backend' no existe."
 fi
+
+
+
+
