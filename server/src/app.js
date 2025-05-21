@@ -18,6 +18,8 @@ app.use((req, res, next) => {
 app.use(express.json());  //Para procesar datos en formato json
 const whiteList = [
     "http://localhost:4200",
+    "http://34.155.83.51/",
+    "http://localhost",
     "http://localhost:51769",
     "http://localhost:3002/",
     "https://crud-angular-production-315c.up.railway.app",

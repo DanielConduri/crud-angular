@@ -1,74 +1,22 @@
-#version: "3.9"
+version: '3.8'
 
 services:
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: angular_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
-  # angular-app:
-  #   image: angular
-  #   container_name: container-angular
-  #   build: 
-  #     context: ./client
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "4200:80" # Mapea el puerto 80 del contenedor al puerto 8080 del host
-  #   #volumes:
-  #     #- ./nginx.conf:/etc/nginx/conf.d/default.conf # Opcional para desarrollo
-  #   # expose:
-  #   #   - "4200"
-  #   restart: always
-  #   networks:
-  #     - backend
-
-  api:
-    image: img-productos
-    container_name: container-productos
-    build: ./server
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: node_backend
     ports:
       - "8000:8000"
-    restart: always
-    env_file: ./server/.env
-    networks:
-      - backend
-      # backend:
-      #   ipv4_address: 172.18.0.2
-        
-
-  # api2:
-  #   image: node18
-  #   container_name: container-api-node-2
-  #   build: ./server
-  #   expose:
-  #     - "8001"
-  #   depends_on:
-  #     - api
-  #   restart: always
-  #   env_file: ./server/.env
-    #networks:
-     # - backend
-      # backend:
-      #   ipv4_address: 172.18.20.2
-        
-
-  # nginx:
-  #   image: nginx:latest
-  #   container_name: container-nginx
-  #   ports:
-  #     - "80:80"   # Redirige el puerto 8080 del host al puerto 80 del contenedor
-  #     - "8443:443"  # Redirige el puerto 8443 del host al puerto 443 del contenedor
-  #   volumes:
-  #     - ./nginx:/etc/nginx/conf.d/
-  #   depends_on:
-  #     - api
-  #   restart: always
-  #   networks:
-  #     - backend
-
-
-networks:
-  backend:
-    # driver: bridge
-    # ipam:
-    #   driver: default
-    #   config:
-    #     - subnet: "172.18.0.0/16"
-  
-
+    environment:
+      - NODE_ENV=production

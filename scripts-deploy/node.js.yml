@@ -1,0 +1,83 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" ]
+
+jobs:
+  start:
+    name: PULL
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [18.x]
+    #     # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: |
+          touch ./server/.env
+          echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+          cd server 
+          npm ci
+          npm test
+  env:
+    name: DEPLOY
+    needs: start
+    runs-on: self-hosted
+    steps:
+      - name: ENV BACK
+        #working-directory: ./server/src
+        run: |
+         touch ./server/.env
+         echo "${{secrets.PROD_ENV_PRODUCTOS }}" > ./server/.env
+         chmod +x ./server/start.sh
+         ./server/start.sh
+
+
+         #docker build -t img-productos -f ./server/Dockerfile ./server
+         #docker run --name container-productos -d -p 8000:8000 img-productos
+         docker-compose up --build -d
+
+         cd client
+         npm install
+         ng build --configuration production
+         sudo cp -rf dist/ /var/www
+  # metrics:
+  #   name: METRICS
+  #   runs-on: self-hosted
+  #   steps: 
+  #     - name: DORA
+  #       run: | 
+  #       echo GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+  #       node ../scripts/deployment-frecuency.mjs
+
+
+         
+         
+         
+
+         
+  # build:
+  #   name: DEPLOY
+  #   needs: env
+  #   runs-on: self-hosted
+  #   steps:
+  #     - name: build
+  #       #working-directory: ./server
+  #       run: |
+
+  #         #rm -f /var/www/dist
+  #         #cp -r ./client/dist /var/www
+
+    
